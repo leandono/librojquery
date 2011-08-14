@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es-es">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-language" content="es"/>
+	<meta name="description" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
+	<meta property="og:title" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
+	<meta property="og:image" content="http://librojquery.com/incluir/img/jquery_logo.png"/>
+	<title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
+	<link rel="stylesheet" type="text/css" href="incluir/css/style.css" media="screen, projection, print">
+	<link rel="stylesheet" type="text/css" href="incluir/css/stylePrint.css" media="print">
+</head>
+
+<body>
+	<div title="Fundamentos de jQuery">
+	
+		<div id="titlepage">
+		
+			<h1 class="title maintitle">
+			<a title="Fundamentos de jQuery" href="http://librojquery.com/">Fundamentos de jQuery</a>
+			</h1>
+			
+			<div class="social">
+				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flibrojquery.com%2F&amp;layout=button_count&amp;show_faces=false&amp;width=115&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:115px; height:21px;" allowtransparency="true">
+				</iframe>
+				<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="dzignus" data-lang="es">Tweet</a>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<h3>Textos originales por <a href="http://www.rebeccamurphey.com">Rebecca Murphey</a></h3>
+			
+			<div class="translators">
+				<h3 class="translator">Traducido y adaptado a espa&ntilde;ol por <a href="http://dzign.us/">Leandro D'Onofrio</a>.</h3>
+				<h3 class="corrections">Correcciones por <a href="http://ar.linkedin.com/in/gustavoaragon/">Gustavo Ra&uacute;l Arag&oacute;n</a>, <a href="http://www.linkedin.com/pub/pablo-andr%C3%A9s-maronna/10/713/373">Pablo Maronna</a>, <a href="http://es.linkedin.com/in/denisciccale">Denis Ciccale</a> y <a href="https://github.com/dzignus/librojquery/wiki/Otras-personas-que-tambi%C3%A9n-ayudaron-con-el-material">otras personas</a>.</h3>
+			</div>
+			
+			<h3>Con contribuciones de James Padolsey, Paul Irish y otros. Para un completo historial de contribuciones visite el repositorio en GitHub.</h3>
+			
+			<h3><a href="https://github.com/dzignus/librojquery" rel="_blank">Repositorio en espa&ntilde;ol</a> | <a href="http://github.com/rmurphey/jqfundamentals" rel="_blank">Repositorio original</a></h3>
+			
+			<h4>¿Tienes <a href="https://github.com/dzignus/librojquery/wiki/Correcciones" rel="_blank">correcciones</a> o <a href="https://github.com/dzignus/librojquery/wiki/Mejoras-del-material" rel="_blank">mejoras del material</a>?</h4>
+			
+			<p title="Aviso Legal">
+				Bajo licencia <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" rel="_blank">Creative Commons Attribution-Share Alike 3.0 United States</a>.
+			</p>
+			
+			<p>
+				<strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+			</p>
+			
+		</div>
+		 
+		<div id="$idprefix$TOC">
+			$if(toc)$
+				<h2>Contenidos</h2>
+				$toc$ 
+			$endif$
+		</div>
+		
+		<hr />
+		
+		$body$
+		
+		$for(include-after)$
+			$include-after$
+		$endfor$
+		
+		<p>
+			<strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+		</p>
+		
+	</div>
+	
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-16816025-3']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+	<script src="http://platform.twitter.com/widgets.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+body {
+width:60%;
+font-family:Georgia, serif;
+margin:20px auto;
+}
+
+a {
+color:#ce242a;
+}
+
+a:visited {
+color:#9f2826;
+}
+
+h1,h2,h3,h4 {
+font-family:Helvetica,Arial, sans-serif;
+}
+
+hr {
+color: #ccc;
+margin:50px 0;
+border-bottom:1px solid #CCC;
+border-top:0;
+}
+
+p {
+line-height:1.4em;
+}
+
+#titlepage {
+border-bottom:1px solid #CCC;
+margin-bottom:30px;
+padding-bottom:15px;
+}
+
+h1.title {
+font-size:250%;
+}
+
+h1.maintitle {
+float:left;
+}
+
+h1.maintitle a {
+color:#000;
+}
+
+h2, h3{
+margin: 30px 0 19px 0;
+}
+
+.social {
+float:right;
+margin-top:35px;
+}
+
+dt {
+font-family:Helvetica, Arial, sans-serif;
+font-weight:700;
+}
+
+#TOC li {
+color:#ce242a;
+}
+
+.translators .translator {
+margin:0 0 15px;
+}
+
+.translators .corrections {
+font-size:14px;
+font-weight:400;
+margin:0;
+}
+
+.clear {
+clear:both;
+}
+
+.translators, blockquote {
+background-color:#FE6;
+padding:15px;
+}
+
+pre {
+background:none repeat scroll 0 0 #F1F1F1;
+border:1px solid #DDD;
+color:#000;
+font-size:12px;
+overflow:auto;
+width:100%;
+margin:20px 0;
+padding:15px 0 0;
+}
+
+pre code {
+font:13px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+padding:0 0 0 25px;
+}

@@ -1,0 +1,23 @@
+body {
+width:100%;
+font-family:Georgia, serif;
+margin:20px auto;
+}
+
+.social {
+display: none;
+}
+
+h1 a, h2 a, h3 a, h4 a{
+text-decoration: none;
+color: #000;
+}
+
+pre{
+word-wrap: break-word;
+}
+
+.translators, blockquote {
+background-color:#FE6;
+padding:5px;
+}
