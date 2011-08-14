@@ -11,6 +11,7 @@
 	<title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
 	<link rel="stylesheet" type="text/css" href="incluir/css/style.css" media="screen, projection, print">
 	<link rel="stylesheet" type="text/css" href="incluir/css/stylePrint.css" media="print">
+	<link rel="canonical" href="http://librojquery.com/" />
 </head>
 
 <body>
@@ -25,7 +26,8 @@
 			<div class="social">
 				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flibrojquery.com%2F&amp;layout=button_count&amp;show_faces=false&amp;width=115&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:115px; height:21px;" allowtransparency="true">
 				</iframe>
-				<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="dzignus" data-lang="es">Tweet</a>
+				<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="dzignus" data-lang="es">Tweet</a>
+				<g:plusone size="medium"></g:plusone>
 			</div>
 			
 			<div class="clear"></div>
@@ -85,6 +87,15 @@
 		})();
 		</script>
 	<script src="http://platform.twitter.com/widgets.js"></script>
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'es'};
+	
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
 </body>
 
 </html>
