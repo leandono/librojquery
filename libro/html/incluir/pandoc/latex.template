@@ -1,7 +1,8 @@
 \documentclass$if(fontsize)$[$fontsize$]$endif${article}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage[english]{babel}
+\def\spanishoptions{spain}
+\usepackage[spanish]{babel}
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}

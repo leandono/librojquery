@@ -222,10 +222,10 @@ $('ul li').eq(5);               // el sexto item de una lista desordenada
 jQuery ofrece varios pseudo-selectores que ayudan a encontrar elementos dentro de los formularios, éstos son especialmente útiles ya que dependiendo de los estados de cada elemento o su tipo, puede ser difícil distinguirlos utilizando selectores CSS estándar.
 
  :button
-  ~ Selecciona elementos `<button>` y con el atributo `type="button"`
+  ~ Selecciona elementos `<button>` y con el atributo `type='button'`
 
  :checkbox
-  ~ Selecciona elementos `<input>` con el atributo `type="checkbox"`
+  ~ Selecciona elementos `<input>` con el atributo `type='checkbox'`
 
  :checked
   ~ Selecciona elementos `<input>` del tipo `checkbox` seleccionados
@@ -237,31 +237,31 @@ jQuery ofrece varios pseudo-selectores que ayudan a encontrar elementos dentro d
   ~ Selecciona elementos del formulario que están habilitados
 
  :file
-  ~ Selecciona elementos `<input>` con el atributo `type="file"`
+  ~ Selecciona elementos `<input>` con el atributo `type='file'`
 
  :image
-  ~ Selecciona elementos `<input>` con el atributo `type="image"`
+  ~ Selecciona elementos `<input>` con el atributo `type='image'`
 
  :input
   ~ Selecciona elementos `<input>`, `<textarea>` y `<select>`
 
  :password
-  ~ Selecciona elementos `<input>` con el atributo `type="password"`
+  ~ Selecciona elementos `<input>` con el atributo `type='password'`
 
  :radio
-  ~ Selecciona elementos `<input>` con el atributo `type="radio"`
+  ~ Selecciona elementos `<input>` con el atributo `type='radio'`
 
  :reset
-  ~ Selecciona elementos `<input>` con el atributo `type="reset"`
+  ~ Selecciona elementos `<input>` con el atributo `type='reset'`
 
  :selected
   ~ Selecciona elementos `<options>` que están seleccionados
 
  :submit
-  ~ Selecciona elementos `<input>` con el atributo `type="submit"`
+  ~ Selecciona elementos `<input>` con el atributo `type='submit'`
 
  :text
-  ~ Selecciona elementos `<input>` con el atributo `type="text"`
+  ~ Selecciona elementos `<input>` con el atributo `type='text'`
 
 
 **Utilizando pseudo-selectores en elementos de formularios**
