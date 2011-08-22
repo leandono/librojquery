@@ -1,8 +1,24 @@
-\documentclass$if(fontsize)$[$fontsize$]$endif${article}
+% Definicion del documento
+\documentclass$if(fontsize)$[$fontsize$]$endif${report}
+
+
+% El paquete geometry permite modificar los margenes y tamaño del documento
+% \usepackage{geometry}
+% \geometry{verbose,letterpaper,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+
+
+\oddsidemargin 0.1cm \headsep 0.5cm \textwidth=15.5cm
+\textheight=22cm
+
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\def\spanishoptions{spain}
+
+
+% Utilizacion del paquete español
 \usepackage[spanish]{babel}
+
+
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -14,23 +30,33 @@
     \usepackage[utf8]{inputenc}
   \fi
 \fi
+
+
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{plainnat}
 $endif$
+
+
 $if(biblatex)$
 \usepackage{biblatex}
 $if(biblio-files)$
 \bibliography{$biblio-files$}
 $endif$
 $endif$
+
+
 $if(lhs)$
 \usepackage{listings}
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $endif$
+
+
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
+
+
 $if(fancy-enums)$
 % Redefine labelwidth for lists; otherwise, the enumerate package will cause
 % markers to extend beyond the left margin.
@@ -40,13 +66,19 @@ $if(fancy-enums)$
 }\makeatother
 \usepackage{enumerate}
 $endif$
+
+
 $if(tables)$
 \usepackage{ctable}
 \usepackage{float} % provides the H option for float placement
 $endif$
+
+
 $if(url)$
 \usepackage{url}
 $endif$
+
+
 $if(graphics)$
 \usepackage{graphicx}
 % We will generate all images so they have a width \maxwidth. This means
@@ -59,6 +91,8 @@ $if(graphics)$
 \let\Oldincludegraphics\includegraphics
 \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
 $endif$
+
+
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -66,35 +100,65 @@ $endif$
 \else
   \usepackage[unicode=true]{hyperref}
 \fi
+
+
+% Formateo de los links
 \hypersetup{breaklinks=true, pdfborder={0 0 0}, colorlinks=true, linkcolor=magenta}
+
+
+% Formateo para el pie de las figuras
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+
+
+% Formateo para las citaciones
+\expandafter\def\expandafter\quote\expandafter{\quote\it}
+
+
 $if(strikeout)$
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
+
+
 $if(subscript)$
 \newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
 $endif$
+
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+
 $if(listings)$
 \usepackage{listings}
+% Formateo para los trozos de código
+\lstset{breaklines=true,basicstyle=\small\ttfamily}
 $endif$
+
+
 $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
+
+
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
+
+
 $for(header-includes)$
 $header-includes$
 $endfor$
 
+
 $if(title)$
 \title{$title$}
 $endif$
+
+
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
@@ -102,20 +166,25 @@ $if(date)$
 \date{$date$}
 $endif$
 
+
 \begin{document}
 $if(title)$
 \maketitle
 $endif$
 
+
 $for(include-before)$
 $include-before$
-
 $endfor$
+
+
 $if(toc)$
 \tableofcontents
-
 $endif$
+
+
 $body$
+
 
 $if(natbib)$
 $if(biblio-files)$
@@ -127,15 +196,24 @@ $else$
 $endif$
 $endif$
 \bibliography{$biblio-files$}
+$endif$
+$endif$
 
-$endif$
-$endif$
+
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
 $endif$
+
+
 $for(include-after)$
 $include-after$
-
 $endfor$
+
+\newpage
+\thispagestyle{empty}
+\section*{Derechos de autor}
+Copyright \copyright 2011
+
+Material licenciado por Rebecca Murphey bajo la licencia \href{http://creativecommons.org/licenses/by-sa/3.0/us/}{Creative Commons Attribution-Share Alike 3.0 United States}. Usted es libre de copiarlo, distribuirlo, transmitirlo y modificarlo, siempre y cuando haga referencia a \href{https://github.com/rmurphey/jqfundamentals}{este repositorio} y atribuya la autoría original a Rebecca Murphey. Si altera, transforma o crea una obra derivada, deberá distribuir el resultado bajo una licencia igual, similar o compatible. Cualquiera de las condiciones mencionadas pueden no aplicarse si obtiene permisos del autor. Para cualquier reutilización o distribución, deberá dejar en claro la licencia la mejor manera para hacerlo es a través de un enlace hacia la licencia \href{http://creativecommons.org/licenses/by-sa/3.0/us/}{Creative Commons Attribution-Share Alike 3.0 United States}.
+
 \end{document}

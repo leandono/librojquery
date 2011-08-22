@@ -6,7 +6,7 @@
 
 Con jQuery, agregar efectos a una página es muy fácil. Estos efectos poseen una configuración predeterminada pero también es posible proveerles parámetros personalizados. Además es posible crear animaciones particulares estableciendo valores de propiedades CSS.
 
-Para una completa documentación sobre los diferentes tipos de efectos puede visitar [http://api.jquery.com/category/effects/](http://api.jquery.com/category/effects/).
+Para una completa documentación sobre los diferentes tipos de efectos puede visitar la sección `effects`: [http://api.jquery.com/category/effects/](http://api.jquery.com/category/effects/).
 
 
 
@@ -222,4 +222,3 @@ Para un desafío mayor, realice un área de navegación por debajo del slideshow
 
 
 
-********************************

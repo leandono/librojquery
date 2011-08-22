@@ -337,4 +337,3 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio ut
 
 
 
-********************************

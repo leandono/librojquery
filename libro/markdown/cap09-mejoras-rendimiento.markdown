@@ -321,4 +321,3 @@ Utilice el código fuente de la biblioteca como si fuera su documentación — g
 
 
 
-********************************

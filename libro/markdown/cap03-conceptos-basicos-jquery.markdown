@@ -502,7 +502,7 @@ $('#myList li').each(function(idx, el) {
 
 Una vez realizada la selección de los elementos que desea utilizar, "la diversión comienza". Es posible cambiar, mover, remover y duplicar elementos. También crear nuevos a través de una sintaxis simple.
 
-La documentación completa sobre los métodos de manipulación puede encontrarla en [http://api.jquery.com/category/manipulation/](http://api.jquery.com/category/manipulation/).
+La documentación completa sobre los métodos de manipulación puede encontrarla en la sección `Manipulation`: [http://api.jquery.com/category/manipulation/](http://api.jquery.com/category/manipulation/).
 
 
 
@@ -776,4 +776,3 @@ for (var i = 0; i<5; i++) { ... }
 
 
 
-********************************

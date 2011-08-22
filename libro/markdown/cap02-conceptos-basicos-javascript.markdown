@@ -1092,4 +1092,3 @@ outerObj.outerFunction();
 Este mecanismo puede ser útil cuando trabaje con funciones de devolución de llamadas (en inglés *callbacks*). Sin embargo, en estos casos, es preferible que utilice [Function.bind](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind) ya que evitará cualquier sobrecarga asociada con el alcance (*scope*).
 
 
-********************************

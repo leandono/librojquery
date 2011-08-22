@@ -280,7 +280,7 @@ $(document).ready(function() {
 
 > **Nota**
 > 
-> Esta sección esta basada en la excelente documentación de RequireJS [http://requirejs.org/docs/jquery.html](http://requirejs.org/docs/jquery.html) y es utilizada con el permiso de James Burke, autor de RequireJS.
+> Esta sección esta basada en la excelente [ documentación de RequireJS](http://requirejs.org/docs/jquery.html) y es utilizada con el permiso de James Burke, autor de RequireJS.
 
 
 Cuando un proyecto alcanza cierto tamaño, comienza a ser difícil el manejo de los módulos de una aplicación, ya que es necesario saber ordenarlos de forma correcta, y comenzar a combinarlos en un único archivo para lograr la menor cantidad de peticiones. También es posible que se quiera cargar código "al vuelo" luego de la carga de la página.
@@ -497,4 +497,3 @@ myPortlet.setSource('data/html/onions.html'); // cambia el código
 
 
 
-********************************

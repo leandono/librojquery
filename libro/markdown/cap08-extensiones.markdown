@@ -569,4 +569,3 @@ No olvide de devolver la tabla para que otros métodos puedan ser encadenados lu
 
 
 
-********************************
