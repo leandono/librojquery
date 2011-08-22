@@ -145,7 +145,7 @@ baz && foo;   // devuelve 1, el cual es verdadero (true)
 
 El operador `||` (OR lógico) devuelve el valor del primer operando, si éste es verdadero; caso contrario devuelve el segundo operando. Si ambos operandos son falsos devuelve falso (*false*). El operador `&&` (AND lógico) devuelve el valor del primer operando si éste es falso; caso contrario devuelve el segundo operando. Cuando ambos valores son verdaderos devuelve verdadero (*true*), sino devuelve falso.
 
-Puede consultar la sección ["Elementos Verdaderos y Falsos"](#elementos-verdaderos-y-falsos") para más detalles sobre que valores se evalúan como `true` y cuales se evalúan como `false`.
+Puede consultar la sección `Elementos Verdaderos y Falsos` para más detalles sobre que valores se evalúan como `true` y cuales se evalúan como `false`.
 
 
 > **Nota**
