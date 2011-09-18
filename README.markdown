@@ -4,9 +4,13 @@ Este repositorio contiene material didáctico en constante evolución para poder
 
 Si esta buscando la última versión del libro en español, puede encontrarla visitando <http://librojquery.com/>. 
 
-En caso que descargue el material completo, el libro se encuentra (en su versión HTML) dentro de la carpeta `/libro/html/` o en PDF dentro de `/libro/pdf/`. 
+En caso que descargue el material completo, el libro se encuentra en distintas versiones en carpetas separadas:
 
-La versión original (en inglés) puede encontrarla en <http://jqfundamentals.com/book/>.
+* HTML dentro de la carpeta `/libro/html/`;
+* PDF dentro de la carpeta `/libro/pdf/`;
+* EPUB dentro de la carpeta `/libro/epub/`.
+
+La versión original del libro (en inglés) puede encontrarla en <http://jqfundamentals.com/book/>.
 
 
 
