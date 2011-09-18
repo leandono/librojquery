@@ -173,7 +173,7 @@ $endif$
 % Portada 
 
 % Titulo
-{ \huge \bfseries $title$}\large\\[2.5cm]
+{ \huge \bfseries \href{http://librojquery.com/}{Fundamentos de jQuery}} \large\\[2.5cm]
 
 % Autor y correcciones
 \emph\large{Textos originales:}\\

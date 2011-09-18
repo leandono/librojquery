@@ -150,7 +150,7 @@ El resultado final de la aplicación será el siguiente:
 
 **Figura 11.1. La aplicación finalizada**
 
-![La aplicación finalizada](incluir/figuras/70415e9fffab1c47953f5264ecf722fe.png)
+![La aplicación finalizada](figuras/70415e9fffab1c47953f5264ecf722fe.png)
 
 
 

@@ -7,10 +7,10 @@
 	<meta http-equiv="Content-language" content="es"/>
 	<meta name="description" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
 	<meta property="og:title" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
-	<meta property="og:image" content="http://librojquery.com/incluir/img/jquery_logo.png"/>
+	<meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
 	<title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
-	<link rel="stylesheet" type="text/css" href="incluir/css/style.css" media="screen, projection, print">
-	<link rel="stylesheet" type="text/css" href="incluir/css/stylePrint.css" media="print">
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
+	<link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
 	<link rel="canonical" href="http://librojquery.com/" />
 </head>
 
