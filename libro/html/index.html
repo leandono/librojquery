@@ -50,7 +50,7 @@
 			</p>
 			
 			<p>
-				<strong>Última actualización del libro:</strong> Septiembre 2011 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+				<strong>Última actualización del libro:</strong> Octubre 2011 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
 			</p>
 			
 		</div>
@@ -2589,7 +2589,7 @@
               // realizar algo
           });
       };
-  }(jQuery));
+  })(jQuery);
   </code></pre>
   <p>La extensión del prototipo del objeto jQuery ocurre en la siguiente línea:</p>
   <pre class="brush: js"><code>$.fn.myNewPlugin = function() { //...
@@ -2597,7 +2597,7 @@
   <p>La cual es encerrada en una función autoejecutable:</p>
   <pre class="brush: js"><code>(function($){
       //...
-  }(jQuery));
+  })(jQuery);
   </code></pre>
   <p>Esta posee la ventaja de crear un alcance “privado”, permitiendo utilizar el signo dolar sin tener la preocupación de que otra biblioteca también este utilizando dicho signo.</p>
   <p>Por ahora, internamente la extensión queda:</p>
@@ -2633,7 +2633,7 @@
               );
           });
       };
-  }(jQuery));
+  })(jQuery);
   
   // Ejemplo de utilización:
   $('a').showLinkLocation();
@@ -2652,7 +2652,7 @@
                 return ' (' + this.href + ')';
           });
       };
-  }(jQuery));
+  })(jQuery);
   </code></pre>
   <p>El método <code>append</code> permite especificar una función de devolución de llamada, y el valor devuelto determinará que es lo que se añadirá a cada elemento. Note también que no se utiliza el método <code>attr</code>, debido a que la API nativa del DOM permite un fácil acceso a la propiedad <code>href</code>.</p>
   <p>A continuación se muestra otro ejemplo de extensión. En este caso, no se requiere realizar un bucle en cada elemento ya que se delega la funcionalidad directamente en otro método jQuery:</p>
@@ -2662,7 +2662,7 @@
               $(this).addClass(className);
           });
       };
-  }(jQuery));
+  })(jQuery);
   
   // Ejemplo de utilización:
   $('a').fadeInAndAddClass(400, 'finishedFading');
@@ -4001,7 +4001,7 @@
 		
 				
 		<p>
-			<strong>Última actualización del libro:</strong> Septiembre 2011 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+			<strong>Última actualización del libro:</strong> Octubre 2011 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
 		</p>
 		
 	</div>

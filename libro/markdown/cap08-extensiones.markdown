@@ -25,7 +25,7 @@ El código para realizar una extensión básica es la siguiente:
             // realizar algo
         });
     };
-}(jQuery));
+})(jQuery);
 ~~~~
 
 La extensión del prototipo del objeto jQuery ocurre en la siguiente línea:
@@ -39,7 +39,7 @@ La cual es encerrada en una función autoejecutable:
 ~~~~ {.brush: .js}
 (function($){
     //...
-}(jQuery));
+})(jQuery);
 ~~~~
 
 Esta posee la ventaja de crear un alcance "privado", permitiendo utilizar el signo dolar sin tener la preocupación de que otra biblioteca también este utilizando dicho signo.
@@ -89,7 +89,7 @@ Al igual que otros métodos, `each()` devuelve un objeto jQuery, permitiendo uti
             );
         });
     };
-}(jQuery));
+})(jQuery);
 
 // Ejemplo de utilización:
 $('a').showLinkLocation();
@@ -114,7 +114,7 @@ También es posible optimizar la extensión:
               return ' (' + this.href + ')';
         });
     };
-}(jQuery));
+})(jQuery);
 ~~~~
 
 El método `append` permite especificar una función de devolución de llamada, y el valor devuelto determinará que es lo que se añadirá a cada elemento. Note también que no se utiliza el método `attr`, debido a que la API nativa del DOM permite un fácil acceso a la propiedad `href`.
@@ -128,7 +128,7 @@ A continuación se muestra otro ejemplo de extensión. En este caso, no se requi
             $(this).addClass(className);
         });
     };
-}(jQuery));
+})(jQuery);
 
 // Ejemplo de utilización:
 $('a').fadeInAndAddClass(400, 'finishedFading');
