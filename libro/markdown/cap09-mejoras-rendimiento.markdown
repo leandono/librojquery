@@ -119,7 +119,7 @@ $(document).ready(PI.onReady);
 
 ## Optimización de Selectores
 
-La optimización de selectores es menos importante de lo que solía ser,debido a la implementación en algunos navegadores de`document.querySelectorAll()`, pasando la carga de jQuery hacia el navegador. Sin embargo, existen algunos consejos que debe tener en cuenta.
+La optimización de selectores es menos importante de lo que solía ser, debido a la implementación en algunos navegadores de`document.querySelectorAll()`, pasando la carga de jQuery hacia el navegador. Sin embargo, existen algunos consejos que debe tener en cuenta.
 
 
 
@@ -141,7 +141,7 @@ El ejemplo que utiliza `$.fn.find` es más rápido debido a que la primera selec
 
 ### Especificidad
 
-Trate de ser especifico para el lado derecho de la selección y menosespecifico para el izquierdo.
+Trate de ser especifico para el lado derecho de la selección y menos específico para el izquierdo.
 
 ~~~~ {.brush: .js}
 // no optimizado
@@ -151,9 +151,7 @@ $('div.data .gonzalez');
 $('.data td.gonzalez');
 ~~~~
 
-Use en lo posible `etiqueta.clase` del lado derecho de la selección, ysolo `etiqueta` o `.clase` en la parte izquierda.
-
-Evite especificidad excesiva.
+Use en lo posible `etiqueta.clase` del lado derecho de la selección, y solo `etiqueta` o `.clase` en la parte izquierda.
 
 ~~~~ {.brush: .js}
 $('.data table.attendees td.gonzalez');
@@ -168,7 +166,7 @@ La segunda selección tiene mejor rendimiento debido a que atraviesa menos capas
 
 ### Evitar el Selector Universal
 
-Selecciones en donde se especifica de forma implícita o explicita unaselección universal puede resultar muy lento.
+Selecciones en donde se especifica de forma implícita o explícita una selección universal puede resultar muy lento.
 
 ~~~~ {.brush: .js}
 $('.buttons > *');      // muy lento
@@ -183,7 +181,7 @@ $('.gender input:radio');  // mucho mejor
 
 ## Utilizar la Delegación de Eventos
 
-La delegación de eventos permite vincular un controlador de evento a unelemento contenedor (por ejemplo, una lista desordenada) en lugar de múltiples elementos contenidos (por ejemplo, los ítems de una lista).jQuery realiza este trabajo fácil a través de `$.fn.live` y`$.fn.delegate`. En lo posible, es recomendable utilizar $.fn.delegateen lugar de `$.fn.live`, ya que elimina la necesidad de una selección ysu contexto explicito reduce la carga en aproximadamente un 80%.
+La delegación de eventos permite vincular un controlador de evento a un elemento contenedor (por ejemplo, una lista desordenada) en lugar de múltiples elementos contenidos (por ejemplo, los ítems de una lista). jQuery hace fácil este trabajo a través de `$.fn.live` y`$.fn.delegate`. En lo posible, es recomendable utilizar `$.fn.delegate` en lugar de `$.fn.live`, ya que elimina la necesidad de una selección y su contexto explícito reduce la carga en aproximadamente un 80%.
 
 Además, la delegación de eventos permite añadir nuevos elementos contenedores a la página sin tener que volver a vincular sus controladores de eventos.
 
@@ -248,7 +246,7 @@ $.data(elem,key,value);
 jQuery no le dirá si esta tratando de ejecutar código en una selección vacía — esta se ejecutará como si nada estuviera mal. Dependerá de usted comprobar si la selección contiene elementos.
 
 ~~~~ {.brush: .js}
-// MAL: el codigo a continuación ejecuta tres funciones
+// MAL: el código a continuación ejecuta tres funciones
 // sin comprobar si existen elementos
 // en la selección
 $('#nosuchthing').slideUp();

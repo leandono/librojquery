@@ -3108,7 +3108,7 @@
   </div>
   <div id="optimizaci&#243;n-de-selectores">
   <h2><a href="#TOC"><span class="header-section-number">9.5</span> Optimización de Selectores</a></h2>
-  <p>La optimización de selectores es menos importante de lo que solía ser,debido a la implementación en algunos navegadores de<code>document.querySelectorAll()</code>, pasando la carga de jQuery hacia el navegador. Sin embargo, existen algunos consejos que debe tener en cuenta.</p>
+  <p>La optimización de selectores es menos importante de lo que solía ser, debido a la implementación en algunos navegadores de<code>document.querySelectorAll()</code>, pasando la carga de jQuery hacia el navegador. Sin embargo, existen algunos consejos que debe tener en cuenta.</p>
   <div id="selectores-basados-en-id">
   <h3><a href="#TOC"><span class="header-section-number">9.5.1</span> Selectores basados en ID</a></h3>
   <p>Siempre es mejor comenzar las selecciones con un ID.</p>
@@ -3122,15 +3122,14 @@
   </div>
   <div id="especificidad">
   <h3><a href="#TOC"><span class="header-section-number">9.5.2</span> Especificidad</a></h3>
-  <p>Trate de ser especifico para el lado derecho de la selección y menosespecifico para el izquierdo.</p>
+  <p>Trate de ser especifico para el lado derecho de la selección y menos específico para el izquierdo.</p>
   <pre class="brush: js"><code>// no optimizado
   $('div.data .gonzalez');
   
   // optimizado
   $('.data td.gonzalez');
   </code></pre>
-  <p>Use en lo posible <code>etiqueta.clase</code> del lado derecho de la selección, ysolo <code>etiqueta</code> o <code>.clase</code> en la parte izquierda.</p>
-  <p>Evite especificidad excesiva.</p>
+  <p>Use en lo posible <code>etiqueta.clase</code> del lado derecho de la selección, y solo <code>etiqueta</code> o <code>.clase</code> en la parte izquierda.</p>
   <pre class="brush: js"><code>$('.data table.attendees td.gonzalez');
   
   // mucho mejor: eliminar la parte media de ser posible
@@ -3140,7 +3139,7 @@
   </div>
   <div id="evitar-el-selector-universal">
   <h3><a href="#TOC"><span class="header-section-number">9.5.3</span> Evitar el Selector Universal</a></h3>
-  <p>Selecciones en donde se especifica de forma implícita o explicita unaselección universal puede resultar muy lento.</p>
+  <p>Selecciones en donde se especifica de forma implícita o explícita una selección universal puede resultar muy lento.</p>
   <pre class="brush: js"><code>$('.buttons &gt; *');      // muy lento
   $('.buttons').children();  // mucho mejor
   
@@ -3152,7 +3151,7 @@
   </div>
   <div id="utilizar-la-delegaci&#243;n-de-eventos">
   <h2><a href="#TOC"><span class="header-section-number">9.6</span> Utilizar la Delegación de Eventos</a></h2>
-  <p>La delegación de eventos permite vincular un controlador de evento a unelemento contenedor (por ejemplo, una lista desordenada) en lugar de múltiples elementos contenidos (por ejemplo, los ítems de una lista).jQuery realiza este trabajo fácil a través de <code>$.fn.live</code> y<code>$.fn.delegate</code>. En lo posible, es recomendable utilizar <span class="math">$.fn.delegateen lugar de `$</span>.fn.live`, ya que elimina la necesidad de una selección ysu contexto explicito reduce la carga en aproximadamente un 80%.</p>
+  <p>La delegación de eventos permite vincular un controlador de evento a un elemento contenedor (por ejemplo, una lista desordenada) en lugar de múltiples elementos contenidos (por ejemplo, los ítems de una lista). jQuery hace fácil este trabajo a través de <code>$.fn.live</code> y<code>$.fn.delegate</code>. En lo posible, es recomendable utilizar <code>$.fn.delegate</code> en lugar de <code>$.fn.live</code>, ya que elimina la necesidad de una selección y su contexto explícito reduce la carga en aproximadamente un 80%.</p>
   <p>Además, la delegación de eventos permite añadir nuevos elementos contenedores a la página sin tener que volver a vincular sus controladores de eventos.</p>
   <pre class="brush: js"><code>// mal (si existen muchos items en la lista)
   $('li.trigger').click(handlerFn);
@@ -3198,7 +3197,7 @@
   <div id="no-actuar-en-elementos-no-existentes">
   <h2><a href="#TOC"><span class="header-section-number">9.10</span> No Actuar en Elementos no Existentes</a></h2>
   <p>jQuery no le dirá si esta tratando de ejecutar código en una selección vacía — esta se ejecutará como si nada estuviera mal. Dependerá de usted comprobar si la selección contiene elementos.</p>
-  <pre class="brush: js"><code>// MAL: el codigo a continuación ejecuta tres funciones
+  <pre class="brush: js"><code>// MAL: el código a continuación ejecuta tres funciones
   // sin comprobar si existen elementos
   // en la selección
   $('#nosuchthing').slideUp();
