@@ -135,7 +135,7 @@ $('#container div.robotarm');
 $('#container').find('div.robotarm');
 ~~~~
 
-El ejemplo que utiliza `$.fn.find` es más rápido debido a que la primera selección utiliza el motor de selección interno [Sizzle](http://sizzlejs.com/) — mientras que la selección realizada únicamente por ID utiliza `document.getElementById()`(), el cual es extremadamente rápido debido a que es una función nativa del navegador.
+El ejemplo que utiliza `$.fn.find` es más rápido debido a que la primera selección utiliza el motor de selección interno [Sizzle](http://sizzlejs.com/) — mientras que la selección realizada únicamente por ID utiliza `document.getElementById()`, el cual es extremadamente rápido debido a que es una función nativa del navegador.
 
 
 
