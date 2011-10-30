@@ -1,14 +1,17 @@
 <!doctype html>
-<html lang="es-es">
+<html itemscope itemtype="http://schema.org/Book" lang="es-es">
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
 	<meta charset="utf-8">
 	<meta http-equiv="Content-language" content="es"/>
-	<meta name="description" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
-	<meta property="og:title" content="$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$"/>
+	<meta name="description" content="$if(title-prefix)$$title-prefix$$endif$"/>
+	<meta itemprop="name" content="$if(title-prefix)$$title-prefix$$endif$">
+	<meta itemprop="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje.">
+	<meta itemprop="image" content="http://librojquery.com/img/jquery_logo.png">
+	<meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$"/>
 	<meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
-	<title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
+	<title>$if(title-prefix)$$title-prefix$$endif$</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
 	<link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
 	<link rel="canonical" href="http://librojquery.com/" />
@@ -24,10 +27,18 @@
 			</h1>
 			
 			<div class="social">
-				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flibrojquery.com%2F&amp;layout=button_count&amp;show_faces=false&amp;width=115&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:115px; height:21px;" allowtransparency="true">
-				</iframe>
-				<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="dzignus" data-lang="es">Tweet</a>
-				<g:plusone size="medium"></g:plusone>
+				<ul>
+					<li>
+						<div class="fb-like" data-href="http://librojquery.com/" data-send="false" data-layout="button_count" data-width="115" data-show-faces="false"></div>
+						<div id="fb-root"></div>
+					</li>
+					<li>
+						<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="dzignus" data-lang="es">Tweet</a>
+					</li>
+					<li>
+						<div class="g-plusone" data-size="medium" data-href="http://librojquery.com/"></div>
+					</li>
+				</ul>
 			</div>
 			
 			<div class="clear"></div>
@@ -77,25 +88,60 @@
 	</div>
 	
 	<script>
+  	
+  	(function(d) {
+  	
+		<!--GA-->
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-16816025-3']);
 		_gaq.push(['_trackPageview']);
-		(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-		</script>
-	<script src="http://platform.twitter.com/widgets.js"></script>
-	<script type="text/javascript">
-	  window.___gcfg = {lang: 'es'};
+		var ga = d.createElement('script'); 
+		ga.type = 'text/javascript'; 
+		ga.async = true;
+		ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = d.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(ga, s);
+  	
+  	})(document);
+  	
+  	</script>
+  	
+	<script>
 	
-	  (function() {
-	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	    po.src = 'https://apis.google.com/js/plusone.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
+	window.onload=function(){
+		
+		var d = document;
+		
+		<!--Twitter-->
+		var tw = d.createElement('script');
+		tw.type = 'text/javascript';
+		tw.async = true;
+		tw.src = 'http://platform.twitter.com/widgets.js';
+		var s = d.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(tw, s);
+		
+		<!--G+-->
+		window.___gcfg = {lang: 'es'};
+		var po = d.createElement('script'); 
+		po.type = 'text/javascript'; 
+		po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = d.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(po, s);
+		
+		<!--FB-->
+		var js, fjs = d.getElementsByTagName('script')[0];
+		if (d.getElementById('facebook-jssdk')) {return;}
+		js = d.createElement('script'); 
+		js.async = true;
+		js.id = 'facebook-jssdk';
+		js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	
+	};
+
 	</script>
+	
 </body>
 
 </html>

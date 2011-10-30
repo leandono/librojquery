@@ -1,6 +1,6 @@
 DATE = 'Octubre 2011'
 EPUB_TITLE = 'Fundamentos de jQuery'
-HTML_TITLE = 'Libro gratuito de jQuery en espa&ntilde;ol'
+HTML_TITLE = 'Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery'
 
 all:
 	
