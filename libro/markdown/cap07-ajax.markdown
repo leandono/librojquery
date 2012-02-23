@@ -70,17 +70,17 @@ Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servid
 
 Debido a que, de forma predeterminada, las llamadas Ajax son asíncronas, la respuesta del servidor no esta disponible de forma inmediata. Por ejemplo, el siguiente código no debería funcionar:
 
-~~~~ {.brush: .js}
+```javascript
 var response;
 $.get('foo.php', function(r) { response = r; });
 console.log(response); // indefinido (undefined)
-~~~~
+```
 
 En su lugar, es necesario especificar una función de devolución de llamada; dicha función se ejecutará cuando la petición se haya realizado de forma correcta ya que es en ese momento cuando la respuesta del servidor esta lista.
 
-~~~~ {.brush: .js}
+```javascript
 $.get('foo.php', function(response) { console.log(response); });
-~~~~
+```
 
 
 
@@ -113,7 +113,7 @@ El método `$.ajax` es configurado a través de un objeto, el cual contiene toda
 
 **Utilizar el método $.ajax**
 
-~~~~ {.brush: .js}
+```javascript
 $.ajax({
     // la URL para la petición
     url : 'post.php',
@@ -148,11 +148,11 @@ $.ajax({
         alert('Petición realizada');
     }
 });
-~~~~
+```
 
 
 > **Nota**
-> 
+>
 > Una aclaración sobre el parámetro `dataType`: Si el servidor devuelve información que es diferente al formato especificado, el código fallará, y la razón de porque lo hace no siempre quedará clara debido a que la respuesta HTTP no mostrará ningún tipo de error. Cuando esté trabajando con peticiones Ajax, debe estar seguro que el servidor esta enviando el tipo de información que esta solicitando y verifique que la cabecera `Content-type` es exacta al tipo de dato. Por ejemplo, para información en formato JSON, la cabecera `Content-type` debería ser `application/json`.
 
 
@@ -251,7 +251,7 @@ Los métodos deben tener los siguientes argumentos, en orden:
 
 **Utilizar métodos convenientes para peticiones Ajax**
 
-~~~~ {.brush: .js}
+```javascript
 // obtiene texto plano o html
 $.get('/users.php', { userId : 1234 }, function(resp) {
     console.log(resp);
@@ -268,7 +268,7 @@ $.getJSON('/details.php', function(resp) {
         console.log(k + ' : ' + v);
     });
 });
-~~~~
+```
 
 
 
@@ -279,18 +279,18 @@ El método `$.fn.load` es el único que se puede llamar desde una selección. Di
 
 **Utilizar el método `$.fn.load` para rellenar un elemento**
 
-~~~~ {.brush: .js}
+```javascript
 $('#newContent').load('/foo.html');
-~~~~
+```
 
 **Utilizar el método `$.fn.load` para rellenar un elemento basado en un
 selector**
 
-~~~~ {.brush: .js}
+```javascript
 $('#newContent').load('/foo.html #myDiv h1:first', function(html) {
   alert('Contenido actualizado');
 });
-~~~~
+```
 
 
 
@@ -301,14 +301,14 @@ Las capacidades de jQuery con Ajax pueden ser especialmente útiles para el trab
 
 **Transformar información de un formulario a una cadena de datos**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myForm').serialize();
-~~~~
+```
 
 
 **Crear un arreglo de objetos conteniendo información de un formulario**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myForm').serializeArray();
 
 // crea una estructura como esta:
@@ -316,7 +316,7 @@ $('#myForm').serializeArray();
     { name : 'field1', value : 123 },
     { name : 'field2', value : 'hello world' }
 ]
-~~~~
+```
 
 
 
@@ -327,7 +327,7 @@ En los últimos tiempos, la introducción de JSONP, ha permitido la creación de
 
 **Utilizar YQL y JSONP**
 
-~~~~ {.brush: .js}
+```javascript
 $.ajax({
     url : 'http://query.yahooapis.com/v1/public/yql',
 
@@ -338,7 +338,7 @@ $.ajax({
     // se le indica a jQuery que se espera información en formato JSONP
     dataType : 'jsonp',
 
-    // se le indica al servicio de YQL cual es la información 
+    // se le indica al servicio de YQL cual es la información
     // que se desea y que se la quiere en formato JSON
     data : {
         q : 'select title,abstract,url from search.news where query="cat"',
@@ -350,7 +350,7 @@ $.ajax({
         console.log(response);
     }
 });
-~~~~
+```
 
 jQuery se encarga de solucionar todos los aspectos complejos de la petición JSONP. Lo único que debe hacer es especificar el nombre de la función de devolución (en este caso "*callback*", según lo especifica YQL) y el resultado final será como una petición Ajax normal.
 
@@ -363,11 +363,11 @@ A menudo, querrá ejecutar una función cuando una petición haya comenzado o te
 
 **Mostrar/Ocultar un indicador utilizando Eventos Ajax**
 
-~~~~ {.brush: .js}
+```javascript
 $('#loading_indicator')
     .ajaxStart(function() { $(this).show(); })
     .ajaxStop(function() { $(this).hide(); });
-~~~~
+```
 
 
 
@@ -384,11 +384,11 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio u
 
 Notar que cada titulo de artículo de blog en `index.html` incluye un enlace hacia el artículo. Necesitará aprovechar el atributo href de cada enlace para obtener el contenido propio de blog.html. Una vez obtenida el valor del atributo, puede utilizar la siguiente forma para procesar la información y convertirla en un selector para utilizar en conjunto con `$.fn.load`:
 
-~~~~ {.brush: .js}
+```javascript
 var href = 'blog.html#post1';
 var tempArray = href.split('#');
 var id = '#' + tempArray[1];
-~~~~
+```
 
 Recuerde utilizar `console.log` para asegurarse que esta realizando lo correcto.
 

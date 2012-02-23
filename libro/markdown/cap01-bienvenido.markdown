@@ -22,7 +22,7 @@ Para trabajar con los contenidos del libro, necesitará las siguientes herramien
 
 -   La [extensión Firebug](https://addons.mozilla.org/es-ES/firefox/addon/firebug/), para Firefox
 
--   Un editor de textos planos (como [Notepad++](http://notepad-plus-plus.org/download/v5.9.2.html) para Windows, [gedit](http://www.icewalkers.com/Linux/Software/56260/gEdit.html)/[Kate](http://linux.softpedia.com/get/Text-Editing-Processing/Others/Kate-2317.shtml) para Linux o [TextMate](http://textmate.en.softonic.com/mac) para Mac OS X)
+-   Un editor de textos planos (como [Notepad++](http://notepad-plus-plus.org/download/v5.9.8.html)/[Sublime Text 2](http://www.sublimetext.com/2) para Windows, [gedit](http://www.icewalkers.com/Linux/Software/56260/gEdit.html)/[Kate](http://linux.softpedia.com/get/Text-Editing-Processing/Others/Kate-2317.shtml) para Linux o [TextMate](http://textmate.en.softonic.com/mac) para Mac OS X)
 
 -   Para las secciones dedicadas a Ajax: Un servidor local (como [WAMP](http://www.wampserver.com/en/download.php) o [MAMP](http://www.mamp.info/en/index.html)) o un cliente FTP/SSH (como [FileZilla](http://filezilla-project.org/)) para acceder a un servidor remoto.
 
@@ -37,18 +37,18 @@ Para mejorar el rendimiento de la página, el código JavaScript debe ser inclui
 
 **Ejemplo de código JavaScript en línea**
 
-~~~~ {.brush: .js}
+```javascript
 <script>
 console.log('hello');
 </script>
-~~~~
+```
 
 
 **Ejemplo de inclusión de un archivo externo JavaScript**
 
-~~~~ {.brush: .js}
+```javascript
 <script src='/js/jquery.js'></script>
-~~~~
+```
 
 
 
@@ -66,11 +66,11 @@ Cada depurador ofrece:
 
 Cuando usted este escribiendo código JavaScript, podrá utilizar alguno de los siguientes métodos para enviar mensajes a la consola del depurador:
 
--   `console.log()` para enviar y registrar mensajes generales; 
+-   `console.log()` para enviar y registrar mensajes generales;
 
--   `console.dir()` para registrar un objeto y visualizar sus propiedades; 
+-   `console.dir()` para registrar un objeto y visualizar sus propiedades;
 
--   `console.warn()` para registrar mensajes de alerta; 
+-   `console.warn()` para registrar mensajes de alerta;
 
 -   `console.error()` para registrar mensajes de error;
 
@@ -107,9 +107,9 @@ Los métodos que pueden ser llamados desde el objeto jQuery, serán referenciado
 
 **Ejemplo de un código**
 
-~~~~ {.brush: .js}
+```javascript
 // el código de ejemplo aparecerá de esta forma
-~~~~
+```
 
 *Las remarcaciones aparecerán de esta forma.*
 

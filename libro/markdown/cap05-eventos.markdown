@@ -19,25 +19,25 @@ jQuery ofrece métodos para la mayoría de los eventos — entre ellos `$.fn.cli
 
 **Vincular un evento utilizando un método reducido**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').click(function() {
     console.log('click');
 });
-~~~~
+```
 
 
 **Vincular un evento utilizando el método `$.fn.bind` method**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').bind('click', function() {
     console.log('click');
 });
-~~~~
+```
 
 
 **Vincular un evento utilizando el método `$.fn.bind` con información asociada**
 
-~~~~ {.brush: .js}
+```javascript
 $('input').bind(
     'click change',  // es posible incular múltiples eventos al elemento
     { foo : 'bar' }, // se debe pasar la información asociada como argumento
@@ -47,7 +47,7 @@ $('input').bind(
         // registra el tipo de evento y la información asociada { foo : 'bar' }
     }
 );
-~~~~
+```
 
 
 
@@ -58,12 +58,12 @@ A veces puede necesitar que un controlador particular se ejecute solo una vez �
 
 **Cambiar controladores utilizando el método `$.fn.one`**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').one('click', function() {
     console.log('Se clickeó al elemento por primera vez');
     $(this).click(function() { console.log('Se ha clickeado nuevamente'); });
 });
-~~~~
+```
 
 El método `$.fn.one` es útil para situaciones en que necesita ejecutar cierto código la primera vez que ocurre un evento en un elemento, pero no en los eventos sucesivos.
 
@@ -76,20 +76,20 @@ Para desvincular (en ingles *unbind*) un controlador de evento, puede utilizar e
 
 **Desvincular todos los controladores del evento click en una selección**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').unbind('click');
-~~~~
+```
 
 
 **Desvincular un controlador particular del evento click**
 
-~~~~ {.brush: .js}
+```javascript
 var foo = function() { console.log('foo'); };
 var bar = function() { console.log('bar'); };
 
 $('p').bind('click', foo).bind('click', bar);
 $('p').unbind('click', bar); // foo esta atado aún al evento click
-~~~~
+```
 
 
 
@@ -100,12 +100,12 @@ Cuando se esta desarrollando aplicaciones complejas o extensiones de jQuery, pue
 
 **Asignar espacios de nombres a eventos**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').bind('click.myNamespace', function() { /* ... */ });
 $('p').unbind('click.myNamespace');
-$('p').unbind('.myNamespace'); // desvincula todos los eventos con 
+$('p').unbind('.myNamespace'); // desvincula todos los eventos con
                                // el espacio de nombre 'myNamespace'
-~~~~
+```
 
 
 
@@ -116,17 +116,17 @@ Muy a menudo, elementos en una aplicación estarán vinculados a múltiples even
 
 **Vincular múltiples eventos a un elemento**
 
-~~~~ {.brush: .js}
+```javascript
 $('p').bind({
     'click': function() { console.log('clickeado'); },
     'mouseover': function() { console.log('sobrepasado'); }
 });
-~~~~
+```
 
 
 
 > **Nota**
-> 
+>
 > La opción de pasar un objeto con múltiples eventos y funciones a `$.fn.bind` fue introducido en jQuery 1.4.4.
 
 
@@ -158,14 +158,14 @@ Como se menciona en la introducción, la función controladora de eventos recibe
 
 Por otro lado, la función controladora también tiene acceso al elemento DOM que inicializó el evento a través de la palabra clave `this`. Para convertir a dicho elemento DOM en un objeto jQuery (y poder utilizar los métodos de la biblioteca) es necesario escribir `$(this)`, como se muestra a continuación:
 
-~~~~ {.brush: .js}
+```javascript
 var $this = $(this);
-~~~~
+```
 
 
 **Cancelar que al hacer click en un enlace, éste se siga**
 
-~~~~ {.brush: .js}
+```javascript
 $('a').click(function(e) {
     var $this = $(this);
     if ($this.attr('href').match('evil')) {
@@ -173,7 +173,7 @@ $('a').click(function(e) {
         $this.addClass('evil');
     }
 });
-~~~~
+```
 
 
 
@@ -184,7 +184,7 @@ A través del método `$.fn.trigger`, jQuery provee una manera de disparar contr
 
 **Disparar un controlador de eventos de la forma correcta**
 
-~~~~ {.brush: .js}
+```javascript
 var foo = function(e) {
     if (e) {
         console.log(e);
@@ -197,7 +197,7 @@ var foo = function(e) {
 $('p').click(foo);
 
 foo(); // en lugar de realizar $('p').trigger('click')
-~~~~
+```
 
 
 
@@ -209,28 +209,28 @@ La delegación de eventos posee algunos beneficios, incluso si no se tiene pensa
 
 
 > **Nota**
-> 
+>
 > El método `$.fn.live` fue introducido a partir de la versión 1.3 de la biblioteca y en ese momento, solo ciertos tipos de eventos eran soportados. A partir de la versión 1.4.2, se introdujo `$.fn.delegate` el cual es preferido a $.fn.live .
 
 
 **Delegar un evento utilizando `$.fn.delegate`**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myUnorderedList').delegate('li', 'click', function(e) {
     var $myListItem = $(this);
     // ...
 });
-~~~~
+```
 
 
 **Delegar un Evento utilizando `$.fn.live`**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myUnorderedList li').live('click', function(e) {
     var $myListItem = $(this);
     // ...
 });
-~~~~
+```
 
 
 
@@ -241,10 +241,10 @@ Si necesita remover eventos delegados, no puede hacerlo simplemente desvinculán
 
 **Desvincular eventos delegados**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myUnorderedList').undelegate('li', 'click');
 $('#myUnorderedList li').die('click');
-~~~~
+```
 
 
 
@@ -260,17 +260,17 @@ El método `$.fn.hover` permite pasar una o dos funciones que se ejecutarán cua
 
 
 > **Nota**
-> 
+>
 > A partir de la versión 1.4 de jQuery, el método requiere obligatoriamente dos funciones.
 
 
 **La función auxiliar hover**
 
-~~~~ {.brush: .js}
+```javascript
 $('#menu li').hover(function() {
     $(this).toggleClass('hover');
 });
-~~~~
+```
 
 
 
@@ -281,7 +281,7 @@ Al igual que el método anterior, `$.fn.toggle` recibe dos o más funciones; cad
 
 **La función auxiliar toggle**
 
-~~~~ {.brush: .js}
+```javascript
 $('p.expander').toggle(
     function() {
         $(this).prev().addClass('open');
@@ -290,7 +290,7 @@ $('p.expander').toggle(
         $(this).prev().removeClass('open');
     }
 );
-~~~~
+```
 
 
 
