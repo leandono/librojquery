@@ -2,146 +2,128 @@
 <html itemscope itemtype="http://schema.org/Book" lang="es-es">
 
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
-	<meta charset="utf-8">
-	<meta http-equiv="Content-language" content="es"/>
-	<meta name="description" content="$if(title-prefix)$$title-prefix$$endif$"/>
-	<meta itemprop="name" content="$if(title-prefix)$$title-prefix$$endif$">
-	<meta itemprop="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje.">
-	<meta itemprop="image" content="http://librojquery.com/img/jquery_logo.png">
-	<meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$"/>
-	<meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
-	<title>$if(title-prefix)$$title-prefix$$endif$</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
-	<link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
-	<link rel="canonical" href="http://librojquery.com/" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-language" content="es"/>
+  <meta name="description" content="$if(title-prefix)$$title-prefix$$endif$"/>
+  <meta itemprop="name" content="$if(title-prefix)$$title-prefix$$endif$">
+  <meta itemprop="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje.">
+  <meta itemprop="image" content="http://librojquery.com/img/jquery_logo.png">
+  <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$"/>
+  <meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
+  <title>$if(title-prefix)$$title-prefix$$endif$</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
+  <link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
+  <link rel="canonical" href="http://librojquery.com/" />
 </head>
 
 <body>
-	<div title="Fundamentos de jQuery">
-	
-		<div id="titlepage">
-		
-			<h1 class="title maintitle">
-			<a title="Fundamentos de jQuery" href="http://librojquery.com/">Fundamentos de jQuery</a>
-			</h1>
-			
-			<div class="social">
-				<ul>
-					<li>
-						<div class="fb-like" data-href="http://librojquery.com/" data-send="false" data-layout="button_count" data-width="115" data-show-faces="false"></div>
-						<div id="fb-root"></div>
-					</li>
-					<li>
-						<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="dzignus" data-lang="es">Tweet</a>
-					</li>
-					<li>
-						<div class="g-plusone" data-size="medium" data-href="http://librojquery.com/"></div>
-					</li>
-				</ul>
-			</div>
-			
-			<div class="clear"></div>
-			
-			<h3>Textos originales por <a href="http://www.rebeccamurphey.com">Rebecca Murphey</a></h3>
-			
-			<div class="translators">
-				<h3 class="translator">Traducido y adaptado a espa&ntilde;ol por <a href="http://dzign.us/">Leandro D'Onofrio</a>.</h3>
-				<h3 class="corrections">Correcciones por <a href="http://ar.linkedin.com/in/gustavoaragon/">Gustavo Ra&uacute;l Arag&oacute;n</a>, <a href="http://www.linkedin.com/pub/pablo-andr%C3%A9s-maronna/10/713/373">Pablo Maronna</a>, <a href="http://es.linkedin.com/in/denisciccale">Denis Ciccale</a> y <a href="https://github.com/dzignus/librojquery/wiki/Otras-personas-que-tambi%C3%A9n-ayudaron-con-el-material">otras personas</a>.</h3>
-			</div>
-			
-			<h3>Con contribuciones de James Padolsey, Paul Irish y otros. Para un completo historial de contribuciones visite el repositorio en GitHub.</h3>
-			
-			<h3><a href="https://github.com/dzignus/librojquery" rel="_blank">Repositorio en espa&ntilde;ol</a> | <a href="http://github.com/rmurphey/jqfundamentals" rel="_blank">Repositorio original</a></h3>
-			
-			<h4><a href="https://github.com/dzignus/librojquery/wiki/Mejoras-y-correcciones-en-el-material" rel="_blank">¿Tienes correcciones o mejoras del material?</a></h4>
-			
-			<p title="Aviso Legal">
-				Bajo licencia <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" rel="_blank">Creative Commons Attribution-Share Alike 3.0 United States</a>.
-			</p>
-			
-			<p>
-				<strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
-			</p>
-			
-		</div>
-		 
-		<div id="$idprefix$TOC">
-			$if(toc)$
-				<h2>Contenidos</h2>
-				$toc$ 
-			$endif$
-		</div>
-		
-		<hr />
-		
-		$body$
-		
-		$for(include-after)$
-			$include-after$
-		$endfor$
-		
-		<p>
-			<strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
-		</p>
-		
-	</div>
-	
-	<script>
-  	
-  	(function(d) {
-  	
-		<!--GA-->
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-16816025-3']);
-		_gaq.push(['_trackPageview']);
-		var ga = d.createElement('script'); 
-		ga.type = 'text/javascript'; 
-		ga.async = true;
-		ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = d.getElementsByTagName('script')[0]; 
-		s.parentNode.insertBefore(ga, s);
-  	
-  	})(document);
-  	
-  	</script>
-  	
-	<script>
-	
-	window.onload=function(){
-		
-		var d = document;
-		
-		<!--Twitter-->
-		var tw = d.createElement('script');
-		tw.type = 'text/javascript';
-		tw.async = true;
-		tw.src = 'http://platform.twitter.com/widgets.js';
-		var s = d.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(tw, s);
-		
-		<!--G+-->
-		window.___gcfg = {lang: 'es'};
-		var po = d.createElement('script'); 
-		po.type = 'text/javascript'; 
-		po.async = true;
-		po.src = 'https://apis.google.com/js/plusone.js';
-		var s = d.getElementsByTagName('script')[0]; 
-		s.parentNode.insertBefore(po, s);
-		
-		<!--FB-->
-		var js, fjs = d.getElementsByTagName('script')[0];
-		if (d.getElementById('facebook-jssdk')) {return;}
-		js = d.createElement('script'); 
-		js.async = true;
-		js.id = 'facebook-jssdk';
-		js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	
-	};
+    <div id="titlepage">
 
-	</script>
-	
+      <h1 class="title maintitle">
+        <a title="Fundamentos de jQuery" href="http://librojquery.com/">Fundamentos de jQuery</a>
+      </h1>
+
+      <div class="social">
+        <ul>
+          <li>
+            <div class="fb-like" data-href="http://librojquery.com/" data-send="false" data-layout="button_count" data-width="115" data-show-faces="false"></div>
+            <div id="fb-root"></div>
+          </li>
+          <li>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="dzignus" data-lang="es">Tweet</a>
+          </li>
+          <li>
+            <div class="g-plusone" data-size="medium" data-href="http://librojquery.com/"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="clear"></div>
+
+      <h3>Textos originales por <a href="http://www.rebeccamurphey.com">Rebecca Murphey</a></h3>
+
+      <div class="translators">
+        <h3 class="translator">Traducido y adaptado a espa&ntilde;ol por <a href="http://dzign.us/">Leandro D'Onofrio</a>.</h3>
+        <h3 class="corrections">Correcciones por <a href="http://ar.linkedin.com/in/gustavoaragon/">Gustavo Ra&uacute;l Arag&oacute;n</a>, <a href="http://www.linkedin.com/pub/pablo-andr%C3%A9s-maronna/10/713/373">Pablo Maronna</a>, <a href="http://es.linkedin.com/in/denisciccale">Denis Ciccale</a> y <a href="https://github.com/dzignus/librojquery/wiki/Otras-personas-que-tambi%C3%A9n-ayudaron-con-el-material">otras personas</a>.</h3>
+      </div>
+
+      <h3>Con contribuciones de James Padolsey, Paul Irish y otros. Para un completo historial de contribuciones visite el repositorio en GitHub.</h3>
+
+      <h3><a href="https://github.com/dzignus/librojquery" rel="_blank">Repositorio en espa&ntilde;ol</a> | <a href="http://github.com/rmurphey/jqfundamentals" rel="_blank">Repositorio original</a></h3>
+
+      <h4><a href="https://github.com/dzignus/librojquery/wiki/Mejoras-y-correcciones-en-el-material" rel="_blank">¿Tienes correcciones o mejoras del material?</a></h4>
+
+      <p title="Aviso Legal">
+        Bajo licencia <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" rel="_blank">Creative Commons Attribution-Share Alike 3.0 United States</a>.
+      </p>
+
+      <p>
+        <strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+      </p>
+
+    </div>
+
+    <div id="$idprefix$TOC">
+      $if(toc)$
+        <h2>Contenidos</h2>
+        $toc$
+      $endif$
+    </div>
+
+    <hr />
+
+    $body$
+
+    $for(include-after)$
+      $include-after$
+    $endfor$
+
+    <p>
+      <strong>Última actualización del libro:</strong> $date$ (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+    </p>
+
+  <script>
+
+    (function (d) {
+
+      function insertScript(src, id) {
+        var st = d.createElement('script'), s;
+        st.type = 'text/javascript';
+        st.async = true;
+        st.src = src;
+        if (id) {
+          st.id = id;
+        }
+        s = d.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(st, s);
+      }
+
+      // GA
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16816025-3']);
+      _gaq.push(['_trackPageview']);
+      insertScript(('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+
+      window.onload = function () {
+        // Twitter
+        insertScript('http://platform.twitter.com/widgets.js');
+
+        // G+
+        window.___gcfg = {lang: 'es'};
+        insertScript('https://apis.google.com/js/plusone.js');
+
+        // FB
+        if (d.getElementById('facebook-jssdk')) {
+          return;
+        } else {
+          insertScript('//connect.facebook.net/es_ES/all.js#xfbml=1', 'facebook-jssdk');
+        }
+      };
+    }(document));
+  </script>
+
+
 </body>
 
 </html>

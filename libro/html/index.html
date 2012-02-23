@@ -1130,18 +1130,18 @@
     <p><strong>Selección de elementos en base a su ID</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myId&#39;</span>); <span class="co">// notar que los IDs deben ser únicos por página</span></code></pre>
     <p><strong>Selección de elementos en base al nombre de clase</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;div.myClass&#39;</span>); <span class="co">// si se especifica el tipo de elemento, </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;div.myClass&#39;</span>); <span class="co">// si se especifica el tipo de elemento,</span>
                       <span class="co">// se mejora el rendimiento de la selección</span></code></pre>
     <p><strong>Selección de elementos por su atributo</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;input[name=first_name]&#39;</span>); <span class="co">// tenga cuidado, que puede ser muy lento</span></code></pre>
     <p><strong>Selección de elementos en forma de selector CSS</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#contents ul.people li&#39;</span>);</code></pre>
     <p><strong>Pseudo-selectores</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;a.external:first&#39;</span>);  <span class="co">// selecciona el primer elemento &lt;a&gt; </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;a.external:first&#39;</span>);  <span class="co">// selecciona el primer elemento &lt;a&gt;</span>
                             <span class="co">// con la clase &#39;external&#39;</span>
-    $(<span class="ch">&#39;tr:odd&#39;</span>);            <span class="co">// selecciona todos los elementos &lt;tr&gt; </span>
+    $(<span class="ch">&#39;tr:odd&#39;</span>);            <span class="co">// selecciona todos los elementos &lt;tr&gt;</span>
                             <span class="co">// impares de una tabla</span>
-    $(<span class="ch">&#39;#myForm :input&#39;</span>);    <span class="co">// selecciona todos los elementos del tipo input </span>
+    $(<span class="ch">&#39;#myForm :input&#39;</span>);    <span class="co">// selecciona todos los elementos del tipo input</span>
                             <span class="co">// dentro del formulario #myForm</span>
     $(<span class="ch">&#39;div:visible&#39;</span>);       <span class="co">// selecciona todos los divs visibles</span>
     $(<span class="ch">&#39;div:gt(2)&#39;</span>);         <span class="co">// selecciona todos los divs excepto los tres primeros</span>
@@ -1170,7 +1170,7 @@
     
                 <span class="co">// si nos encontramos aquí, es porque el elemento posee ancho</span>
                 <span class="co">// y alto, pero además es un &lt;tr&gt;,</span>
-                <span class="co">// entonces se verifica el valor del estilo display </span>
+                <span class="co">// entonces se verifica el valor del estilo display</span>
                 <span class="co">// aplicado a través de CSS</span>
                 <span class="co">// para decidir si está oculto o no</span>
                 <span class="kw">jQuery</span>.<span class="fu">curCSS</span>(elem, <span class="st">&quot;display&quot;</span>) === <span class="st">&quot;none&quot;</span>;
@@ -1216,10 +1216,10 @@
     <p><strong>Refinamiento de selecciones</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;div.foo&#39;</span>).<span class="fu">has</span>(<span class="ch">&#39;p&#39;</span>);          <span class="co">// el elemento div.foo contiene elementos &lt;p&gt;</span>
     $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">not</span>(<span class="ch">&#39;.bar&#39;</span>);            <span class="co">// el elemento h1 no posse la clase &#39;bar&#39;</span>
-    $(<span class="ch">&#39;ul li&#39;</span>).<span class="fu">filter</span>(<span class="ch">&#39;.current&#39;</span>);  <span class="co">// un item de una lista desordenada </span>
+    $(<span class="ch">&#39;ul li&#39;</span>).<span class="fu">filter</span>(<span class="ch">&#39;.current&#39;</span>);  <span class="co">// un item de una lista desordenada</span>
                                     <span class="co">// que posse la clase &#39;current&#39;</span>
     $(<span class="ch">&#39;ul li&#39;</span>).<span class="fu">first</span>();             <span class="co">// el primer item de una lista desordenada</span>
-    $(<span class="ch">&#39;ul li&#39;</span>).<span class="fu">eq</span>(<span class="dv">5</span>);               <span class="co">// el sexto item de una lista desordenada </span></code></pre>
+    $(<span class="ch">&#39;ul li&#39;</span>).<span class="fu">eq</span>(<span class="dv">5</span>);               <span class="co">// el sexto item de una lista desordenada</span></code></pre>
     </div>
     <div class="section level3" id="selección-de-elementos-de-un-formulario">
     <h3><a href="#TOC"><span class="header-section-number">3.2.4</span> Selección de Elementos de un Formulario</a></h3>
@@ -1269,7 +1269,7 @@
     </dd>
     </dl>
     <p><strong>Utilizando pseudo-selectores en elementos de formularios</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myForm :input&#39;</span>); <span class="co">// obtiene todos los elementos inputs </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myForm :input&#39;</span>); <span class="co">// obtiene todos los elementos inputs</span>
                          <span class="co">// dentro del formulario #myForm</span></code></pre>
     </div>
     </div>
@@ -1323,7 +1323,7 @@
     $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>(<span class="ch">&#39;font-size&#39;</span>); <span class="co">// también funciona</span></code></pre>
     <p><strong>Establecer propiedades CSS</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>(<span class="ch">&#39;fontSize&#39;</span>, <span class="ch">&#39;100px&#39;</span>); <span class="co">// establece una propiedad individual CSS</span>
-    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>({ <span class="ch">&#39;fontSize&#39;</span> : <span class="ch">&#39;100px&#39;</span>, <span class="ch">&#39;color&#39;</span> : <span class="ch">&#39;red&#39;</span> }); <span class="co">// establece múltiples </span>
+    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>({ <span class="ch">&#39;fontSize&#39;</span> : <span class="ch">&#39;100px&#39;</span>, <span class="ch">&#39;color&#39;</span> : <span class="ch">&#39;red&#39;</span> }); <span class="co">// establece múltiples</span>
                                                             <span class="co">// propiedades CSS</span></code></pre>
     <p><em>Notar que el estilo del argumento utilizado en la segunda línea del ejemplo — es un objeto que contiene múltiples propiedades. Esta es una forma común de pasar múltiples argumentos a una función, y muchos métodos establecedores de la biblioteca aceptan objetos para fijar varias propiedades de una sola vez.</em></p>
     <div class="section level3" id="utilizar-clases-para-aplicar-estilos-css">
@@ -1350,7 +1350,7 @@
     $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">height</span>(<span class="ch">&#39;50px&#39;</span>);  <span class="co">// establece el alto de todos los elementos H1</span>
     $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">height</span>();        <span class="co">// obtiene el alto del primer elemento H1</span>
     
-    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">position</span>();      <span class="co">// devuelve un objeto conteniendo </span>
+    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">position</span>();      <span class="co">// devuelve un objeto conteniendo</span>
                              <span class="co">// información sobre la posición</span>
                              <span class="co">// del primer elemento relativo al</span>
                              <span class="co">// &quot;offset&quot; (posición) de su elemento padre</span></code></pre>
@@ -1368,7 +1368,7 @@
     });</code></pre>
     <p><em>En el ejemplo, el objeto pasado como argumento está escrito en varias líneas. Como se explicó anteriormente, los espacios en blanco no importan en JavaScript, por lo cual, es libre de utilizarlos para hacer el código más legible. En entornos de producción, se pueden utilizar herramientas de minificación, los cuales quitan los espacios en blanco (entre otras cosas) y comprimen el archivo final.</em></p>
     <p><strong>Obtener atributos</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;a&#39;</span>).<span class="fu">attr</span>(<span class="ch">&#39;href&#39;</span>);  <span class="co">// devuelve el atributo href perteneciente </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;a&#39;</span>).<span class="fu">attr</span>(<span class="ch">&#39;href&#39;</span>);  <span class="co">// devuelve el atributo href perteneciente</span>
                           <span class="co">// al primer elemento &lt;a&gt; del documento</span></code></pre>
     </div>
     <div class="section level2" id="recorrer-el-dom">
@@ -1380,15 +1380,15 @@
     <p>Debe ser cuidadoso en recorrer largas distancias en un documento — recorridos complejos obligan que la estructura del documento sea siempre la misma, algo que es difícil de garantizar. Uno -o dos- pasos para el recorrido esta bien, pero generalmente hay que evitar atravesar desde un contenedor a otro.</p>
     </blockquote>
     <p><strong>Moverse a través del DOM utilizando métodos de recorrido</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;h1&#39;</span>).<span class="fu">next</span>(<span class="ch">&#39;p&#39;</span>);              <span class="co">// seleccionar el inmediato y próximo </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;h1&#39;</span>).<span class="fu">next</span>(<span class="ch">&#39;p&#39;</span>);              <span class="co">// seleccionar el inmediato y próximo</span>
                                     <span class="co">// elemento &lt;p&gt; con respecto a H1</span>
-    $(<span class="ch">&#39;div:visible&#39;</span>).<span class="fu">parent</span>();      <span class="co">// seleccionar el elemento contenedor </span>
+    $(<span class="ch">&#39;div:visible&#39;</span>).<span class="fu">parent</span>();      <span class="co">// seleccionar el elemento contenedor</span>
                                     <span class="co">// a un div visible</span>
-    $(<span class="ch">&#39;input[name=first_name]&#39;</span>).<span class="fu">closest</span>(<span class="ch">&#39;form&#39;</span>);  <span class="co">// seleccionar el elemento </span>
+    $(<span class="ch">&#39;input[name=first_name]&#39;</span>).<span class="fu">closest</span>(<span class="ch">&#39;form&#39;</span>);  <span class="co">// seleccionar el elemento</span>
                                                   <span class="co">// &lt;form&gt; más cercano a un input</span>
-    $(<span class="ch">&#39;#myList&#39;</span>).<span class="fu">children</span>();        <span class="co">// seleccionar todos los elementos </span>
+    $(<span class="ch">&#39;#myList&#39;</span>).<span class="fu">children</span>();        <span class="co">// seleccionar todos los elementos</span>
                                     <span class="co">// hijos de #myList</span>
-    $(<span class="ch">&#39;li.selected&#39;</span>).<span class="fu">siblings</span>();    <span class="co">// seleccionar todos los items </span>
+    $(<span class="ch">&#39;li.selected&#39;</span>).<span class="fu">siblings</span>();    <span class="co">// seleccionar todos los items</span>
                                     <span class="co">// hermanos del elemento &lt;li&gt;</span></code></pre>
     <p>También es posible interactuar con la selección utilizando el método <code>$.fn.each</code>. Dicho método interactúa con todos los elementos obtenidos en la selección y ejecuta una función por cada uno. La función recibe como argumento el índice del elemento actual y al mismo elemento. De forma predeterminada, dentro de la función, se puede hacer referencia al elemento DOM a través de la declaración <code>this</code>.</p>
     <p><strong>Interactuar en una selección</strong></p>
@@ -1500,9 +1500,9 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> $myNewElement = $(<span class="ch">&#39;&lt;p&gt;Nuevo elemento&lt;/p&gt;&#39;</span>);
     $<span class="kw">myNewElement</span>.<span class="fu">appendTo</span>(<span class="ch">&#39;#content&#39;</span>);
     
-    $<span class="kw">myNewElement</span>.<span class="fu">insertAfter</span>(<span class="ch">&#39;ul:last&#39;</span>); <span class="co">// eliminará al elemento &lt;p&gt; </span>
+    $<span class="kw">myNewElement</span>.<span class="fu">insertAfter</span>(<span class="ch">&#39;ul:last&#39;</span>); <span class="co">// eliminará al elemento &lt;p&gt;</span>
                                           <span class="co">// existente en #content</span>
-    $(<span class="ch">&#39;ul&#39;</span>).<span class="fu">last</span>().<span class="fu">after</span>($<span class="kw">myNewElement</span>.<span class="fu">clone</span>());  <span class="co">// clonar al elemento &lt;p&gt; </span>
+    $(<span class="ch">&#39;ul&#39;</span>).<span class="fu">last</span>().<span class="fu">after</span>($<span class="kw">myNewElement</span>.<span class="fu">clone</span>());  <span class="co">// clonar al elemento &lt;p&gt;</span>
                                                   <span class="co">// para tener las dos versiones</span></code></pre>
     <p><em>Estrictamente hablando, no es necesario guardar al elemento creado en una variable — es posible llamar al método para añadir el elemento directamente después de $(). Sin embargo, la mayoría de las veces se deseará hacer referencia al elemento añadido, por lo cual, si se guarda en una variable no es necesario seleccionarlo después.</em></p>
     <p><strong>Crear y añadir al mismo tiempo un elemento a la página</strong></p>
@@ -1726,11 +1726,11 @@
     <p>Si esta utilizando jQuery en conjunto con otras bibliotecas JavaScript, las cuales también utilizan la variable <code>$</code>, pueden llegar a ocurrir una serie de errores. Para poder solucionarlos, es necesario poner a jQuery en su modo “no-conflicto”. Esto se debe realizar inmediatamente después que jQuery se cargue en la página y antes del código que se va a ejecutar.</p>
     <p>Cuando se pone a jQuery en modo “no-conflicto”, la biblioteca ofrece la opción de asignar un nombre para reemplazar a la variable <code>$</code>.</p>
     <p><strong>Poner a jQuery en modo no-conflicto</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">&lt;script src=<span class="st">&quot;prototype.js&quot;</span>&gt;&lt;/script&gt;             <span class="co">// la biblioteca prototype </span>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">&lt;script src=<span class="st">&quot;prototype.js&quot;</span>&gt;&lt;/script&gt;             <span class="co">// la biblioteca prototype</span>
                                                      <span class="co">// también utiliza $</span>
-    &lt;script src=<span class="st">&quot;jquery.js&quot;</span>&gt;&lt;/script&gt;                <span class="co">// se carga jquery </span>
+    &lt;script src=<span class="st">&quot;jquery.js&quot;</span>&gt;&lt;/script&gt;                <span class="co">// se carga jquery</span>
                                                      <span class="co">// en la página</span>
-    &lt;script&gt;<span class="kw">var</span> $j = <span class="kw">jQuery</span>.<span class="fu">noConflict</span>();&lt;/script&gt;   <span class="co">// se inicializa </span>
+    &lt;script&gt;<span class="kw">var</span> $j = <span class="kw">jQuery</span>.<span class="fu">noConflict</span>();&lt;/script&gt;   <span class="co">// se inicializa</span>
                                                      <span class="co">// el modo &quot;no-conflicto&quot;</span></code></pre>
     <p>También es posible seguir utilizando <code>$</code> conteniendo el código en una función anónima autoejecutable. Éste es un patrón estándar para la creación de extensiones para la biblioteca, ya que <code>$</code> queda encerrada dentro del alcance de la misma función anónima.</p>
     <p><strong>Utilizar $ dentro de una función anónima autoejecutable</strong></p>
@@ -1802,7 +1802,7 @@
     <p><strong>Asignar espacios de nombres a eventos</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">bind</span>(<span class="ch">&#39;click.myNamespace&#39;</span>, <span class="kw">function</span>() { <span class="co">/* ... */</span> });
     $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;click.myNamespace&#39;</span>);
-    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;.myNamespace&#39;</span>); <span class="co">// desvincula todos los eventos con </span>
+    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;.myNamespace&#39;</span>); <span class="co">// desvincula todos los eventos con</span>
                                    <span class="co">// el espacio de nombre &#39;myNamespace&#39;</span></code></pre>
     </div>
     <div class="section level3" id="vinculación-de-múltiples-eventos">
@@ -2379,7 +2379,7 @@
         <span class="co">// se le indica a jQuery que se espera información en formato JSONP</span>
         <span class="dt">dataType </span>: <span class="ch">&#39;jsonp&#39;</span>,
     
-        <span class="co">// se le indica al servicio de YQL cual es la información </span>
+        <span class="co">// se le indica al servicio de YQL cual es la información</span>
         <span class="co">// que se desea y que se la quiere en formato JSON</span>
         <span class="dt">data </span>: {
             <span class="dt">q </span>: <span class="ch">&#39;select title,abstract,url from search.news where query=&quot;cat&quot;&#39;</span>,
@@ -3379,7 +3379,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">require</span>.<span class="fu">def</span>(<span class="st">&quot;my/title&quot;</span>,
         [<span class="st">&quot;my/dependency1&quot;</span>, <span class="st">&quot;my/dependency2&quot;</span>],
         <span class="kw">function</span>(dep1, dep2) {
-            <span class="co">// devuelve una función para definir &quot;my/title&quot;. </span>
+            <span class="co">// devuelve una función para definir &quot;my/title&quot;.</span>
             <span class="co">// Este devuelve o establece</span>
             <span class="co">// el titulo de la ventana</span>
             <span class="kw">return</span> <span class="kw">function</span>(title) {
@@ -3801,7 +3801,7 @@
         var st = d.createElement('script'), s;
         st.type = 'text/javascript';
         st.async = true;
-        st.src = 'http://platform.twitter.com/widgets.js';
+        st.src = src;
         if (id) {
           st.id = id;
         }
