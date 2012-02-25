@@ -9,36 +9,36 @@ No es posible interactuar de forma segura con el contenido de una página hasta 
 
 **El bloque $(document).ready()**
 
-~~~~ {.brush: .js}
+```javascript
 $(document).ready(function() {
     console.log('el documento está preparado');
 });
-~~~~
+```
 
 Existe una forma abreviada para `$(document).ready()` la cual podrá encontrar algunas veces; sin embargo, es recomendable no utilizarla en caso que este escribiendo código para gente que no conoce jQuery.
 
 
 **Forma abreviada para $(document).ready()**
 
-~~~~ {.brush: .js}
+```javascript
 $(function() {
     console.log('el documento está preparado');
 });
-~~~~
+```
 
 Además es posible pasarle a `$(document).ready()` una función nombrada en lugar de una anónima:
 
 
 **Pasar una función nombrada en lugar de una función anónima**
 
-~~~~ {.brush: .js}
+```javascript
 function readyFn() {
     // código a ejecutar cuando el documento este listo
 }
 
 
 $(document).ready(readyFn);
-~~~~
+```
 
 
 
@@ -51,58 +51,58 @@ A continuación se muestran algunas técnicas comunes para la selección de elem
 
 **Selección de elementos en base a su ID**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myId'); // notar que los IDs deben ser únicos por página
-~~~~
+```
 
 
 **Selección de elementos en base al nombre de clase**
 
-~~~~ {.brush: .js}
-$('div.myClass'); // si se especifica el tipo de elemento, 
+```javascript
+$('div.myClass'); // si se especifica el tipo de elemento,
                   // se mejora el rendimiento de la selección
-~~~~
+```
 
 
 **Selección de elementos por su atributo**
 
-~~~~ {.brush: .js}
+```javascript
 $('input[name=first_name]'); // tenga cuidado, que puede ser muy lento
-~~~~
+```
 
 
 **Selección de elementos en forma de selector CSS**
 
-~~~~ {.brush: .js}
+```javascript
 $('#contents ul.people li');
-~~~~
+```
 
 
 **Pseudo-selectores**
 
-~~~~ {.brush: .js}
-$('a.external:first');  // selecciona el primer elemento <a> 
+```javascript
+$('a.external:first');  // selecciona el primer elemento <a>
                         // con la clase 'external'
-$('tr:odd');            // selecciona todos los elementos <tr> 
+$('tr:odd');            // selecciona todos los elementos <tr>
                         // impares de una tabla
-$('#myForm :input');    // selecciona todos los elementos del tipo input 
+$('#myForm :input');    // selecciona todos los elementos del tipo input
                         // dentro del formulario #myForm
 $('div:visible');       // selecciona todos los divs visibles
 $('div:gt(2)');         // selecciona todos los divs excepto los tres primeros
 $('div:animated');      // selecciona todos los divs actualmente animados
-~~~~
+```
 
 
 
 > **Nota**
-> 
+>
 > Cuando se utilizan los pseudo-selectores `:visible` y `:hidden`, jQuery comprueba la visibilidad actual del elemento pero no si éste posee asignados los estilos CSS `visibility` o `display` — en otras palabras, verifica si *el alto y ancho físico del elemento* es mayor a cero. Sin embargo, esta comprobación no funciona con los elementos `<tr>`; en este caso, jQuery comprueba si se está aplicando el estilo `display` y va a considerar al elemento como oculto si posee asignado el valor `none`. Además, los elementos que aún no fueron añadidos al DOM serán tratados como ocultos, incluso si tienen aplicados estilos indicando que deben ser visibles (En la sección Manipulación de este manual, se explica como crear y añadir elementos al DOM).
 
 
 Como referencia, este es el fragmento de código que utiliza jQuery para determinar cuando un elemento es visible o no. Se incorporaron los comentarios para que quede más claro su entendimiento:
 
 
-~~~~ {.brush: .js}
+```javascript
 jQuery.expr.filters.hidden = function( elem ) {
     var width = elem.offsetWidth, height = elem.offsetHeight,
         skip = elem.nodeName.toLowerCase() === "tr";
@@ -122,7 +122,7 @@ jQuery.expr.filters.hidden = function( elem ) {
 
             // si nos encontramos aquí, es porque el elemento posee ancho
             // y alto, pero además es un <tr>,
-            // entonces se verifica el valor del estilo display 
+            // entonces se verifica el valor del estilo display
             // aplicado a través de CSS
             // para decidir si está oculto o no
             jQuery.curCSS(elem, "display") === "none";
@@ -131,7 +131,7 @@ jQuery.expr.filters.hidden = function( elem ) {
 jQuery.expr.filters.visible = function( elem ) {
     return !jQuery.expr.filters.hidden( elem );
 };
-~~~~
+```
 
 
 **Elección de Selectores**
@@ -140,10 +140,10 @@ La elección de buenos selectores es un punto importante cuando se desea mejorar
 
 jQuery ofrece muchos selectores basados en atributos, que permiten realizar selecciones basadas en el contenido de los atributos utilizando simplificaciones de expresiones regulares.
 
-~~~~ {.brush: .js}
+```javascript
 // encontrar todos los <a> cuyo atributo rel terminan en "thinger"
 $("a[rel$='thinger']");
-~~~~
+```
 
 Estos tipos de selectores pueden resultar útiles pero también ser muy lentos. Cuando sea posible, es recomendable realizar la selección utilizando IDs, nombres de clases y nombres de etiquetas.
 
@@ -155,9 +155,9 @@ Si desea conocer más sobre este asunto, [Paul Irish realizó una gran presentac
 
 Una vez realizada la selección de los elementos, querrá conocer si dicha selección entregó algún resultado. Para ello, pueda que escriba algo así:
 
-~~~~ {.brush: .js}
+```javascript
 if ($('div.foo')) { ... }
-~~~~
+```
 
 Sin embargo esta forma no funcionará. Cuando se realiza una selección utilizando `$()`, siempre es devuelto un objeto, y si se lo evalúa, éste siempre devolverá `true`. Incluso si la selección no contiene ningún elemento, el código dentro del bloque `if` se ejecutará.
 
@@ -166,9 +166,9 @@ En lugar de utilizar el código mostrado, lo que se debe hacer es preguntar por 
 
 **Evaluar si una selección posee elementos**
 
-~~~~ {.brush: .js}
+```javascript
 if ($('div.foo').length) { ... }
-~~~~
+```
 
 
 
@@ -178,14 +178,14 @@ Cada vez que se hace una selección, una gran cantidad de código es ejecutado. 
 
 **Guardar selecciones en una variable**
 
-~~~~ {.brush: .js}
+```javascript
 var $divs = $('div');
-~~~~
+```
 
 
 
 > **Nota**
-> 
+>
 > En el ejemplo “Guardar selecciones en una variable”, la variable comienza con el signo de dólar. Contrariamente a otros lenguajes de programación, en JavaScript este signo no posee ningún significado especial — es solamente otro carácter. Sin embargo aquí se utilizará para indicar que dicha variable posee un objeto jQuery. Esta práctica — una especie de [Notación Húngara](http://es.wikipedia.org/wiki/Notación_húngara) — es solo una convención y no es obligatoria.
 
 
@@ -194,7 +194,7 @@ Una vez que la selección es guardada en la variable, se la puede utilizar en co
 
 
 > **Nota**
-> 
+>
 > La selección obtiene sólo los elementos que están en la página cuando se realizó dicha acción. Si luego se añaden elementos al documento, será necesario repetir la selección o añadir los elementos nuevos a la selección guardada en la variable. En otras palabras, las selecciones guardadas no se actualizan "mágicamente" cuando el DOM de modifica.
 
 
@@ -206,14 +206,14 @@ A veces, puede obtener una selección que contiene más de lo que necesita; en e
 
 **Refinamiento de selecciones**
 
-~~~~ {.brush: .js}
+```javascript
 $('div.foo').has('p');          // el elemento div.foo contiene elementos <p>
 $('h1').not('.bar');            // el elemento h1 no posse la clase 'bar'
-$('ul li').filter('.current');  // un item de una lista desordenada 
+$('ul li').filter('.current');  // un item de una lista desordenada
                                 // que posse la clase 'current'
 $('ul li').first();             // el primer item de una lista desordenada
-$('ul li').eq(5);               // el sexto item de una lista desordenada 
-~~~~
+$('ul li').eq(5);               // el sexto item de una lista desordenada
+```
 
 
 
@@ -266,10 +266,10 @@ jQuery ofrece varios pseudo-selectores que ayudan a encontrar elementos dentro d
 
 **Utilizando pseudo-selectores en elementos de formularios**
 
-~~~~ {.brush: .js}
-$('#myForm :input'); // obtiene todos los elementos inputs 
+```javascript
+$('#myForm :input'); // obtiene todos los elementos inputs
                      // dentro del formulario #myForm
-~~~~
+```
 
 
 
@@ -286,28 +286,28 @@ Si en una selección se realiza una llamada a un método, y éste devuelve un ob
 
 **Encadenamiento**
 
-~~~~ {.brush: .js}
+```javascript
 $('#content').find('h3').eq(2).html('nuevo texto para el tercer elemento h3');
-~~~~
+```
 
 Por otro lado, si se está escribiendo un encadenamiento de métodos que incluyen muchos pasos, es posible escribirlos línea por línea, haciendo que el código luzca más agradable para leer.
 
 
 **Formateo de código encadenado**
 
-~~~~ {.brush: .js}
+```javascript
 $('#content')
     .find('h3')
     .eq(2)
     .html('nuevo texto para el tercer elemento h3');
-~~~~
+```
 
 Si desea volver a la selección original en el medio del encadenado, jQuery ofrece el método `$.fn.end` para poder hacerlo.
 
 
 **Restablecer la selección original utilizando el método `$.fn.end`**
 
-~~~~ {.brush: .js}
+```javascript
 $('#content')
     .find('h3')
     .eq(2)
@@ -315,12 +315,12 @@ $('#content')
     .end() // reestablece la selección a todos los elementos h3 en #content
     .eq(0)
         .html('nuevo texto para el primer elemento h3');
-~~~~
+```
 
 
 
 > **Nota**
-> 
+>
 > El encadenamiento es muy poderoso y es una característica que muchas bibliotecas JavaScript han adoptado desde que jQuery se hizo popular. Sin embargo, debe ser utilizado con cuidado. Un encadenamiento de métodos extensivo pueden hacer un código extremadamente difícil de modificar y depurar. No existe una regla que indique que tan largo o corto debe ser el encadenado — pero es recomendable que tenga en cuenta este consejo.
 
 
@@ -332,16 +332,16 @@ jQuery "sobrecarga" sus métodos, en otras palabras, el método para establecer 
 
 **El método `$.fn.html` utilizado como establecedor**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').html('hello world');
-~~~~
+```
 
 
 **El método html utilizado como obtenedor**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').html();
-~~~~
+```
 
 Los métodos establecedores devuelven un objeto jQuery, permitiendo continuar con la llamada de más métodos en la misma selección, mientras que los métodos obtenedores devuelven el valor por el cual se consultó, pero no permiten seguir llamando a más métodos en dicho valor.
 
@@ -355,25 +355,25 @@ los elementos.
 
 
 > **Nota**
-> 
+>
 > Las propiedades CSS que incluyen como separador un guión del medio, en JavaScript deben ser transformadas a su estilo *CamelCase*. Por ejemplo, cuando se la utiliza como propiedad de un método, el estilo CSS `font-size` deberá ser expresado como `fontSize`. Sin embargo, esta regla no es aplicada cuando se pasa el nombre de la propiedad CSS al método `$.fn.css` — en este caso, los dos formatos (en *CamelCase* o con el guión del medio) funcionarán.
 
 
 **Obtener propiedades CSS**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').css('fontSize'); // devuelve una cadena de caracteres como "19px"
 $('h1').css('font-size'); // también funciona
-~~~~
+```
 
 
 **Establecer propiedades CSS**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').css('fontSize', '100px'); // establece una propiedad individual CSS
-$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // establece múltiples 
+$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // establece múltiples
                                                         // propiedades CSS
-~~~~
+```
 
 *Notar que el estilo del argumento utilizado en la segunda línea del ejemplo — es un objeto que contiene múltiples propiedades. Esta es una forma común de pasar múltiples argumentos a una función, y muchos métodos establecedores de la biblioteca aceptan objetos para fijar varias propiedades de una sola vez.*
 
@@ -385,7 +385,7 @@ Para obtener valores de los estilos aplicados a un elemento, el método `$.fn.cs
 
 **Trabajar con clases**
 
-~~~~ {.brush: .js}
+```javascript
 var $h1 = $('h1');
 
 $h1.addClass('big');
@@ -393,7 +393,7 @@ $h1.removeClass('big');
 $h1.toggleClass('big');
 
 if ($h1.hasClass('big')) { ... }
-~~~~
+```
 
 Las clases también pueden ser útiles para guardar información del estado de un elemento, por ejemplo, para indicar que un elemento fue seleccionado.
 
@@ -408,18 +408,18 @@ El código mostrado en el ejemplo "Métodos básicos sobre Dimensiones" es solo 
 
 **Métodos básicos sobre Dimensiones**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').width('50px');   // establece el ancho de todos los elementos H1
 $('h1').width();         // obtiene el ancho del primer elemento H1
 
 $('h1').height('50px');  // establece el alto de todos los elementos H1
 $('h1').height();        // obtiene el alto del primer elemento H1
 
-$('h1').position();      // devuelve un objeto conteniendo 
+$('h1').position();      // devuelve un objeto conteniendo
                          // información sobre la posición
                          // del primer elemento relativo al
                          // "offset" (posición) de su elemento padre
-~~~~
+```
 
 
 
@@ -432,23 +432,23 @@ El método `$.fn.attr` actúa tanto como método establecedor como obtenedor. Ad
 
 **Establecer atributos**
 
-~~~~ {.brush: .js}
+```javascript
 $('a').attr('href', 'allMyHrefsAreTheSameNow.html');
 $('a').attr({
     'title' : 'all titles are the same too',
     'href' : 'somethingNew.html'
 });
-~~~~
+```
 
 *En el ejemplo, el objeto pasado como argumento está escrito en varias líneas. Como se explicó anteriormente, los espacios en blanco no importan en JavaScript, por lo cual, es libre de utilizarlos para hacer el código más legible. En entornos de producción, se pueden utilizar herramientas de minificación, los cuales quitan los espacios en blanco (entre otras cosas) y comprimen el archivo final.*
 
 
 **Obtener atributos**
 
-~~~~ {.brush: .js}
-$('a').attr('href');  // devuelve el atributo href perteneciente 
+```javascript
+$('a').attr('href');  // devuelve el atributo href perteneciente
                       // al primer elemento <a> del documento
-~~~~
+```
 
 
 
@@ -461,32 +461,32 @@ En [http://api.jquery.com/category/traversing/](http://api.jquery.com/category/t
 
 
 > **Nota**
-> 
+>
 > Debe ser cuidadoso en recorrer largas distancias en un documento — recorridos complejos obligan que la estructura del documento sea siempre la misma, algo que es difícil de garantizar. Uno -o dos- pasos para el recorrido esta bien, pero generalmente hay que evitar atravesar desde un contenedor a otro.
 
 
 
 **Moverse a través del DOM utilizando métodos de recorrido**
 
-~~~~ {.brush: .js}
-$('h1').next('p');              // seleccionar el inmediato y próximo 
+```javascript
+$('h1').next('p');              // seleccionar el inmediato y próximo
                                 // elemento <p> con respecto a H1
-$('div:visible').parent();      // seleccionar el elemento contenedor 
+$('div:visible').parent();      // seleccionar el elemento contenedor
                                 // a un div visible
-$('input[name=first_name]').closest('form');  // seleccionar el elemento 
+$('input[name=first_name]').closest('form');  // seleccionar el elemento
                                               // <form> más cercano a un input
-$('#myList').children();        // seleccionar todos los elementos 
+$('#myList').children();        // seleccionar todos los elementos
                                 // hijos de #myList
-$('li.selected').siblings();    // seleccionar todos los items 
+$('li.selected').siblings();    // seleccionar todos los items
                                 // hermanos del elemento <li>
-~~~~
+```
 
 También es posible interactuar con la selección utilizando el método `$.fn.each`. Dicho método interactúa con todos los elementos obtenidos en la selección y ejecuta una función por cada uno. La función recibe como argumento el índice del elemento actual y al mismo elemento. De forma predeterminada, dentro de la función, se puede hacer referencia al elemento DOM a través de la declaración `this`.
 
 
 **Interactuar en una selección**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myList li').each(function(idx, el) {
     console.log(
         'El elemento ' + idx +
@@ -494,7 +494,7 @@ $('#myList li').each(function(idx, el) {
         $(el).html()
     );
 });
-~~~~
+```
 
 
 
@@ -519,7 +519,7 @@ Existen muchas formas por las cuales de puede modificar un elemento. Entre las t
 
 > **Nota**
 >
-> Cuando los métodos actúan como obtenedores, por lo general, solamente trabajan con el primer elemento de la selección. Además no devuelven un objeto jQuery, por lo cual no es posible encadenar más métodos en el mismo. Una excepción es el método `$.fn.text`, el cual permite obtener el texto de los elementos de la selección. 
+> Cuando los métodos actúan como obtenedores, por lo general, solamente trabajan con el primer elemento de la selección. Además no devuelven un objeto jQuery, por lo cual no es posible encadenar más métodos en el mismo. Una excepción es el método `$.fn.text`, el cual permite obtener el texto de los elementos de la selección.
 
 
  $.fn.html
@@ -546,10 +546,10 @@ Existen muchas formas por las cuales de puede modificar un elemento. Entre las t
 
 **Cambiar el HTML de un elemento**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myDiv p:first')
     .html('Nuevo <strong>primer</strong> párrafo');
-~~~~
+```
 
 
 
@@ -568,7 +568,7 @@ La utilización de uno u otro método dependerá de los elementos que tenga sele
 
 **Mover elementos utilizando diferentes enfoques**
 
-~~~~ {.brush: .js}
+```javascript
 // hacer que el primer item de la lista sea el último
 var $li = $('#myList li:first').appendTo('#myList');
 
@@ -578,7 +578,7 @@ $('#myList').append($('#myList li:first'));
 // debe tener en cuenta que no hay forma de acceder a la
 // lista de items que se ha movido, ya que devuelve
 // la lista en sí
-~~~~
+```
 
 
 
@@ -589,13 +589,13 @@ Cuando se utiliza un método como `$.fn.appendTo`, lo que se está haciendo es m
 
 **Obtener una copia del elemento**
 
-~~~~ {.brush: .js}
+```javascript
 // copiar el primer elemento de la lista y moverlo al final de la misma
 $('#myList li:first').clone().appendTo('#myList');
-~~~~
+```
 
 > **Nota**
-> 
+>
 > Si se necesita copiar información y eventos relacionados al elemento, se debe pasar `true` como argumento de `$.fn.clone`.
 
 
@@ -605,7 +605,7 @@ $('#myList li:first').clone().appendTo('#myList');
 Existen dos formas de remover elementos de una página: Utilizando `$.fn.remove` o `$.fn.detach`. Cuando desee remover de forma permanente al elemento, utilize el método `$.fn.remove`. Por otro lado, el método $.fn.detach también remueve el elemento, pero mantiene la información y eventos asociados al mismo, siendo útil en el caso que necesite reinsertar el elemento en el documento.
 
 > **Nota**
-> 
+>
 > El método `$.fn.detach` es muy útil cuando se esta manipulando de forma severa un elemento, ya que es posible eliminar al elemento, trabajarlo en el código y luego restaurarlo en la página nuevamente. Esta forma tiene como beneficio no tocar el DOM mientras se está modificando la información y eventos del elemento.
 
 Por otro lado, si se desea mantener al elemento pero se necesita eliminar su contenido, es posible utiliza el método `$.fn.empty`, el cual "vaciará" el contenido HTML del elemento.
@@ -619,21 +619,21 @@ jQuery provee una forma fácil y elegante para crear nuevos elementos a través 
 
 **Crear nuevos elementos**
 
-~~~~ {.brush: .js}
+```javascript
 $('<p>Un nuevo párrafo</p>');
 $('<li class="new">nuevo item de la lista</li>');
-~~~~
+```
 
 
 **Crear un nuevo elemento con atributos utilizando un objeto**
 
-~~~~ {.brush: .js}
+```javascript
 $('<a/>', {
     html : 'Un <strong>nuevo</strong> enlace',
     'class' : 'new',
     href : 'foo.html'
 });
-~~~~
+```
 
 *Note que en el objeto que se pasa como argumento, la propiedad class está entre comillas, mientras que la propiedad href y html no lo están. Por lo general, los nombres de propiedades no deben estar entre comillas, excepto en el caso que se utilice como nombre una palabra reservada (como es el caso de class).*
 
@@ -642,32 +642,32 @@ Cuando se crea un elemento, éste no es añadido inmediatamente a la página, si
 
 **Crear un nuevo elemento en la página**
 
-~~~~ {.brush: .js}
+```javascript
 var $myNewElement = $('<p>Nuevo elemento</p>');
 $myNewElement.appendTo('#content');
 
-$myNewElement.insertAfter('ul:last'); // eliminará al elemento <p> 
+$myNewElement.insertAfter('ul:last'); // eliminará al elemento <p>
                                       // existente en #content
-$('ul').last().after($myNewElement.clone());  // clonar al elemento <p> 
+$('ul').last().after($myNewElement.clone());  // clonar al elemento <p>
                                               // para tener las dos versiones
-~~~~
+```
 
 *Estrictamente hablando, no es necesario guardar al elemento creado en una variable — es posible llamar al método para añadir el elemento directamente después de $(). Sin embargo, la mayoría de las veces se deseará hacer referencia al elemento añadido, por lo cual, si se guarda en una variable no es necesario seleccionarlo después.*
 
 
 **Crear y añadir al mismo tiempo un elemento a la página**
 
-~~~~ {.brush: .js}
+```javascript
 $('ul').append('<li>item de la lista</li>');
-~~~~
+```
 
 
 > **Nota**
-> 
+>
 > La sintaxis para añadir nuevos elementos a la página es muy fácil de utilizar, pero es tentador olvidar que hay un costo enorme de rendimiento al agregar elementos al DOM de forma repetida. Si esta añadiendo muchos elementos al mismo contenedor, en lugar de añadir cada elemento uno por vez, lo mejor es concatenar todo el HTML en una única cadena de caracteres para luego anexarla al contenedor. Una posible solución es utilizar un arreglo que posea todos los elementos, luego reunirlos utilizando `join` y finalmente anexarla.
 
 
-~~~~ {.brush: .js}
+```javascript
 var myItems = [], $myList = $('#myList');
 
 for (var i=0; i<100; i++) {
@@ -675,7 +675,7 @@ for (var i=0; i<100; i++) {
 }
 
 $myList.append(myItems.join(''));
-~~~~
+```
 
 
 
@@ -686,24 +686,24 @@ Las capacidades para la manipulación de atributos que ofrece la biblioteca son 
 
 **Manipular un simple atributo**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myDiv a:first').attr('href', 'newDestination.html');
-~~~~
+```
 
 
 **Manipular múltiples atributos**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myDiv a:first').attr({
     href : 'newDestination.html',
     rel : 'super-special'
 });
-~~~~
+```
 
 
 **Utilizar una función para determinar el valor del nuevo atributo**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myDiv a:first').attr({
     rel : 'super-special',
     href : function(idx, href) {
@@ -714,7 +714,7 @@ $('#myDiv a:first').attr({
 $('#myDiv a:first').attr('href', function(idx, href) {
     return '/new/' + href;
 });
-~~~~
+```
 
 
 
@@ -762,9 +762,9 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio u
 
 1.  Añadir 5 nuevos ítems al final de la lista desordenada #myList. Ayuda:
 
-~~~~ {.brush: .js}
+```javascript
 for (var i = 0; i<5; i++) { ... }
-~~~~
+```
 
 2.  Remover los ítems impares de la lista.
 

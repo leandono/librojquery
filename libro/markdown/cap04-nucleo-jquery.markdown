@@ -6,9 +6,9 @@
 
 Hasta ahora, se ha tratado completamente con métodos que se llaman desde el objeto jQuery. Por ejemplo:
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').remove();
-~~~~
+```
 
 Dichos métodos son parte del espacio de nombres (en inglés *namespace*) `$.fn`, o del prototipo (en inglés *prototype*) de jQuery, y son considerados como métodos del objeto jQuery.
 
@@ -31,15 +31,15 @@ jQuery ofrece varios métodos utilitarios dentro del espacio de nombres `$`. Est
  $.trim
   ~ Remueve los espacios en blanco del principio y final.
 
-~~~~ {.brush: .js}
+```javascript
 $.trim('    varios espacios en blanco   ');
 // devuelve 'varios espacios en blanco'
-~~~~
+```
 
  $.each
   ~ Interactúa en arreglos y objetos.
 
-~~~~ {.brush: .js}
+```javascript
 $.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
     console.log('elemento ' + idx + 'es ' + val);
 });
@@ -47,7 +47,7 @@ $.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
 $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
     console.log(k + ' : ' + v);
 });
-~~~~
+```
 
 
 >   **Nota**
@@ -58,41 +58,41 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
  $.inArray
   ~ Devuelve el índice de un valor en un arreglo, o -1 si el valor no se encuentra en el arreglo.
 
-~~~~ {.brush: .js}
+```javascript
 var myArray = [ 1, 2, 3, 5 ];
 
 if ($.inArray(4, myArray) !== -1) {
     console.log('valor encontrado');
 }
-~~~~
+```
 
  $.extend
   ~ Cambia la propiedades del primer objeto utilizando las propiedades de los subsecuentes objetos.
 
-~~~~ {.brush: .js}
+```javascript
 var firstObject = { foo : 'bar', a : 'b' };
 var secondObject = { foo : 'baz' };
 
 var newObject = $.extend(firstObject, secondObject);
 console.log(firstObject.foo); // 'baz'
 console.log(newObject.foo);   // 'baz'
-~~~~
+```
 
 Si no se desea cambiar las propiedades de ninguno de los objetos que se utilizan en `$.extend`, se debe incluir un objeto vacío como primer argumento.
 
-~~~~ {.brush: .js}
+```javascript
 var firstObject = { foo : 'bar', a : 'b' };
 var secondObject = { foo : 'baz' };
 
 var newObject = $.extend({}, firstObject, secondObject);
 console.log(firstObject.foo); // 'bar'
 console.log(newObject.foo);   // 'baz'
-~~~~
+```
 
  $.proxy
   ~ Devuelve una función que siempre se ejecutará en el alcance (*scope*) provisto — en otras palabras, establece el significado de *this* (incluido dentro de la función) como el segundo argumento.
 
-~~~~ {.brush: .js}
+```javascript
 var myFunction = function() { console.log(this); };
 var myObject = { foo : 'bar' };
 
@@ -100,11 +100,11 @@ myFunction(); // devuelve el objeto window
 
 var myProxyFunction = $.proxy(myFunction, myObject);
 myProxyFunction(); // devuelve el objeto myObject
-~~~~
+```
 
 Si se posee un objeto con métodos, es posible pasar dicho objeto y el nombre de un método para devolver una función que siempre se ejecuta en el alcance de dicho objeto.
 
-~~~~ {.brush: .js}
+```javascript
 var myObject = {
     myFn : function() {
         console.log(this);
@@ -113,7 +113,7 @@ var myObject = {
 
 $('#foo').click(myObject.myFn); // registra el elemento DOM #foo
 $('#foo').click($.proxy(myObject, 'myFn')); // registra myObject
-~~~~
+```
 
 
 
@@ -124,7 +124,7 @@ Como se mencionó en el capítulo "Conceptos Básicos de JavaScript", jQuery ofr
 
 **Comprobar el tipo de un determinado valor**
 
-~~~~ {.brush: .js}
+```javascript
 var myValue = [1, 2, 3];
 
 // Utilizar el operador typeof de JavaScript para comprobar tipos primitivos
@@ -140,7 +140,7 @@ myValue === null; // falso (false)
 jQuery.isFunction(myValue); // falso (false)
 jQuery.isPlainObject(myValue); // falso (false)
 jQuery.isArray(myValue); // verdadero (true)
-~~~~
+```
 
 
 
@@ -151,19 +151,19 @@ A menudo encontrará que existe información acerca de un elemento que necesita 
 
 **Guardar y recuperar información relacionada a un elemento**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myDiv').data('keyName', { foo : 'bar' });
 $('#myDiv').data('keyName'); // { foo : 'bar' }
-~~~~
+```
 
 A través del método `$.fn.data` es posible guardar cualquier tipo de información sobre un elemento, y es difícil exagerar la importancia de este concepto cuando se está desarrollando una aplicación compleja.
- 
+
 Por ejemplo, si desea establecer una relación entre el ítem de una lista y el div que hay dentro de este ítem, es posible hacerlo cada vez que se interactúa con el ítem, pero una mejor solución es hacerlo una sola vez, guardando un puntero al div utilizando el método `$.fn.data`:
 
 **Establecer una relación entre elementos utilizando el método
 `$.fn.data`**
 
-~~~~ {.brush: .js}
+```javascript
 $('#myList li').each(function() {
     var $li = $(this), $div = $li.find('div.content');
     $li.data('contentDiv', $div);
@@ -173,7 +173,7 @@ $('#myList li').each(function() {
 // es posible leerlo desde la información asociada al item de la lista
 var $firstLi = $('#myList li:first');
 $firstLi.data('contentDiv').html('nuevo contenido');
-~~~~
+```
 
 Además es posible pasarle al método un objeto conteniendo uno o más pares de conjuntos palabra clave-valor.
 
@@ -200,21 +200,21 @@ Cuando se pone a jQuery en modo "no-conflicto", la biblioteca ofrece la opción 
 
 **Poner a jQuery en modo no-conflicto**
 
-~~~~ {.brush: .js}
-<script src="prototype.js"></script>             // la biblioteca prototype 
+```javascript
+<script src="prototype.js"></script>             // la biblioteca prototype
                                                  // también utiliza $
-<script src="jquery.js"></script>                // se carga jquery 
+<script src="jquery.js"></script>                // se carga jquery
                                                  // en la página
-<script>var $j = jQuery.noConflict();</script>   // se inicializa 
+<script>var $j = jQuery.noConflict();</script>   // se inicializa
                                                  // el modo "no-conflicto"
-~~~~
+```
 
 También es posible seguir utilizando `$` conteniendo el código en una función anónima autoejecutable. Éste es un patrón estándar para la creación de extensiones para la biblioteca, ya que `$` queda encerrada dentro del alcance de la misma función anónima.
 
 
 **Utilizar $ dentro de una función anónima autoejecutable**
 
-~~~~ {.brush: .js}
+```javascript
 <script src="prototype.js"></script>
 <script src="jquery.js"></script>
 <script>
@@ -224,7 +224,7 @@ jQuery.noConflict();
    // el código va aquí, pudiendo utilizar $
 })(jQuery);
 </script>
-~~~~
+```
 
 
 

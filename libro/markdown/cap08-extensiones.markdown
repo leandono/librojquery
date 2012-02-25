@@ -18,7 +18,7 @@ Usted puede realizar sus propias extensiones y utilizarlas de forma privada en s
 
 El código para realizar una extensión básica es la siguiente:
 
-~~~~ {.brush: .js}
+```javascript
 (function($){
     $.fn.myNewPlugin = function() {
         return this.each(function(){
@@ -26,37 +26,37 @@ El código para realizar una extensión básica es la siguiente:
         });
     };
 })(jQuery);
-~~~~
+```
 
 La extensión del prototipo del objeto jQuery ocurre en la siguiente línea:
 
-~~~~ {.brush: .js}
+```javascript
 $.fn.myNewPlugin = function() { //...
-~~~~
+```
 
 La cual es encerrada en una función autoejecutable:
 
-~~~~ {.brush: .js}
+```javascript
 (function($){
     //...
 })(jQuery);
-~~~~
+```
 
 Esta posee la ventaja de crear un alcance "privado", permitiendo utilizar el signo dolar sin tener la preocupación de que otra biblioteca también este utilizando dicho signo.
 
 Por ahora, internamente la extensión queda:
 
-~~~~ {.brush: .js}
+```javascript
 $.fn.myNewPlugin = function() {
     return this.each(function(){
         // realizar algo
     });
 };
-~~~~
+```
 
 Dentro de ella, la palabra clave `this` hace referencia al objeto jQuery en donde la extensión es llamada.
 
-~~~~ {.brush: .js}
+```javascript
 var somejQueryObject = $('#something');
 
 $.fn.myNewPlugin = function() {
@@ -64,23 +64,23 @@ $.fn.myNewPlugin = function() {
 };
 
 somejQueryObject.myNewPlugin(); // muestra un alerta con 'true'
-~~~~
+```
 
 El objeto jQuery, normalmente, contendrá referencias a varios elementos DOM, es por ello que a menudo se los refiere como una colección.
 
 Para interactuar con la colección de elementos, es necesario realizar un bucle, el cual se logra fácilmente con el método `each()`:
 
-~~~~ {.brush: .js}
+```javascript
 $.fn.myNewPlugin = function() {
     return this.each(function(){
 
     });
 };
-~~~~
+```
 
 Al igual que otros métodos, `each()` devuelve un objeto jQuery, permitiendo utilizar el encadenado de métodos (`$(...).css().attr()...`). Para no romper esta convención, la extensión a crear deberá devolver el objeto `this`, para permitir seguir con el encadenamiento. A continuación se muestra un pequeño ejemplo:
 
-~~~~ {.brush: .js}
+```javascript
 (function($){
     $.fn.showLinkLocation = function() {
         return this.filter('a').each(function(){
@@ -93,21 +93,21 @@ Al igual que otros métodos, `each()` devuelve un objeto jQuery, permitiendo uti
 
 // Ejemplo de utilización:
 $('a').showLinkLocation();
-~~~~
+```
 
 La extensión modificará todos los enlaces dentro de la colección de elementos y les añadirá el valor de su atributo `href` entre paréntesis.
 
-~~~~ {.brush: .js}
+```javascript
 <!-- Antes que la extensión sea llamada: -->
 <a href="page.html">Foo</a>
 
 <!-- Después que la extensión es llamada: -->
 <a href="page.html">Foo (page.html)</a>
-~~~~
+```
 
 También es posible optimizar la extensión:
 
-~~~~ {.brush: .js}
+```javascript
 (function($){
     $.fn.showLinkLocation = function() {
         return this.filter('a').append(function(){
@@ -115,13 +115,13 @@ También es posible optimizar la extensión:
         });
     };
 })(jQuery);
-~~~~
+```
 
 El método `append` permite especificar una función de devolución de llamada, y el valor devuelto determinará que es lo que se añadirá a cada elemento. Note también que no se utiliza el método `attr`, debido a que la API nativa del DOM permite un fácil acceso a la propiedad `href`.
 
 A continuación se muestra otro ejemplo de extensión. En este caso, no se requiere realizar un bucle en cada elemento ya que se delega la funcionalidad directamente en otro método jQuery:
 
-~~~~ {.brush: .js}
+```javascript
 (function($){
     $.fn.fadeInAndAddClass = function(duration, className) {
         return this.fadeIn(duration, function(){
@@ -132,7 +132,7 @@ A continuación se muestra otro ejemplo de extensión. En este caso, no se requi
 
 // Ejemplo de utilización:
 $('a').fadeInAndAddClass(400, 'finishedFading');
-~~~~
+```
 
 
 
@@ -161,7 +161,7 @@ A continuación se muestra un ejemplo:
 
 **Crear una extensión para añadir y remover una clase en un elemento al suceder el evento hover**
 
-~~~~ {.brush: .js}
+```javascript
 // definición de la extensión
 (function($){
     $.fn.hoverClass = function(c) {
@@ -173,14 +173,14 @@ A continuación se muestra un ejemplo:
 
 // utilizar la extensión
 $('li').hoverClass('hover');
-~~~~
+```
 
 Para más información sobre el desarrollo de extensiones, puede consultar el artículo (en inglés) [A Plugin Development Pattern](http://www.learningjquery.com/2007/10/a-plugin-development-pattern) de Mike Alsup. En dicho artículo, se desarrolla una extensión llamada `$.fn.hilight`, la cual provee soporte para la extensión [metadata](http://plugins.jquery.com/project/metadata) (en caso de estar presente) y provee un método descentralizado para establecer opciones globales o de instancias de la extensión.
 
 
 **El patrón de desarrollo de extensiones para jQuery explicado por Mike Alsup**
 
-~~~~ {.brush: .js}
+```javascript
 //
 // crear una clausura
 //
@@ -232,7 +232,7 @@ Para más información sobre el desarrollo de extensiones, puede consultar el ar
 // fin de la clausura
 //
 })(jQuery);
-~~~~
+```
 
 
 
@@ -240,7 +240,7 @@ Para más información sobre el desarrollo de extensiones, puede consultar el ar
 
 
 > **Nota**
-> 
+>
 > Esta sección esta basada, con permiso del autor, en el artículo [Building Stateful jQuery Plugins](http://blog.nemikor.com/2010/05/15/building-stateful-jquery-plugins/) de Scott Gonzalez.
 
 
@@ -257,7 +257,7 @@ Existen dos importantes diferencias en comparación con una extensión estándar
 
 **Una simple extensión con mantenimiento de estado utilizando widget factory de jQuery UI**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget("nmk.progressbar", {
     _create: function() {
         var progress = this.options.value + "%";
@@ -266,23 +266,23 @@ $.widget("nmk.progressbar", {
             .text(progress);
     }
 });
-~~~~
+```
 
 El nombre de la extensión debe contener un espacio de nombres, en este caso se utiliza `nmk`. Los espacios de nombres tienen una limitación de un solo nivel de profundidad — es decir que por ejemplo, no es posible utilizar `nmk.foo`. Como se puede ver en el ejemplo, *widget factory* provee dos propiedades para ser utilizadas. La primera, `this.element` es un objeto jQuery que contiene exactamente un elemento. En caso que la extensión sea ejecutada en más de un elemento, una instancia separada de la extensión será creada por cada elemento y cada una tendrá su propio `this.element`. La segunda propiedad, `this.options`, es un conjunto de pares clave/valor con todas las opciones de la extensión. Estas opciones pueden pasarse a la extensión como se muestra a continuación:
 
 
 > **Nota**
-> 
+>
 > Cuando esté realizando sus propias extensiones es recomendable utilizar su propio espacio de nombres, ya que deja en claro de donde proviene la extensión y si es parte de una colección mayor. Por otro lado, el espacio de nombres `ui` está reservado para las extensiones oficiales de jQuery UI.
 
 
 **Pasar opciones al widget**
 
-~~~~ {.brush: .js}
+```javascript
 $("<div></div>")
     .appendTo( "body" )
     .progressbar({ value: 20 });
-~~~~
+```
 
 Cuando se llama a `jQuery.widget` se extiende a jQuery añadiendo el método a `jQuery.fn` (de la misma forma que cuando se crea una extensión estándar). El nombre de la función que se añade esta basado en el nombre que se pasa a `jQuery.widget`, sin el espacio de nombres (en este caso el nombre será `jQuery.fn.progressbar`).
 
@@ -291,7 +291,7 @@ Como se muestra a continuación, es posible especificar valores predeterminados 
 
 **Establecer opciones predeterminadas para un widget**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget("nmk.progressbar", {
     // opciones predeterminadas
     options: {
@@ -305,7 +305,7 @@ $.widget("nmk.progressbar", {
             .text( progress );
     }
 });
-~~~~
+```
 
 
 
@@ -315,7 +315,7 @@ Ahora que es posible inicializar la extensión, es necesario añadir la habilida
 
 **Crear métodos en el Widget**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -352,14 +352,14 @@ $.widget("nmk.progressbar", {
         return value;
     }
 });
-~~~~
+```
 
 Para llamar a un método en una instancia de la extensión, se debe pasar  el nombre de dicho método a la extensión. En caso que se llame a un método que acepta parámetros, estos se deben pasar a continuación del nombre del método.
 
 
 **Llamar a métodos en una instancia de extensión**
 
-~~~~ {.brush: .js}
+```javascript
 var bar = $("<div></div>")
     .appendTo("body")
     .progressbar({ value: 20 });
@@ -372,11 +372,11 @@ bar.progressbar("value", 50);
 
 // obtiene el valor nuevamente
 alert(bar.progressbar("value"));
-~~~~
+```
 
 
 > **Nota**
-> 
+>
 > Ejecutar métodos pasando el nombre del método a la misma función jQuery que se utiliza para inicializar la extensión puede parecer extraño, sin embargo es realizado así para prevenir la "contaminación" del espacio de nombres de jQuery manteniendo al mismo tiempo la capacidad de llamar a métodos en cadena.
 
 
@@ -387,7 +387,7 @@ Uno de los métodos disponibles automáticamente para la extensión es `option`.
 
 **Responder cuando una opción es establecida**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -408,7 +408,7 @@ $.widget("nmk.progressbar", {
         this.element.text(progress);
     }
 });
-~~~~
+```
 
 
 
@@ -419,7 +419,7 @@ Uno de las maneras más fáciles de extender una extensión es añadir funciones
 
 **Proveer funciones de devolución de llamada**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -443,7 +443,7 @@ $.widget("nmk.progressbar", {
         }
     }
 });
-~~~~
+```
 
 Las funciones de devolución son esencialmente sólo opciones adicionales, por lo cual, pueden ser establecidas como cualquier otra opción. Cada vez que una función de devolución es ejecutada, un evento correspondiente se activa también. El tipo de evento se determina mediante la concatenación del nombre de la extensión y el nombre de la función de devolución. Dicha función y evento reciben dos mismos parámetros: un objeto de evento y un conjunto de información relevante al evento.
 
@@ -452,7 +452,7 @@ Si la extensión tendrá alguna funcionalidad que podrá ser cancelada por el us
 
 **Vincular a eventos del widget**
 
-~~~~ {.brush: .js}
+```javascript
 var bar = $("<div></div>")
     .appendTo("body")
     .progressbar({
@@ -465,7 +465,7 @@ var bar = $("<div></div>")
     });
 
 bar.progressbar("option", "value", 100);
-~~~~
+```
 
 
 **En profundidad: Widget Factory**
@@ -474,7 +474,7 @@ Cuando se llama a `jQuery.widget`, ésta crea una función constructora para la 
 
 Debido a que la instancia de la extensión esta directamente vinculada al elemento DOM, es posible acceder a la instancia de la extensión de forma directa. Esto permite llamar a métodos directamente en la instancia de la extensión en lugar de pasar el nombre del método como una cadena de caracteres, dando la posibilidad de acceder a las propiedades de la extensión.
 
-~~~~ {.brush: .js}
+```javascript
 var bar = $("<div></div>")
     .appendTo("body")
     .progressbar()
@@ -485,15 +485,15 @@ bar.option("value", 50);
 
 // acceder a propiedades en la instancia de la extensión
 alert(bar.options.value);
-~~~~
+```
 
 Uno de los mayores beneficios de tener un constructor y un prototipo para una extensión es la facilidad de extender la extensión. El hecho de añadir o cambiar métodos en el prototipo de la extensión, permite también modificarlos en todas las instancias de la extensión. Por ejemplo, si deseamos añadir un método a la extensión de barra de progreso para permitir restablecer el progreso a 0%, es posible hacerlo añadiendo este método al prototipo y automáticamente estará disponible para ser llamada desde cualquier instancia de la extensión.
 
-~~~~ {.brush: .js}
+```javascript
 $.nmk.progressbar.prototype.reset = function() {
     this._setOption("value", 0);
 };
-~~~~
+```
 
 
 
@@ -504,7 +504,7 @@ En algunos casos, tendrá sentido permitir a los usuarios aplicar y desaplicar l
 
 **Añadir un método destroy al widget**
 
-~~~~ {.brush: .js}
+```javascript
 $.widget( "nmk.progressbar", {
     options: {
         value: 0
@@ -537,7 +537,7 @@ $.widget( "nmk.progressbar", {
         $.Widget.prototype.destroy.call(this);
     }
 });
-~~~~
+```
 
 
 
@@ -561,9 +561,9 @@ Para este ejercicio, la tarea es identificar, descargar e implementar una extens
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/stripe.js`. La tarea es escribir una extensión llamada "stripe" la cual podrá ser llamada desde cualquier elemento table y deberá cambiar el color de fondo de las filas impares en el cuerpo de la tabla. El color podrá ser especificado como parámetro de la extensión.
 
-~~~~ {.brush: .js}
+```javascript
 $('#myTable').stripe('#cccccc');
-~~~~
+```
 
 No olvide de devolver la tabla para que otros métodos puedan ser encadenados luego de la llamada a la extensión.
 

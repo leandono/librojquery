@@ -16,20 +16,20 @@ En un primer momento puede ser difícil entender el requisito de utilizar evento
 
 Un ejemplo es la mejor forma de explicar el asunto. Suponga que posee una lámpara incandescente en una habitación de una casa. La lámpara actualmente esta encendida. La misma es controlada por dos interruptores de tres posiciones y un *clapper* (interruptor activado por aplausos):
 
-~~~~ {.brush: .js}
+```xml
 <div class="room" id="kitchen">
     <div class="lightbulb on"></div>
     <div class="switch"></div>
     <div class="switch"></div>
     <div class="clapper"></div>
 </div>
-~~~~
+```
 
 Ejecutando el *clapper* o alguno de los interruptores, el estado de la lampara cambia. A los interruptores o al *clapper* no le interesan si la lámpara esta prendida o apagada, tan solo quieren cambiar su estado
 
 Sin la utilización de eventos personalizados, es posible escribir la rutina de la siguiente manera:
 
-~~~~ {.brush: .js}
+```javascript
 $('.switch, .clapper').click(function() {
     var $light = $(this).parent().find('.lightbulb');
     if ($light.hasClass('on')) {
@@ -38,11 +38,11 @@ $('.switch, .clapper').click(function() {
         $light.removeClass('off').addClass('on');
     }
 });
-~~~~
+```
 
 Por otro lado, utilizando eventos personalizados, el código queda así:
 
-~~~~ {.brush: .js}
+```javascript
 $('.lightbulb').bind('changeState', function(e) {
     var $light = $(this);
     if ($light.hasClass('on')) {
@@ -55,13 +55,13 @@ $('.lightbulb').bind('changeState', function(e) {
 $('.switch, .clapper').click(function() {
     $(this).parent().find('.lightbulb').trigger('changeState');
 });
-~~~~
+```
 
 Algo importante ha sucedido: el comportamiento de la lámpara se ha movido, antes estaba en los interruptores y en el *clapper*, ahora se encuentra en la misma lámpara.
 
 También es posible hacer el ejemplo un poco más interesante. Suponga que se ha añadido otra habitación a la casa, junto con un interruptor general, como se muestra a continuación:
 
-~~~~ {.brush: .js}
+```javascript
 <div class="room" id="kitchen">
     <div class="lightbulb on"></div>
     <div class="switch"></div>
@@ -75,11 +75,11 @@ También es posible hacer el ejemplo un poco más interesante. Suponga que se ha
     <div class="clapper"></div>
 </div>
 <div id="master_switch"></div>
-~~~~
+```
 
 Si existe alguna lámpara prendida en la casa, es posible apagarlas a través del interruptor general, de igual forma si existen luces apagadas, es posible prenderlas con dicho interruptor. Para realizar esta tarea, se agregan dos eventos personalizados más a la lámpara: `turnOn` y `turnOff`. A través de una lógica en el evento `changeState` se decide qué evento personalizado utilizar:
 
-~~~~ {.brush: .js}
+```javascript
 $('.lightbulb')
     .bind('changeState', function(e) {
         var $light = $(this);
@@ -107,13 +107,13 @@ $('#master_switch').click(function() {
         $('.lightbulb').trigger('turnOn');
     }
 });
-~~~~
+```
 
 Note como el comportamiento del interruptor general se ha vinculado al interruptor general mientras que el comportamiento de las lámparas pertenece a las lámparas.
 
 
 > **Nota**
-> 
+>
 > Si esta acostumbrado a la programación orientada a objetos, puede resultar útil pensar de los eventos personalizados como métodos de objetos. En términos generales, el objeto al que pertenece el método se crea a partir del selector jQuery. Vincular el evento personalizado `changeState` a todos los elementos `$(‘.light’)` es similar a tener una clase llamada `Light` con un método `changeState`, y luego instanciar nuevos objetos `Light` por cada elemento.
 
 
@@ -127,7 +127,7 @@ En el mundo de los eventos personalizados, existen dos métodos importantes de j
 
 A continuación se muestra un ejemplo de utilización de `$.fn.bind` y `$.fn.trigger` en donde se utiliza información personalizada en ambos casos:
 
-~~~~ {.brush: .js}
+```javascript
 $(document).bind('myCustomEvent', { foo : 'bar' }, function(e, arg1, arg2) {
     console.log(e.data.foo); // 'bar'
     console.log(arg1); // 'bim'
@@ -135,7 +135,7 @@ $(document).bind('myCustomEvent', { foo : 'bar' }, function(e, arg1, arg2) {
 });
 
 $(document).trigger('myCustomEvent', [ 'bim', 'baz' ]);
-~~~~
+```
 
 
 
@@ -158,7 +158,7 @@ El resultado final de la aplicación será el siguiente:
 
 Se empieza con un HTML básico:
 
-~~~~ {.brush: .js}
+```javascript
 <h1>Twitter Search</h1>
 <input type="button" id="get_trends"
     value="Load Trending Terms" />
@@ -176,7 +176,7 @@ Se empieza con un HTML básico:
         <span class="search_term"></span></h2>
     </div>
 </div>
-~~~~
+```
 
 El HTML posee un contenedor (#twitter) para el widget, una plantilla para los resultados (oculto con CSS) y un simple formulario en donde el usuario puede escribir el término a buscar.
 
@@ -201,7 +201,7 @@ Los contenedores de resultados son el corazón de la aplicación. Se creará una
 
 Además, la extensión es responsable de añadir los botones de acciones al contenedor, vinculando un evento `click` a cada botón y utilizando la clase de cada ítem para determinar qué evento personalizado será ejecutado en cada contenedor de resultados.
 
-~~~~ {.brush: .js}
+```javascript
 $.fn.twitterResult = function(settings) {
     return this.each(function() {
         var $results = $(this),
@@ -314,7 +314,7 @@ $.fn.twitterResult.events = {
         $(this).removeClass('collapsed');
     }
 };
-~~~~
+```
 
 El contenedor *Twitter*, posee solo dos eventos personalizados:
 
@@ -326,7 +326,7 @@ El contenedor *Twitter*, posee solo dos eventos personalizados:
 
 Vinculaciones en el contenedor *Twitter*:
 
-~~~~ {.brush: .js}
+```javascript
 $('#twitter')
     .bind('getResults', function(e, term) {
         // se comprueba que ya no exista una caja para el término
@@ -358,13 +358,13 @@ $('#twitter')
                 });
             });
     });
-~~~~
+```
 
 Hasta ahora, se ha escrito una gran cantidad de código que no realiza nada, lo cual no esta mal. Se han especificado todos los comportamientos que se desean para los elementos núcleos y se ha creado un sólido marco para la creación rápida de la interfaz.
 
 A continuación, se conecta la caja de búsqueda y el botón para cargar los "Temas de moda". En la caja de texto, se captura el término ingresado y se pasa al mismo tiempo que se ejecuta el evento `getResults`. Por otro lado, haciendo click en el botón para cargar los "Temas de moda", se ejecuta el evento `getTrends`:
 
-~~~~ {.brush: .js}
+```javascript
 $('form').submit(function(e) {
     e.preventDefault();
     var term = $('#search_term').val();
@@ -374,11 +374,11 @@ $('form').submit(function(e) {
 $('#get_trends').click(function() {
     $('#twitter').trigger('getTrends');
 });
-~~~~
+```
 
 Añadiendo botones con un ID apropiado, es posible remover, colapsar, expandir y refrescar todos los contenedores de resultados al mismo tiempo. Para el botón que remueve el contenedor, notar que se esta pasando `true` al controlador del evento como segundo argumento, indicando que no se desea una confirmación del usuario para remover el contenedor.
 
-~~~~ {.brush: .js}
+```javascript
 $.each(['refresh', 'expand', 'collapse'], function(i, ev) {
     $('#' + ev).click(function(e) { $('#twitter div.results').trigger(ev); });
 });
@@ -388,7 +388,7 @@ $('#remove').click(function(e) {
         $('#twitter div.results').trigger('remove', [ true ]);
     }
 });
-~~~~
+```
 
 
 

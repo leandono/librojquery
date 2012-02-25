@@ -39,7 +39,7 @@ Un objeto literal es tal vez la manera más simple de encapsular código relacio
 
 **Un objeto literal**
 
-~~~~ {.brush: .js}
+```javascript
 var myFeature = {
     myProperty : 'hello',
 
@@ -60,11 +60,11 @@ myFeature.myProperty; // 'hello'
 myFeature.myMethod(); // registra 'hello'
 myFeature.init({ foo : 'bar' });
 myFeature.readSettings(); // registra { foo : 'bar' }
-~~~~
+```
 
 El objeto posee una propiedad y varios métodos, los cuales son públicos (es decir, cualquier parte de la aplicación puede verlos).  ¿Cómo se puede aplicar este patrón con jQuery? Por ejemplo, en el siguiente código escrito en el estilo tradicional:
 
-~~~~ {.brush: .js}
+```javascript
 // haciendo click en un item de la lista se carga cierto contenido,
 // luego utilizando el ID de dicho item se ocultan
 // los items aledaños
@@ -84,14 +84,14 @@ $(document).ready(function() {
       );
     });
 });
-~~~~
+```
 
 Si el ejemplo mostrado representa el 100% de la aplicación, es conveniente dejarlo como esta, ya que no amerita hacer una reestructuración. En cambio, si la pieza es parte de una aplicación más grande, estaría bien separar dicha funcionalidad de otras no relacionadas. Por ejemplo, es conveniente mover la URL a la cual se hace la petición fuera del código y pasarla al área de configuración. También romper la cadena de métodos para hacer luego más fácil la modificación.
 
 
 **Utilizar un objeto literal para una funcionalidad jQuery**
 
-~~~~ {.brush: .js}
+```javascript
 var myFeature = {
     init : function(settings) {
         myFeature.config = {
@@ -151,7 +151,7 @@ var myFeature = {
 };
 
 $(document).ready(myFeature.init);
-~~~~
+```
 
 La primera característica a notar es que el código es más largo que el original — como se dijo anteriormente, si este fuera el alcance de la aplicación, utilizar un objeto literal seria probablemente una exageración.
 
@@ -176,7 +176,7 @@ El patrón modular supera algunas limitaciones del objeto literal, ofreciendo pr
 
 **El patrón modular**
 
-~~~~ {.brush: .js}
+```javascript
 var feature =(function() {
 
     // variables y funciones privadas
@@ -205,7 +205,7 @@ feature.publicThing; // registra 'not secret'
 feature.sayPrivateThing();
 // registra 'secret' y cambia el valor
 // de privateThing
-~~~~
+```
 
 En el ejemplo, se autoejecuta una función anónima la cual devuelve un objeto. Dentro de la función, se definen algunas variables. Debido a que ellas son definidas dentro de la función, desde afuera no se tiene acceso a menos que se pongan dentro del objeto que se devuelve. Esto implica que ningún código fuera de la función tiene acceso a la variable `privateThing` o a la función `sayPrivateThing`. Sin embargo, `sayPrivateThing` posee acceso a `privateThing` y `changePrivateThing` debido a estar definidos en el mismo alcance.
 
@@ -216,7 +216,7 @@ A continuación se muestra una revisión del ejemplo visto anteriormente, con la
 
 **Utilizar el patrón modular para una funcionalidad jQuery**
 
-~~~~ {.brush: .js}
+```javascript
 $(document).ready(function() {
     var feature = (function() {
 
@@ -271,7 +271,7 @@ $(document).ready(function() {
 
     feature.showItemByIndex(0);
 });
-~~~~
+```
 
 
 
@@ -279,7 +279,7 @@ $(document).ready(function() {
 
 
 > **Nota**
-> 
+>
 > Esta sección esta basada en la excelente [ documentación de RequireJS](http://requirejs.org/docs/jquery.html) y es utilizada con el permiso de James Burke, autor de RequireJS.
 
 
@@ -304,7 +304,7 @@ Utilizar RequireJS es simple, tan solo es necesario incorporar en la página la 
 
 **Utilizar RequireJS: Un ejemplo simple**
 
-~~~~ {.brush: .js}
+```javascript
 <!DOCTYPE html>
 <html>
     <head>
@@ -316,27 +316,27 @@ Utilizar RequireJS es simple, tan solo es necesario incorporar en la página la 
         <h1>jQuery+RequireJS Sample Page</h1>
     </body>
 </html>
-~~~~
+```
 
 La llamada a `require(["app"])` le dice a RequireJS que cargue el archivo `scripts/app.js`. RequireJS cargará cualquier dependencia pasada a `require()` sin la extensión `.js` desde el mismo directorio que en que se encuentra el archivo `require-jquery.js`, aunque también es posible especificar la ruta de la siguiente forma:
 
-~~~~ {.brush: .js}
+```javascript
 <script>require(["scripts/app.js"]);</script>
-~~~~
+```
 
 El archivo `app.js` es otra llamada a `require.js` para cargar todos los archivos necesarios para la aplicación. En el siguiente ejemplo, `app.js` solicita dos extensiones `jquery.alpha.js` y `jquery.beta.js` (no son extensiones reales, solo ejemplos). Estas extensiones están en la misma carpeta que `require-jquery.js`:
 
 
 **Un simple archivo JavaScript con dependencias**
 
-~~~~ {.brush: .js}
+```javascript
 require(["jquery.alpha", "jquery.beta"], function() {
     //las extensiones jquery.alpha.js y jquery.beta.js han sido cargadas.
     $(function() {
         $('body').alpha().beta();
     });
 });
-~~~~
+```
 
 
 
@@ -348,14 +348,14 @@ Si el módulo no posee ninguna dependencia, tan solo se debe especificar el nomb
 
 **Definición de un módulo RequireJS que no posee dependencias**
 
-~~~~ {.brush: .js}
+```javascript
 require.def("my/simpleshirt",
     {
         color: "black",
         size: "unisize"
     }
 );
-~~~~
+```
 
 El ejemplo debe ser guardado en el archivo `my/simpleshirt.js`.
 
@@ -364,7 +364,7 @@ Si el modulo posee dependencias, es posible especificarlas en el segundo argumen
 
 **Definición de un módulo RequireJS con dependencias**
 
-~~~~ {.brush: .js}
+```javascript
 require.def("my/shirt",
     ["my/cart", "my/inventory"],
     function(cart, inventory) {
@@ -379,15 +379,15 @@ require.def("my/shirt",
         }
     }
 );
-~~~~
+```
 
 En este ejemplo, el modulo `my/shirt` es creado. Este depende de `my/cart` y `my/inventory`. En el disco, los archivos están estructurados de la siguiente forma:
 
-~~~~ {.brush: .js}
+```javascript
 my/cart.js
 my/inventory.js
 my/shirt.js
-~~~~
+```
 
 La función que define `my/shirt` no es llamada hasta que `my/cart` y `my/inventory` hayan sido cargadas, y dicha función recibe como argumentos a los módulos como `cart` y `inventory`. El orden de los argumentos de la función debe coincidir con el orden en que las dependencias se requieren en el arreglo. El objeto devuelto define el módulo `my/shirt`. Definiendo los módulos de esta forma, `my/shirt` no existe como un objeto global, ya que múltiples módulos pueden existir en la página al mismo tiempo.
 
@@ -396,11 +396,11 @@ Los módulos no tienen que devolver un objeto; cualquier tipo de valor es permit
 
 **Definición de un módulo RequireJS que devuelve una función**
 
-~~~~ {.brush: .js}
+```javascript
 require.def("my/title",
     ["my/dependency1", "my/dependency2"],
     function(dep1, dep2) {
-        // devuelve una función para definir "my/title". 
+        // devuelve una función para definir "my/title".
         // Este devuelve o establece
         // el titulo de la ventana
         return function(title) {
@@ -408,7 +408,7 @@ require.def("my/title",
         }
     }
 );
-~~~~
+```
 
 Solo un módulo debe ser requerido por archivo JavaScript.
 
@@ -418,21 +418,21 @@ Solo un módulo debe ser requerido por archivo JavaScript.
 
 Una vez incorporado RequireJS para el manejo de dependencias, la optimización del código es muy fácil. Descargue el paquete de RequireJS y colóquelo en cualquier lugar, preferentemente fuera del área de desarrollo web. Para los propósitos de este ejemplo, el paquete de RequireJS esta ubicado en una carpeta paralela al directorio `webapp` (la cual contiene la página HTML y todos los archivos JavaScript de la aplicación). La estructura de directorios es:
 
-~~~~ {.brush: .js}
+```javascript
 requirejs/ (utilizado para ejecutar las herramientas)
 webapp/app.html
 webapp/scripts/app.js
 webapp/scripts/require-jquery.js
 webapp/scripts/jquery.alpha.js
 webapp/scripts/jquery.beta.js
-~~~~
+```
 
 Luego, en la carpeta en donde se encuentran `require-jquery.js` y `app.js`, crear un archivo llamado `app.build.js` con el siguiente contenido:
 
 
 **Archivo de configuración para las herramientas de optimización de RequireJS**
 
-~~~~ {.brush: .js}
+```javascript
 {
     appDir: "../",
     baseUrl: "scripts/",
@@ -448,19 +448,19 @@ Luego, en la carpeta en donde se encuentran `require-jquery.js` y `app.js`, crea
         }
     ]
 }
-~~~~
+```
 
 Para utilizar la herramienta, es necesario tener instalado Java 6. [Closure Compiler](http://code.google.com/closure/compiler/) es utilizado para la minificación del código (en caso que `optimize: "none"` esté comentado).
 
 Para comenzar a procesar los archivos, abrir una ventana de comandos, dirigirse al directorio `webapp/scripts` y ejecutar:
 
-~~~~ {.brush: .js}
+```javascript
 # para sistemas que no son windows
 ../../requirejs/build/build.sh app.build.js
 
 # para sistemas windows
 ..\..\requirejs\build\build.bat app.build.js
-~~~~
+```
 
 Una vez ejecutado, el archivo `app.js` de la carpeta `webapp-build` contendrá todo el código de `app.js` más el de `jquery.alpha.js` y `jquery.beta.js`. Si se abre el archivo `app.html` (también en la carpeta `webapp-build`) podrá notar que ninguna petición se realiza para cargar `jquery.alpha.js` y `jquery.beta.js`.
 
@@ -474,7 +474,7 @@ Una vez ejecutado, el archivo `app.js` de la carpeta `webapp-build` contendrá t
 
 Abra el archivo `/ejercicios/portlets.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/portlets.js`. El ejercicio consiste en crear una función creadora de portlet que utilice el patrón modular, de tal manera que el siguiente código funcione:
 
-~~~~ {.brush: .js}
+```javascript
 var myPortlet = Portlet({
     title : 'Curry',
     source : 'data/html/curry.html',
@@ -482,18 +482,18 @@ var myPortlet = Portlet({
 });
 
 myPortlet.$element.appendTo('body');
-~~~~
+```
 
 Cada portlet deberá ser un `div` con un título, un área de contenido, un botón para abrir/cerrar el portlet, un botón para removerlo y otro para actualizarlo. El portlet devuelto por la función deberá tener la siguiente API pública:
 
-~~~~ {.brush: .js}
+```javascript
 myPortlet.open(); // fuerza a abrir
 myPortlet.close(); // fuerza a cerrar
 myPortlet.toggle(); // alterna entre los estados abierto y cerrado
 myPortlet.refresh(); // actualiza el contenido
 myPortlet.destroy(); // remueve el portlet de la página
 myPortlet.setSource('data/html/onions.html'); // cambia el código
-~~~~
+```
 
 
 

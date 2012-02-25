@@ -8,13 +8,13 @@ Este capítulo cubre numerosas mejores prácticas de JavaScript y jQuery,sin un 
 
 En un bucle, no es necesario acceder a la longitud de un arreglo cada vez que se evalúa la condición; dicho valor se puede guardar previamente en una variable.
 
-~~~~ {.brush: .js}
+```javascript
 var myLength = myArray.length;
 
 for (var i = 0; i < myLength; i++) {
     // do stuff
 }
-~~~~
+```
 
 
 
@@ -22,7 +22,7 @@ for (var i = 0; i < myLength; i++) {
 
 Si va a insertar muchos elementos en el DOM, hágalo todo de una sola vez, no de una por vez.
 
-~~~~ {.brush: .js}
+```javascript
 // mal
 $.each(myArray, function(i, item) {
    var newListItem = '<li>' + item + '</li>';
@@ -45,7 +45,7 @@ $.each(myArray, function(i, item) {
     myHtml += '<li>' + item + '</li>';
 });
 $('#ballers').html(myHtml);
-~~~~
+```
 
 
 
@@ -53,7 +53,7 @@ $('#ballers').html(myHtml);
 
 No se repita; realice las cosas una vez y sólo una, caso contrario lo estará haciendo mal.
 
-~~~~ {.brush: .js}
+```javascript
 // MAL
 if ($eventfade.data('currently') != 'showing') {
     $eventfade.stop();
@@ -74,7 +74,7 @@ $.each($elems, function(i,elem) {
         elem.stop();
     }
 });
-~~~~
+```
 
 
 
@@ -82,7 +82,7 @@ $.each($elems, function(i,elem) {
 
 No es aconsejable utilizar de sobremanera las funciones anónimas. Estas son difíciles de depurar, mantener, probar o reutilizar. En su lugar,utilice un objeto literal para organizar y nombrar sus controladores y funciones de devolución de llamada.
 
-~~~~ {.brush: .js}
+```javascript
 // MAL
 $(document).ready(function() {
     $('#magic').click(function(e) {
@@ -113,7 +113,7 @@ var PI = {
 };
 
 $(document).ready(PI.onReady);
-~~~~
+```
 
 
 
@@ -127,13 +127,13 @@ La optimización de selectores es menos importante de lo que solía ser, debido 
 
 Siempre es mejor comenzar las selecciones con un ID.
 
-~~~~ {.brush: .js}
+```javascript
 // rápido
 $('#container div.robotarm');
 
 // super-rápido
 $('#container').find('div.robotarm');
-~~~~
+```
 
 El ejemplo que utiliza `$.fn.find` es más rápido debido a que la primera selección utiliza el motor de selección interno [Sizzle](http://sizzlejs.com/) — mientras que la selección realizada únicamente por ID utiliza `document.getElementById()`, el cual es extremadamente rápido debido a que es una función nativa del navegador.
 
@@ -143,22 +143,22 @@ El ejemplo que utiliza `$.fn.find` es más rápido debido a que la primera selec
 
 Trate de ser especifico para el lado derecho de la selección y menos específico para el izquierdo.
 
-~~~~ {.brush: .js}
+```javascript
 // no optimizado
 $('div.data .gonzalez');
 
 // optimizado
 $('.data td.gonzalez');
-~~~~
+```
 
 Use en lo posible `etiqueta.clase` del lado derecho de la selección, y solo `etiqueta` o `.clase` en la parte izquierda.
 
-~~~~ {.brush: .js}
+```javascript
 $('.data table.attendees td.gonzalez');
 
 // mucho mejor: eliminar la parte media de ser posible
 $('.data td.gonzalez');
-~~~~
+```
 
 La segunda selección tiene mejor rendimiento debido a que atraviesa menos capas para buscar el elemento.
 
@@ -168,14 +168,14 @@ La segunda selección tiene mejor rendimiento debido a que atraviesa menos capas
 
 Selecciones en donde se especifica de forma implícita o explícita una selección universal puede resultar muy lento.
 
-~~~~ {.brush: .js}
+```javascript
 $('.buttons > *');      // muy lento
 $('.buttons').children();  // mucho mejor
 
 $('.gender :radio');       // selección universal implícita
 $('.gender *:radio');      // misma forma, pero de forma explícita
 $('.gender input:radio');  // mucho mejor
-~~~~
+```
 
 
 
@@ -185,7 +185,7 @@ La delegación de eventos permite vincular un controlador de evento a un element
 
 Además, la delegación de eventos permite añadir nuevos elementos contenedores a la página sin tener que volver a vincular sus controladores de eventos.
 
-~~~~ {.brush: .js}
+```javascript
 // mal (si existen muchos items en la lista)
 $('li.trigger').click(handlerFn);
 
@@ -195,7 +195,7 @@ $('li.trigger').live('click', handlerFn);
 // mucho mejor: delegación de eventos con $.fn.delegate
 // permite especificar un contexto de forma fácil
 $('#myList').delegate('li.trigger', 'click', handlerFn);
-~~~~
+```
 
 
 
@@ -203,14 +203,14 @@ $('#myList').delegate('li.trigger', 'click', handlerFn);
 
 En lo posible, hay que evitar la manipulación del DOM. Para ayudar con este propósito, a partir de la versión 1.4, jQuery introduce `$.fn.detach` el cual permite trabajar elementos de forma separada del DOM para luego insertarlos.
 
-~~~~ {.brush: .js}
+```javascript
 var $table = $('#myTable');
 var $parent = $table.parent();
 
 $table.detach();
 // ... se añaden muchas celdas a la tabla
 $parent.append(table);
-~~~~
+```
 
 
 
@@ -218,12 +218,12 @@ $parent.append(table);
 
 Si va a cambiar el CSS en más de 20 elementos utilizando `$.fn.css`, considere realizar los cambios de estilos añadiéndolos en una etiqueta *style*. De esta forma se incrementa un 60% el rendimiento.
 
-~~~~ {.brush: .js}
+```javascript
 // correcto hasta 20 elementos, lento en más elementos
 $('a.swedberg').css('color', '#asd123');
 $('<style type="text/css">a.swedberg { color : #asd123 }</style>')
     .appendTo('head');
-~~~~
+```
 
 
 
@@ -231,13 +231,13 @@ $('<style type="text/css">a.swedberg { color : #asd123 }</style>')
 
 Utilizar `$.data` en un elemento del DOM en lugar de `$.fn.data` en una selección puede ser hasta 10 veces más rápido. Antes de realizarlo, este seguro de comprender la diferencia entre un elemento DOM y una selección jQuery.
 
-~~~~ {.brush: .js}
+```javascript
 // regular
 $(elem).data(key,value);
 
 // 10 veces más rápido
 $.data(elem,key,value);
-~~~~
+```
 
 
 
@@ -245,7 +245,7 @@ $.data(elem,key,value);
 
 jQuery no le dirá si esta tratando de ejecutar código en una selección vacía — esta se ejecutará como si nada estuviera mal. Dependerá de usted comprobar si la selección contiene elementos.
 
-~~~~ {.brush: .js}
+```javascript
 // MAL: el código a continuación ejecuta tres funciones
 // sin comprobar si existen elementos
 // en la selección
@@ -268,7 +268,7 @@ $('li.cartitems').doOnce(function(){
     // realizar algo
 
 });
-~~~~
+```
 
 Este consejo es especialmente aplicable para widgets de jQuery UI, los cuales poseen mucha carga incluso cuando la selección no contiene elementos.
 
@@ -278,7 +278,7 @@ Este consejo es especialmente aplicable para widgets de jQuery UI, los cuales po
 
 Las variables pueden ser definidas en una sola declaración en lugar de varias.
 
-~~~~ {.brush: .js}
+```javascript
 // antiguo
 var test = 1;
 var test2 = function() { ... };
@@ -288,19 +288,19 @@ var test3 = test2(test);
 var test = 1,
     test2 = function() { ... },
     test3 = test2(test);
-~~~~
+```
 
 En funciones autoejecutables, las definiciones de variables pueden pasarse todas juntas.
 
-~~~~ {.brush: .js}
+```javascript
 (function(foo, bar) { ... })(1, 2);
-~~~~
+```
 
 
 
 ## Condicionales
 
-~~~~ {.brush: .js}
+```javascript
 // antiguo
 if (type == 'foo' || type == 'bar') { ... }
 
@@ -309,7 +309,7 @@ if (/^(foo|bar)$/.test(type)) { ... }
 
 // búsqueda en objeto literal
 if (({ foo : 1, bar : 1 })[type]) { ... }
-~~~~
+```
 
 
 

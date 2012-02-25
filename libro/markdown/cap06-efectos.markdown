@@ -38,9 +38,9 @@ Los efectos más utilizado ya vienen incorporados dentro de la biblioteca en for
 
 **Uso básico de un efecto incorporado**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').show();
-~~~~
+```
 
 
 
@@ -51,10 +51,10 @@ Con la excepción de `$.fn.show` y `$.fn.hide`, todos los métodos tienen una du
 
 **Configurar la duración de un efecto**
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').fadeIn(300);      // desvanecimiento en 300ms
 $('h1').fadeOut('slow');  // utilizar una definición de velocidad interna
-~~~~
+```
 
 
 
@@ -62,24 +62,24 @@ $('h1').fadeOut('slow');  // utilizar una definición de velocidad interna
 
 jQuery posee un objeto en `jQuery.fx.speeds` el cual contiene la velocidad predeterminada para la duración de un efecto, así como también los valores para las definiciones *"slow"* y *"fast"*.
 
-~~~~ {.brush: .js}
+```javascript
 speeds: {
     slow: 600,
     fast: 200,
     // velocidad predeterminada
     _default: 400
 }
-~~~~
+```
 
 Por lo tanto, es posible sobrescribir o añadir nuevos valores al objeto. Por ejemplo, puede que quiera cambiar el valor predeterminado del efecto o añadir una velocidad personalizada.
 
 
 **Añadir velocidades personalizadas a `jQuery.fx.speeds`**
 
-~~~~ {.brush: .js}
+```javascript
 jQuery.fx.speeds.muyRapido = 100;
 jQuery.fx.speeds.muyLento = 2000;
-~~~~
+```
 
 
 
@@ -90,16 +90,16 @@ A menudo, querrá ejecutar una acción una vez que la animación haya terminado 
 
 **Ejecutar cierto código cuando una animación haya concluido**
 
-~~~~ {.brush: .js}
+```javascript
 $('div.old').fadeOut(300, function() { $(this).remove(); });
-~~~~
+```
 
 Note que si la selección no retorna ningún elemento, la función nunca se ejecutará. Este problema lo puede resolver comprobando si la selección devuelve algún elemento; y en caso que no lo haga, ejecutar la función de devolución inmediatamente.
 
 
 **Ejecutar una función de devolución incluso si no hay elementos para animar**
 
-~~~~ {.brush: .js}
+```javascript
 var $thing = $('#nonexistent');
 
 var cb = function() {
@@ -111,7 +111,7 @@ if ($thing.length) {
 } else {
     cb();
 }
-~~~~
+```
 
 
 
@@ -122,7 +122,7 @@ Es posible realizar animaciones en propiedades CSS utilizando el método `$.fn.a
 
 **Efectos personalizados con `$.fn.animate`**
 
-~~~~ {.brush: .js}
+```javascript
 $('div.funtimes').animate(
     {
         left : "+=50",
@@ -131,11 +131,11 @@ $('div.funtimes').animate(
     300, // duration
     function() { console.log('realizado'); // función de devolución de llamada
 });
-~~~~
+```
 
 
 > **Nota**
-> 
+>
 > Las propiedades relacionadas al color no pueden ser animadas utilizando el método `$.fn.animate`, pero es posible hacerlo a través de la extensión [color plugin](http://plugins.jquery.com/files/jquery.color.js.txt). Más adelante en el libro de discutirá la utilización de extensiones.
 
 
@@ -149,7 +149,7 @@ A partir de la versión 1.4 de la biblioteca, es posible establecer el tipo de t
 
 **Transición de easing por cada propiedad**
 
-~~~~ {.brush: .js}
+```javascript
 $('div.funtimes').animate(
     {
         left : [ "+=50", "swing" ],
@@ -157,7 +157,7 @@ $('div.funtimes').animate(
     },
     300
 );
-~~~~
+```
 
 Para más detalles sobre las opciones de easing, consulte [http://api.jquery.com/animate/](http://api.jquery.com/animate/).
 
@@ -173,9 +173,9 @@ jQuery provee varias herramientas para el manejo de animaciones.
  $.fn.delay
   ~ Espera un tiempo determinado antes de ejecutar la próxima animación.
 
-~~~~ {.brush: .js}
+```javascript
 $('h1').show(300).delay(1000).hide(300);
-~~~~
+```
 
  jQuery.fx.off
   ~ Si el valor es verdadero (*true*), no existirán transiciones para las animaciones; y a los elementos se le establecerá el estado final de la animación. Este método puede ser especialmente útil cuando se esta trabajando con navegadores antiguos.
