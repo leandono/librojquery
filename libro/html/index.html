@@ -737,7 +737,7 @@
     <span class="kw">console</span>.<span class="fu">log</span>(myArray[<span class="dv">3</span>]);   <span class="co">// muestra en la consola &#39;bar&#39;</span></code></pre>
     <p><strong>Obtener la cantidad de ítems del arreglo</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
-    <span class="er">console.log(myArray.length);   // muestra en la consola 2</span></code></pre>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myArray</span>.<span class="fu">length</span>);   <span class="co">// muestra en la consola 2</span></code></pre>
     <p><strong>Cambiar el valor de un ítem de un arreglo</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
     myArray[<span class="dv">1</span>] = <span class="ch">&#39;changed&#39;</span>;</code></pre>
@@ -767,7 +767,7 @@
     <span class="kw">myObject</span>.<span class="fu">sayHello</span>();   <span class="co">// se llama al método sayHello,</span>
                            <span class="co">// el cual muestra en la consola &#39;hello&#39;</span>
     
-    <span class="er">console.log(myObject.myName);    // se llama a la propiedad myName,</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myObject</span>.<span class="fu">myName</span>);    <span class="co">// se llama a la propiedad myName,</span>
                                      <span class="co">// la cual muestra en la consola &#39;Rebecca&#39;</span></code></pre>
     <blockquote>
     <p><strong>Nota</strong></p>
@@ -879,7 +879,7 @@
     <span class="kw">typeof</span> null;         <span class="co">// devuelve &#39;object&#39; -- tenga cuidado</span>
     
     
-    <span class="er">if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {</span>
+    <span class="kw">if</span> (<span class="kw">myArray</span>.<span class="fu">push</span> &amp;&amp; <span class="kw">myArray</span>.<span class="fu">slice</span> &amp;&amp; <span class="kw">myArray</span>.<span class="fu">join</span>) {
         <span class="co">// probablemente sea un arreglo</span>
         <span class="co">// (este estilo es llamado, en inglés, &quot;duck typing&quot;)</span>
     }
@@ -903,7 +903,7 @@
     <p><strong>Una función invocada utilizando Function.call</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myObject = {
       <span class="dt">sayHello </span>: <span class="kw">function</span>() {
-    <span class="er">      console.log(&#39;Hola, mi nombre es &#39; + this.myName);</span>
+          <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola, mi nombre es &#39;</span> + <span class="kw">this</span>.<span class="fu">myName</span>);
       },
     
       <span class="dt">myName </span>: <span class="ch">&#39;Rebecca&#39;</span>
@@ -919,7 +919,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myName = <span class="ch">&#39;el objeto global&#39;</span>,
     
       sayHello = <span class="kw">function</span> () {
-    <span class="er">      console.log(&#39;Hola, mi nombre es &#39; + this.myName);</span>
+          <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola, mi nombre es &#39;</span> + <span class="kw">this</span>.<span class="fu">myName</span>);
       },
     
       myObject = {
@@ -934,7 +934,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myName = <span class="ch">&#39;el objeto global&#39;</span>,
     
       sayHello = <span class="kw">function</span>() {
-    <span class="er">      console.log(&#39;Hola, mi nombre es &#39; + this.myName);</span>
+          <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola, mi nombre es &#39;</span> + <span class="kw">this</span>.<span class="fu">myName</span>);
       },
     
       myObject = {
@@ -958,7 +958,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myNamespace = {
       <span class="dt">myObject</span>: {
         <span class="dt">sayHello</span>: <span class="kw">function</span>() {
-    <span class="er">      console.log(&#39;Hola, mi nombre es &#39; + this.myName);</span>
+          <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola, mi nombre es &#39;</span> + <span class="kw">this</span>.<span class="fu">myName</span>);
         },
     
         <span class="dt">myName</span>: <span class="ch">&#39;Rebecca&#39;</span>
@@ -972,7 +972,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myNamespace = {
       <span class="dt">myObject </span>: {
         <span class="dt">sayHello </span>: <span class="kw">function</span>() {
-    <span class="er">        console.log(&#39;Hola, mi nombre es &#39; + this.myName);</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola, mi nombre es &#39;</span> + <span class="kw">this</span>.<span class="fu">myName</span>);
         },
     
         <span class="dt">myName </span>: <span class="ch">&#39;Rebecca&#39;</span>
@@ -1086,13 +1086,13 @@
         <span class="kw">var</span> innerObj = {
           <span class="dt">myName</span>: <span class="ch">&#39;interno&#39;</span>,
           <span class="dt">innerFunction</span>: <span class="kw">function</span>() {
-    <span class="er">        console.log(self.myName, this.myName); // registra &#39;externo interno&#39;</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">self</span>.<span class="fu">myName</span>, <span class="kw">this</span>.<span class="fu">myName</span>); <span class="co">// registra &#39;externo interno&#39;</span>
           }
         };
     
         <span class="kw">innerObj</span>.<span class="fu">innerFunction</span>();
     
-    <span class="er">    console.log(this.myName); // registra &#39;externo&#39;</span>
+        <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">this</span>.<span class="fu">myName</span>); <span class="co">// registra &#39;externo&#39;</span>
       }
     };
     
@@ -1193,7 +1193,7 @@
     <p>Sin embargo esta forma no funcionará. Cuando se realiza una selección utilizando <code>$()</code>, siempre es devuelto un objeto, y si se lo evalúa, éste siempre devolverá <code>true</code>. Incluso si la selección no contiene ningún elemento, el código dentro del bloque <code>if</code> se ejecutará.</p>
     <p>En lugar de utilizar el código mostrado, lo que se debe hacer es preguntar por la cantidad de elementos que posee la selección que se ejecutó. Esto es posible realizarlo utilizando la propiedad JavaScript <code>length</code>. Si la respuesta es 0, la condición evaluará falso, caso contrario (más de 0 elementos), la condición será verdadera.</p>
     <p><strong>Evaluar si una selección posee elementos</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="er">if ($(&#39;div.foo&#39;).length) { ... }</span></code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">if</span> ($(<span class="ch">&#39;div.foo&#39;</span>).<span class="fu">length</span>) { ... }</code></pre>
     </div>
     <div class="section level3" id="guardar-selecciones">
     <h3><a href="#TOC"><span class="header-section-number">3.2.2</span> Guardar Selecciones</a></h3>
@@ -1643,15 +1643,15 @@
     <span class="kw">var</span> secondObject = { <span class="dt">foo </span>: <span class="ch">&#39;baz&#39;</span> };
     
     <span class="kw">var</span> newObject = $.<span class="fu">extend</span>(firstObject, secondObject);
-    <span class="er">console.log(firstObject.foo); // &#39;baz&#39;</span>
-    <span class="er">console.log(newObject.foo);   // &#39;baz&#39;</span></code></pre>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">firstObject</span>.<span class="fu">foo</span>); <span class="co">// &#39;baz&#39;</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">newObject</span>.<span class="fu">foo</span>);   <span class="co">// &#39;baz&#39;</span></code></pre>
     <p>Si no se desea cambiar las propiedades de ninguno de los objetos que se utilizan en <code>$.extend</code>, se debe incluir un objeto vacío como primer argumento.</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> firstObject = { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span>, <span class="dt">a </span>: <span class="ch">&#39;b&#39;</span> };
     <span class="kw">var</span> secondObject = { <span class="dt">foo </span>: <span class="ch">&#39;baz&#39;</span> };
     
     <span class="kw">var</span> newObject = $.<span class="fu">extend</span>({}, firstObject, secondObject);
-    <span class="er">console.log(firstObject.foo); // &#39;bar&#39;</span>
-    <span class="er">console.log(newObject.foo);   // &#39;baz&#39;</span></code></pre>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">firstObject</span>.<span class="fu">foo</span>); <span class="co">// &#39;bar&#39;</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">newObject</span>.<span class="fu">foo</span>);   <span class="co">// &#39;baz&#39;</span></code></pre>
     <dl>
     <dt>$.proxy</dt>
     <dd>Devuelve una función que siempre se ejecutará en el alcance (<em>scope</em>) provisto — en otras palabras, establece el significado de <em>this</em> (incluido dentro de la función) como el segundo argumento.
@@ -1671,7 +1671,7 @@
         }
     };
     
-    <span class="er">$(&#39;#foo&#39;).click(myObject.myFn); // registra el elemento DOM #foo</span>
+    $(<span class="ch">&#39;#foo&#39;</span>).<span class="fu">click</span>(<span class="kw">myObject</span>.<span class="fu">myFn</span>); <span class="co">// registra el elemento DOM #foo</span>
     $(<span class="ch">&#39;#foo&#39;</span>).<span class="fu">click</span>($.<span class="fu">proxy</span>(myObject, <span class="ch">&#39;myFn&#39;</span>)); <span class="co">// registra myObject</span></code></pre>
     </div>
     <div class="section level2" id="comprobación-de-tipos">
@@ -1770,7 +1770,7 @@
         { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="co">// se debe pasar la información asociada como argumento</span>
     
         <span class="kw">function</span>(eventObject) {
-    <span class="er">        console.log(eventObject.type, eventObject.data);</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">eventObject</span>.<span class="fu">type</span>, <span class="kw">eventObject</span>.<span class="fu">data</span>);
             <span class="co">// registra el tipo de evento y la información asociada { foo : &#39;bar&#39; }</span>
         }
     );</code></pre>
@@ -2029,7 +2029,7 @@
         <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;realizado&#39;</span>);
     };
     
-    <span class="er">if ($thing.length) {</span>
+    <span class="kw">if</span> ($<span class="kw">thing</span>.<span class="fu">length</span>) {
         $<span class="kw">thing</span>.<span class="fu">fadeIn</span>(<span class="dv">300</span>, cb);
     } <span class="kw">else</span> {
         cb();
@@ -2211,9 +2211,9 @@
         <span class="co">// código a ejecutar si la petición es satisfactoria;</span>
         <span class="co">// la respuesta es pasada como argumento a la función</span>
         <span class="dt">success </span>: <span class="kw">function</span>(json) {
-    <span class="er">        $(&#39;&lt;h1/&gt;&#39;).text(json.title).appendTo(&#39;body&#39;);</span>
+            $(<span class="ch">&#39;&lt;h1/&gt;&#39;</span>).<span class="fu">text</span>(<span class="kw">json</span>.<span class="fu">title</span>).<span class="fu">appendTo</span>(<span class="ch">&#39;body&#39;</span>);
             $(<span class="ch">&#39;&lt;div class=&quot;content&quot;/&gt;&#39;</span>)
-    <span class="er">            .html(json.html).appendTo(&#39;body&#39;);</span>
+                .<span class="fu">html</span>(<span class="kw">json</span>.<span class="fu">html</span>).<span class="fu">appendTo</span>(<span class="ch">&#39;body&#39;</span>);
         },
     
         <span class="co">// código a ejecutar si la petición falla;</span>
@@ -2494,7 +2494,7 @@
     &lt;a href=<span class="st">&quot;page.html&quot;</span>&gt;Foo&lt;/a&gt;
     
     &lt;!-- Después que la extensión es <span class="dt">llamada</span>: --&gt;
-    <span class="er">&lt;a href=&quot;page.html&quot;&gt;Foo (page.html)&lt;/a&gt;</span></code></pre>
+    &lt;a href=<span class="st">&quot;page.html&quot;</span>&gt;Foo (<span class="kw">page</span>.<span class="fu">html</span>)&lt;/a&gt;</code></pre>
     <p>También es posible optimizar la extensión:</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">(<span class="kw">function</span>($){
         $.<span class="fu">fn</span>.<span class="fu">showLinkLocation</span> = <span class="kw">function</span>() {
@@ -2574,7 +2574,7 @@
       <span class="co">// función privada para realizar depuración</span>
       <span class="co">//</span>
       <span class="kw">function</span> debug($obj) {
-    <span class="er">    if (window.console &amp;&amp; window.console.log)</span>
+        <span class="kw">if</span> (<span class="kw">window</span>.<span class="fu">console</span> &amp;&amp; <span class="kw">window</span>.<span class="fu">console</span>.<span class="fu">log</span>)
           <span class="kw">window</span>.<span class="fu">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hilight selection count: &#39;</span> + $<span class="kw">obj</span>.<span class="fu">size</span>());
       };
       <span class="co">//</span>
@@ -2762,7 +2762,7 @@
             }
         })
         .<span class="fu">bind</span>(<span class="st">&quot;progressbarcomplete&quot;</span>, <span class="kw">function</span>(event, data) {
-    <span class="er">        alert(&quot;El valor de la barra de progreso es &quot; + data.value);</span>
+            alert(<span class="st">&quot;El valor de la barra de progreso es &quot;</span> + <span class="kw">data</span>.<span class="fu">value</span>);
         });
     
     <span class="kw">bar</span>.<span class="fu">progressbar</span>(<span class="st">&quot;option&quot;</span>, <span class="st">&quot;value&quot;</span>, <span class="dv">100</span>);</code></pre>
@@ -2778,7 +2778,7 @@
     <span class="kw">bar</span>.<span class="fu">option</span>(<span class="st">&quot;value&quot;</span>, <span class="dv">50</span>);
     
     <span class="co">// acceder a propiedades en la instancia de la extensión</span>
-    <span class="er">alert(bar.options.value);</span></code></pre>
+    alert(<span class="kw">bar.options</span>.<span class="fu">value</span>);</code></pre>
     <p>Uno de los mayores beneficios de tener un constructor y un prototipo para una extensión es la facilidad de extender la extensión. El hecho de añadir o cambiar métodos en el prototipo de la extensión, permite también modificarlos en todas las instancias de la extensión. Por ejemplo, si deseamos añadir un método a la extensión de barra de progreso para permitir restablecer el progreso a 0%, es posible hacerlo añadiendo este método al prototipo y automáticamente estará disponible para ser llamada desde cualquier instancia de la extensión.</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$.<span class="fu">nmk</span>.<span class="fu">progressbar</span>.<span class="fu">prototype</span>.<span class="fu">reset</span> = <span class="kw">function</span>() {
         <span class="kw">this</span>._<span class="fu">setOption</span>(<span class="st">&quot;value&quot;</span>, <span class="dv">0</span>);
@@ -2921,12 +2921,12 @@
     <span class="co">// MEJOR</span>
     <span class="kw">var</span> <span class="kw">PI</span> = {
         <span class="dt">onReady </span>: <span class="kw">function</span>() {
-    <span class="er">        $(&#39;#magic&#39;).click(PI.candyMtn);</span>
-    <span class="er">        $(&#39;#happiness&#39;).load(PI.url + &#39; #unicorns&#39;, PI.unicornCb);</span>
+            $(<span class="ch">&#39;#magic&#39;</span>).<span class="fu">click</span>(<span class="kw">PI</span>.<span class="fu">candyMtn</span>);
+            $(<span class="ch">&#39;#happiness&#39;</span>).<span class="fu">load</span>(<span class="kw">PI</span>.<span class="fu">url</span> + <span class="ch">&#39; #unicorns&#39;</span>, <span class="kw">PI</span>.<span class="fu">unicornCb</span>);
         },
     
         <span class="dt">candyMtn </span>: <span class="kw">function</span>(e) {
-    <span class="er">        $(&#39;#yayeffects&#39;).slideUp(PI.slideCb);</span>
+            $(<span class="ch">&#39;#yayeffects&#39;</span>).<span class="fu">slideUp</span>(<span class="kw">PI</span>.<span class="fu">slideCb</span>);
         },
     
         <span class="dt">slideCb </span>: <span class="kw">function</span>() { ... },
@@ -2934,7 +2934,7 @@
         <span class="dt">unicornCb </span>: <span class="kw">function</span>() { ... }
     };
     
-    <span class="er">$(document).ready(PI.onReady);</span></code></pre>
+    $(<span class="kw">document</span>).<span class="fu">ready</span>(<span class="kw">PI</span>.<span class="fu">onReady</span>);</code></pre>
     </div>
     <div class="section level2" id="optimización-de-selectores">
     <h2><a href="#TOC"><span class="header-section-number">9.5</span> Optimización de Selectores</a></h2>
@@ -3026,7 +3026,7 @@
     
     <span class="co">// Mejor</span>
     <span class="kw">var</span> $mySelection = $(<span class="ch">&#39;#nosuchthing&#39;</span>);
-    <span class="er">if ($mySelection.length) { $mySelection.slideUp(); }</span>
+    <span class="kw">if</span> ($<span class="kw">mySelection</span>.<span class="fu">length</span>) { $<span class="kw">mySelection</span>.<span class="fu">slideUp</span>(); }
     
     <span class="co">// MUCHO MEJOR: añadir una extensión doOnce</span>
     <span class="kw">jQuery.fn</span>.<span class="fu">doOnce</span> = <span class="kw">function</span>(func){
@@ -3103,7 +3103,7 @@
         <span class="dt">myProperty </span>: <span class="ch">&#39;hello&#39;</span>,
     
         <span class="dt">myMethod </span>: <span class="kw">function</span>() {
-    <span class="er">        console.log(myFeature.myProperty);</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myFeature</span>.<span class="fu">myProperty</span>);
         },
     
         <span class="dt">init </span>: <span class="kw">function</span>(settings) {
@@ -3111,7 +3111,7 @@
         },
     
         <span class="dt">readSettings </span>: <span class="kw">function</span>() {
-    <span class="er">        console.log(myFeature.settings);</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myFeature</span>.<span class="fu">settings</span>);
         }
     };
     
@@ -3157,8 +3157,8 @@
     
         <span class="dt">setup </span>: <span class="kw">function</span>() {
             <span class="kw">myFeature.config</span>.$<span class="fu">items</span>
-    <span class="er">            .each(myFeature.createContainer)</span>
-    <span class="er">            .click(myFeature.showItem);</span>
+                .<span class="fu">each</span>(<span class="kw">myFeature</span>.<span class="fu">createContainer</span>)
+                .<span class="fu">click</span>(<span class="kw">myFeature</span>.<span class="fu">showItem</span>);
         },
     
         <span class="dt">createContainer </span>: <span class="kw">function</span>() {
@@ -3176,7 +3176,7 @@
     
         <span class="dt">showItem </span>: <span class="kw">function</span>() {
             <span class="kw">var</span> <span class="kw">myFeature</span>.$<span class="fu">currentItem</span> = $(<span class="kw">this</span>);
-    <span class="er">        myFeature.getContent(myFeature.showContent);</span>
+            <span class="kw">myFeature</span>.<span class="fu">getContent</span>(<span class="kw">myFeature</span>.<span class="fu">showContent</span>);
         },
     
         <span class="dt">getContent </span>: <span class="kw">function</span>(callback) {
@@ -3199,7 +3199,7 @@
         }
     };
     
-    <span class="er">$(document).ready(myFeature.init);</span></code></pre>
+    $(<span class="kw">document</span>).<span class="fu">ready</span>(<span class="kw">myFeature</span>.<span class="fu">init</span>);</code></pre>
     <p>La primera característica a notar es que el código es más largo que el original — como se dijo anteriormente, si este fuera el alcance de la aplicación, utilizar un objeto literal seria probablemente una exageración.</p>
     <p>Con la nueva organización, las ventajas obtenidas son:</p>
     <ul>
@@ -3526,7 +3526,7 @@
     });
     
     $(<span class="ch">&#39;#master_switch&#39;</span>).<span class="fu">click</span>(<span class="kw">function</span>() {
-    <span class="er">    if ($(&#39;.lightbulb.on&#39;).length) {</span>
+        <span class="kw">if</span> ($(<span class="ch">&#39;.lightbulb.on&#39;</span>).<span class="fu">length</span>) {
             $(<span class="ch">&#39;.lightbulb&#39;</span>).<span class="fu">trigger</span>(<span class="ch">&#39;turnOff&#39;</span>);
         } <span class="kw">else</span> {
             $(<span class="ch">&#39;.lightbulb&#39;</span>).<span class="fu">trigger</span>(<span class="ch">&#39;turnOn&#39;</span>);
@@ -3545,7 +3545,7 @@
     </ul>
     <p>A continuación se muestra un ejemplo de utilización de <code>$.fn.bind</code> y <code>$.fn.trigger</code> en donde se utiliza información personalizada en ambos casos:</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="kw">document</span>).<span class="fu">bind</span>(<span class="ch">&#39;myCustomEvent&#39;</span>, { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="kw">function</span>(e, arg1, arg2) {
-    <span class="er">    console.log(e.data.foo); // &#39;bar&#39;</span>
+        <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">e.data</span>.<span class="fu">foo</span>); <span class="co">// &#39;bar&#39;</span>
         <span class="kw">console</span>.<span class="fu">log</span>(arg1); <span class="co">// &#39;bim&#39;</span>
         <span class="kw">console</span>.<span class="fu">log</span>(arg2); <span class="co">// &#39;baz&#39;</span>
     });
@@ -3558,7 +3558,7 @@
     <p>El resultado final de la aplicación será el siguiente:</p>
     <p><strong>Figura 11.1. La aplicación finalizada</strong></p>
     <div class="figure">
-    <img src="figuras/70415e9fffab1c47953f5264ecf722fe.png" alt="La aplicación finalizada" /><p class="caption">La aplicación finalizada</p>
+    <img src="./figuras/70415e9fffab1c47953f5264ecf722fe.png" alt="La aplicación finalizada" /><p class="caption">La aplicación finalizada</p>
     </div>
     <div class="section level4" id="iniciación">
     <h4><a href="#TOC"><span class="header-section-number">11.1.1.1</span> Iniciación</a></h4>
@@ -3652,7 +3652,7 @@
             <span class="co">// obtiene la información de Twitter en formato jsonp</span>
             $.<span class="fu">getJSON</span>(
                 <span class="ch">&#39;http://search.twitter.com/search.json?q=&#39;</span> +
-    <span class="er">                escape(e.data.term) + &#39;&amp;rpp=5&amp;callback=?&#39;,</span>
+                    <span class="fu">escape</span>(<span class="kw">e.data</span>.<span class="fu">term</span>) + <span class="ch">&#39;&amp;rpp=5&amp;callback=?&#39;</span>,
                 <span class="kw">function</span>(json) {
                     $<span class="kw">this</span>.<span class="fu">trigger</span>(<span class="ch">&#39;populate&#39;</span>, [ json ]);
                 }
