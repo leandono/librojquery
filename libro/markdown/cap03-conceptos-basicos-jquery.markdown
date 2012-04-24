@@ -726,7 +726,7 @@ $('#myDiv a:first').attr('href', function(idx, href) {
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/sandbox.js` o trabaje directamente con Firebug para cumplir los siguientes puntos:
 
-1.  Seleccionar todos los elementos div que poseen la clase "module".
+1.  Seleccionar todos los elementos `div` que poseen la clase "module".
 
 2.  Especificar tres selecciones que puedan seleccionar el tercer ítem de la lista desordenada #myList. ¿Cuál es el mejor para utilizar? ¿Porqué?
 

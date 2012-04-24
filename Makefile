@@ -1,4 +1,4 @@
-DATE = 'Febrero 2012'
+DATE = 'Abril 2012'
 EPUB_TITLE = 'Fundamentos de jQuery'
 HTML_TITLE = 'Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery'
 

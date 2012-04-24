@@ -43,7 +43,7 @@ p {
 }
 
 h1.title {
-  font-size: 250%;
+  font-size: 210%;
 }
 
 h1.maintitle {
@@ -60,7 +60,7 @@ h2, h3{
 
 .social {
   float: right;
-  margin-top: 35px;
+  margin-top: 15px;
 }
 
 .social li{
