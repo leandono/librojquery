@@ -12,6 +12,7 @@
   <meta property="og:title" content="Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery"/>
   <meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
   <title>Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery</title>
+  <link rel="stylesheet" type="text/css" href="css/markdown.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
   <link rel="canonical" href="http://librojquery.com/" />
@@ -59,7 +60,7 @@
       </p>
 
       <p>
-        <strong>Última actualización del libro:</strong> Abril 2012 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+        <strong>Última actualización del libro:</strong> Mayo 2012 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
       </p>
 
     </div>
@@ -277,6 +278,16 @@
         </ul></li>
         </ul></li>
         </ul></li>
+        <li><a href="#funciones-y-ejecuciones-diferidas-a-través-del-objeto-.deferred"><span class="toc-section-number">12</span> Funciones y ejecuciones diferidas a través del objeto <code>$.Deferred</code></a><ul>
+        <li><a href="#introducción-5"><span class="toc-section-number">12.1</span> Introducción</a></li>
+        <li><a href="#el-objeto-diferido-y-ajax"><span class="toc-section-number">12.2</span> El objeto diferido y Ajax</a><ul>
+        <li><a href="#deferred.then"><span class="toc-section-number">12.2.1</span> <code>deferred.then</code></a></li>
+        </ul></li>
+        <li><a href="#creación-de-objetos-diferidos-con-.deferred"><span class="toc-section-number">12.3</span> Creación de objetos diferidos con <code>$.Deferred</code></a><ul>
+        <li><a href="#deferred.pipe"><span class="toc-section-number">12.3.1</span> <code>deferred.pipe</code></a></li>
+        <li><a href="#when"><span class="toc-section-number">12.3.2</span> <code>$.when</code></a></li>
+        </ul></li>
+        </ul></li>
         </ul>
           </div>
 
@@ -341,7 +352,7 @@
     <li><p>Finalmente, averigüe qué necesita hacer con esos elementos para resolver el problema. Puede ser útil, antes de comenzar, escribir comentarios explicando lo que va a realizar.</p></li>
     </ul>
     <p>No tenga miedo de cometer errores. Tampoco trate en el primer intento escribir de forma perfecta su código. Cometer errores y experimentar con soluciones es parte del proceso de aprendizaje y lo ayudará a que sea un mejor desarrollador.</p>
-    <p>Podrá encontrar en la carpeta <code>/soluciones</code> ejemplos de soluciones a los ejercicios del libro.</p>
+    <p>Podrá encontrar en la carpeta <code>/ejercicios/soluciones</code> ejemplos de soluciones a los ejercicios del libro.</p>
     </div>
     <div class="section level2" id="convenciones-utilizadas-en-el-libro">
     <h2><a href="#TOC"><span class="header-section-number">1.6</span> Convenciones Utilizadas en el Libro</a></h2>
@@ -1323,9 +1334,17 @@
     $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>(<span class="ch">&#39;font-size&#39;</span>); <span class="co">// también funciona</span></code></pre>
     <p><strong>Establecer propiedades CSS</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>(<span class="ch">&#39;fontSize&#39;</span>, <span class="ch">&#39;100px&#39;</span>); <span class="co">// establece una propiedad individual CSS</span>
-    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>({ <span class="ch">&#39;fontSize&#39;</span> : <span class="ch">&#39;100px&#39;</span>, <span class="ch">&#39;color&#39;</span> : <span class="ch">&#39;red&#39;</span> }); <span class="co">// establece múltiples</span>
-                                                            <span class="co">// propiedades CSS</span></code></pre>
+    $(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>({ 
+        <span class="ch">&#39;fontSize&#39;</span> : <span class="ch">&#39;100px&#39;</span>,
+        <span class="ch">&#39;color&#39;</span> : <span class="ch">&#39;red&#39;</span>     
+    }); <span class="co">// establece múltiples propiedades CSS</span></code></pre>
     <p><em>Notar que el estilo del argumento utilizado en la segunda línea del ejemplo — es un objeto que contiene múltiples propiedades. Esta es una forma común de pasar múltiples argumentos a una función, y muchos métodos establecedores de la biblioteca aceptan objetos para fijar varias propiedades de una sola vez.</em></p>
+    <p>A partir de la versión 1.6 de la biblioteca, utilizando <code>$.fn.css</code> también es posible establecer valores relativos en las propiedades CSS de un elemento determinado:</p>
+    <p><strong>Establecer valores CSS relativos</strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;h1&#39;</span>).<span class="fu">css</span>({ 
+        <span class="ch">&#39;fontSize&#39;</span> : <span class="ch">&#39;+=15px&#39;</span>, <span class="co">// suma 15px al tamaño original del elemento</span>
+        <span class="ch">&#39;paddingTop&#39;</span> : <span class="ch">&#39;+=20px&#39;</span> <span class="co">// suma 20px al padding superior original del elemento</span>
+    });</code></pre>
     <div class="section level3" id="utilizar-clases-para-aplicar-estilos-css">
     <h3><a href="#TOC"><span class="header-section-number">3.4.1</span> Utilizar Clases para Aplicar Estilos CSS</a></h3>
     <p>Para obtener valores de los estilos aplicados a un elemento, el método <code>$.fn.css</code> es muy útil, sin embargo, su utilización como método establecedor se debe evitar (ya que, para aplicar estilos a un elemento, se puede hacer directamente desde CSS). En su lugar, lo ideal, es escribir reglas CSS que se apliquen a clases que describan los diferentes estados visuales de los elementos y luego cambiar la clase del elemento para aplicar el estilo que se desea mostrar.</p>
@@ -1692,7 +1711,8 @@
     <span class="co">// Utilizar los métodos jQuery para comprobar tipos no primitivos</span>
     <span class="kw">jQuery</span>.<span class="fu">isFunction</span>(myValue); <span class="co">// falso (false)</span>
     <span class="kw">jQuery</span>.<span class="fu">isPlainObject</span>(myValue); <span class="co">// falso (false)</span>
-    <span class="kw">jQuery</span>.<span class="fu">isArray</span>(myValue); <span class="co">// verdadero (true)</span></code></pre>
+    <span class="kw">jQuery</span>.<span class="fu">isArray</span>(myValue); <span class="co">// verdadero (true)</span>
+    <span class="kw">jQuery</span>.<span class="fu">isNumeric</span>(<span class="dv">16</span>); <span class="co">// verdadero (true). No disponible en versiones inferiores a jQuery 1.7</span></code></pre>
     </div>
     <div class="section level2" id="el-método-data">
     <h2><a href="#TOC"><span class="header-section-number">4.4</span> El Método Data</a></h2>
@@ -1700,7 +1720,7 @@
     <p><strong>Guardar y recuperar información relacionada a un elemento</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myDiv&#39;</span>).<span class="fu">data</span>(<span class="ch">&#39;keyName&#39;</span>, { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> });
     $(<span class="ch">&#39;#myDiv&#39;</span>).<span class="fu">data</span>(<span class="ch">&#39;keyName&#39;</span>); <span class="co">// { foo : &#39;bar&#39; }</span></code></pre>
-    <p>A través del método <code>$.fn.data</code> es posible guardar cualquier tipo de información sobre un elemento, y es difícil exagerar la importancia de este concepto cuando se está desarrollando una aplicación compleja.</p>
+    <p>A través del método <code>$.fn.data</code> es posible guardar cualquier tipo de información sobre un elemento. Es difícil exagerar la importancia de este concepto cuando se está desarrollando una aplicación compleja.</p>
     <p>Por ejemplo, si desea establecer una relación entre el ítem de una lista y el div que hay dentro de este ítem, es posible hacerlo cada vez que se interactúa con el ítem, pero una mejor solución es hacerlo una sola vez, guardando un puntero al div utilizando el método <code>$.fn.data</code>:</p>
     <p><strong>Establecer una relación entre elementos utilizando el método <code>$.fn.data</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myList li&#39;</span>).<span class="fu">each</span>(<span class="kw">function</span>() {
@@ -1713,6 +1733,26 @@
     <span class="kw">var</span> $firstLi = $(<span class="ch">&#39;#myList li:first&#39;</span>);
     $<span class="kw">firstLi</span>.<span class="fu">data</span>(<span class="ch">&#39;contentDiv&#39;</span>).<span class="fu">html</span>(<span class="ch">&#39;nuevo contenido&#39;</span>);</code></pre>
     <p>Además es posible pasarle al método un objeto conteniendo uno o más pares de conjuntos palabra clave-valor.</p>
+    <p>A partir de la versión 1.5 de la biblioteca, jQuery permite utilizar al método <code>$.fn.data</code> para obtener la información asociada a un elemento que posea el atributo HTML5 <code>data-*</code>:</p>
+    <p><strong>Elementos con el atributo <code>data-*</code></strong></p>
+    <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;a</span><span class="ot"> id=</span><span class="st">&#39;foo&#39;</span><span class="ot"> data-foo=</span><span class="st">&#39;baz&#39;</span><span class="ot"> href=</span><span class="st">&#39;#&#39;</span><span class="kw">&gt;</span>Foo<span class="kw">&lt;/a&gt;</span>
+    
+    <span class="kw">&lt;a</span><span class="ot"> id=</span><span class="st">&#39;foobar&#39;</span><span class="ot"> data-foo-bar=</span><span class="st">&#39;fol&#39;</span><span class="ot"> href=</span><span class="st">&#39;#&#39;</span><span class="kw">&gt;</span>Foo Bar<span class="kw">&lt;/a&gt;</span></code></pre>
+    <p><strong>Obtener los valores asociados a los atributos <code>data-*</code> con <code>$.fn.data</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// obtiene el valor del atributo data-foo</span>
+    <span class="co">// utilizando el método $.fn.data</span>
+    <span class="kw">console</span>.<span class="fu">log</span>($(<span class="ch">&#39;#foo&#39;</span>).<span class="fu">data</span>(<span class="ch">&#39;foo&#39;</span>)); <span class="co">// registra &#39;baz&#39;</span>
+    
+    <span class="co">// obtiene el valor del segundo elemento</span>
+    <span class="kw">console</span>.<span class="fu">log</span>($(<span class="ch">&#39;#foobar&#39;</span>).<span class="fu">data</span>(<span class="ch">&#39;fooBar&#39;</span>)); <span class="co">// registra &#39;fol&#39;</span></code></pre>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>A partir de la versión 1.6 de la biblioteca, para obtener el valor del atributo <code>data-foo-bar</code> del segundo elemento, el argumento en <code>$.fn.data</code> se debe pasar en estilo <em>CamelCase</em>.</p>
+    </blockquote>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>Para más información sobre el atributo HTML5 <code>data-*</code> visite <a href="http://www.w3.org/TR/html5/global-attributes.html#embedding-custom-non-visible-data-with-the-data-attributes">http://www.w3.org/TR/html5/global-attributes.html#embedding-custom-non-visible-data-with-the-data-attributes</a>.</p>
+    </blockquote>
     </div>
     <div class="section level2" id="detección-de-navegadores-y-características">
     <h2><a href="#TOC"><span class="header-section-number">4.5</span> Detección de Navegadores y Características</a></h2>
@@ -1749,24 +1789,24 @@
     <h1><a href="#TOC"><span class="header-section-number">5</span> Eventos</a></h1>
     <div class="section level2" id="introducción-1">
     <h2><a href="#TOC"><span class="header-section-number">5.1</span> Introducción</a></h2>
-    <p>jQuery provee métodos para asociar controladores de eventos (en inglés <em>event handlers</em>) a selectores. Cuando un evento ocurre, la función provista es ejecutada. Dentro de la función, la palabra clave this hace referencia al elemento en que el evento ocurre.</p>
+    <p>jQuery provee métodos para asociar controladores de eventos (en inglés <em>event handlers</em>) a selectores. Cuando un evento ocurre, la función provista es ejecutada. Dentro de la función, la palabra clave <code>this</code> hace referencia al elemento en que el evento ocurre.</p>
     <p>Para más detalles sobre los eventos en jQuery, puede consultar <a href="http://api.jquery.com/category/events/">http://api.jquery.com/category/events/</a>.</p>
     <p>La función del controlador de eventos puede recibir un objeto. Este objeto puede ser utilizado para determinar la naturaleza del evento o, por ejemplo, prevenir el comportamiento predeterminado de éste. Para más detalles sobre el objeto del evento, visite <a href="http://api.jquery.com/category/events/event-object/">http://api.jquery.com/category/events/event-object/</a>.</p>
     </div>
     <div class="section level2" id="vincular-eventos-a-elementos">
     <h2><a href="#TOC"><span class="header-section-number">5.2</span> Vincular Eventos a Elementos</a></h2>
-    <p>jQuery ofrece métodos para la mayoría de los eventos — entre ellos <code>$.fn.click</code>, <code class="code">$.fn.focus</code>, <code class="code">$.fn.blur</code>, <code class="code">$.fn.change</code>, etc. Estos últimos son formas reducidas del método <code>$.fn.bind</code> de jQuery. El método bind es útil para vincular (en inglés <em>binding</em>) la misma función de controlador a múltiples eventos, para cuando se desea proveer información al controlador de evento, cuando se está trabajando con eventos personalizados o cuando se desea pasar un objeto a múltiples eventos y controladores.</p>
+    <p>jQuery ofrece métodos para la mayoría de los eventos — entre ellos <code>$.fn.click</code>, <code>$.fn.focus</code>, <code>$.fn.blur</code>, <code>$.fn.change</code>, etc. Estos últimos son formas reducidas del método <code>$.fn.on</code> de jQuery (<code>$.fn.bind</code> en versiones anteriores a jQuery 1.7). El método <code>$.fn.on</code> es útil para vincular (en inglés <em>binding</em>) la misma función de controlador a múltiples eventos, para cuando se desea proveer información al controlador de evento, cuando se está trabajando con eventos personalizados o cuando se desea pasar un objeto a múltiples eventos y controladores.</p>
     <p><strong>Vincular un evento utilizando un método reducido</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">click</span>(<span class="kw">function</span>() {
         <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;click&#39;</span>);
     });</code></pre>
-    <p><strong>Vincular un evento utilizando el método <code>$.fn.bind</code> method</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">bind</span>(<span class="ch">&#39;click&#39;</span>, <span class="kw">function</span>() {
+    <p><strong>Vincular un evento utilizando el método <code>$.fn.on</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">on</span>(<span class="ch">&#39;click&#39;</span>, <span class="kw">function</span>() {
         <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;click&#39;</span>);
     });</code></pre>
-    <p><strong>Vincular un evento utilizando el método <code>$.fn.bind</code> con información asociada</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;input&#39;</span>).<span class="fu">bind</span>(
-        <span class="ch">&#39;click change&#39;</span>,  <span class="co">// es posible incular múltiples eventos al elemento</span>
+    <p><strong>Vincular un evento utilizando el método <code>$.fn.on</code> con información asociada</strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;input&#39;</span>).<span class="fu">on</span>(
+        <span class="ch">&#39;click blur&#39;</span>,  <span class="co">// es posible vincular múltiples eventos al elemento</span>
         { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="co">// se debe pasar la información asociada como argumento</span>
     
         <span class="kw">function</span>(eventObject) {
@@ -1786,37 +1826,37 @@
     </div>
     <div class="section level3" id="desvincular-eventos">
     <h3><a href="#TOC"><span class="header-section-number">5.2.2</span> Desvincular Eventos</a></h3>
-    <p>Para desvincular (en ingles <em>unbind</em>) un controlador de evento, puede utilizar el método <code>$.fn.unbind</code> pasándole el tipo de evento a desconectar. Si se pasó como adjunto al evento una función nombrada, es posible aislar la desconexión de dicha función pasándola como segundo argumento.</p>
+    <p>Para desvincular (en ingles <em>unbind</em>) un controlador de evento, puede utilizar el método <code>$.fn.off</code> pasándole el tipo de evento a desconectar. Si se pasó como adjunto al evento una función nombrada, es posible aislar la desconexión de dicha función pasándola como segundo argumento.</p>
     <p><strong>Desvincular todos los controladores del evento click en una selección</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;click&#39;</span>);</code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">off</span>(<span class="ch">&#39;click&#39;</span>);</code></pre>
     <p><strong>Desvincular un controlador particular del evento click</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="kw">function</span>() { <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;foo&#39;</span>); };
     <span class="kw">var</span> bar = <span class="kw">function</span>() { <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;bar&#39;</span>); };
     
-    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">bind</span>(<span class="ch">&#39;click&#39;</span>, foo).<span class="fu">bind</span>(<span class="ch">&#39;click&#39;</span>, bar);
-    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;click&#39;</span>, bar); <span class="co">// foo esta atado aún al evento click</span></code></pre>
+    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">on</span>(<span class="ch">&#39;click&#39;</span>, foo).<span class="fu">on</span>(<span class="ch">&#39;click&#39;</span>, bar);
+    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">off</span>(<span class="ch">&#39;click&#39;</span>, bar); <span class="co">// foo esta atado aún al evento click</span></code></pre>
     </div>
     <div class="section level3" id="espacios-de-nombres-para-eventos">
     <h3><a href="#TOC"><span class="header-section-number">5.2.3</span> Espacios de Nombres para Eventos</a></h3>
     <p>Cuando se esta desarrollando aplicaciones complejas o extensiones de jQuery, puede ser útil utilizar espacios de nombres para los eventos, y de esta forma evitar que se desvinculen eventos cuando no lo desea.</p>
     <p><strong>Asignar espacios de nombres a eventos</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">bind</span>(<span class="ch">&#39;click.myNamespace&#39;</span>, <span class="kw">function</span>() { <span class="co">/* ... */</span> });
-    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;click.myNamespace&#39;</span>);
-    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">unbind</span>(<span class="ch">&#39;.myNamespace&#39;</span>); <span class="co">// desvincula todos los eventos con</span>
-                                   <span class="co">// el espacio de nombre &#39;myNamespace&#39;</span></code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">on</span>(<span class="ch">&#39;click.myNamespace&#39;</span>, <span class="kw">function</span>() { <span class="co">/* ... */</span> });
+    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">off</span>(<span class="ch">&#39;click.myNamespace&#39;</span>);
+    $(<span class="ch">&#39;p&#39;</span>).<span class="fu">off</span>(<span class="ch">&#39;.myNamespace&#39;</span>); <span class="co">// desvincula todos los eventos con</span>
+                                <span class="co">// el espacio de nombre &#39;myNamespace&#39;</span></code></pre>
     </div>
     <div class="section level3" id="vinculación-de-múltiples-eventos">
     <h3><a href="#TOC"><span class="header-section-number">5.2.4</span> Vinculación de Múltiples Eventos</a></h3>
-    <p>Muy a menudo, elementos en una aplicación estarán vinculados a múltiples eventos, cada uno con una función diferente. En estos casos, es posible pasar un objeto dentro de <code>$.fn.bind</code> con uno o más pares de nombres claves/valores. Cada nombre clave será el nombre del evento mientras que cada valor será la función a ejecutar cuando ocurra el evento.</p>
+    <p>Muy a menudo, elementos en una aplicación estarán vinculados a múltiples eventos, cada uno con una función diferente. En estos casos, es posible pasar un objeto dentro de <code>$.fn.on</code> con uno o más pares de nombres claves/valores. Cada clave será el nombre del evento mientras que cada valor será la función a ejecutar cuando ocurra el evento.</p>
     <p><strong>Vincular múltiples eventos a un elemento</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">bind</span>({
-        <span class="ch">&#39;click&#39;</span>: <span class="kw">function</span>() { <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;clickeado&#39;</span>); },
-        <span class="ch">&#39;mouseover&#39;</span>: <span class="kw">function</span>() { <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;sobrepasado&#39;</span>); }
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;p&#39;</span>).<span class="fu">on</span>({
+        <span class="ch">&#39;click&#39;</span>: <span class="kw">function</span>() { 
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;clickeado&#39;</span>); 
+        },
+        <span class="ch">&#39;mouseover&#39;</span>: <span class="kw">function</span>() { 
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;sobrepasado&#39;</span>); 
+        }
     });</code></pre>
-    <blockquote>
-    <p><strong>Nota</strong></p>
-    <p>La opción de pasar un objeto con múltiples eventos y funciones a <code>$.fn.bind</code> fue introducido en jQuery 1.4.4.</p>
-    </blockquote>
     </div>
     </div>
     <div class="section level2" id="el-objeto-del-evento">
@@ -1875,28 +1915,28 @@
     </div>
     <div class="section level2" id="incrementar-el-rendimiento-con-la-delegación-de-eventos">
     <h2><a href="#TOC"><span class="header-section-number">5.5</span> Incrementar el Rendimiento con la Delegación de Eventos</a></h2>
-    <p>Cuando trabaje con jQuery, frecuentemente añadirá nuevos elementos a la página, y cuando lo haga, necesitará vincular eventos a dichos elementos — eventos que ya estaban vinculados a elementos en la página. En lugar de repetir la tarea cada vez que se añade un elemento, es posible utilizar la delegación de eventos para hacerlo. Con ella, podrá enlazar un evento a un elemento contenedor, y luego, cuando el evento ocurra, podrá ver en que elemento sucede. Si todo esto suena complicado, afortunadamente jQuery lo hace fácil a través de los métodos <code>$.fn.live</code> y <code>$.fn.delegate</code>.</p>
+    <p>Cuando trabaje con jQuery, frecuentemente añadirá nuevos elementos a la página, y cuando lo haga, necesitará vincular eventos a dichos elementos. En lugar de repetir la tarea cada vez que se añade un elemento, es posible utilizar la delegación de eventos para hacerlo. Con ella, podrá enlazar un evento a un elemento contenedor, y luego, cuando el evento ocurra, podrá ver en que elemento sucede.</p>
     <p>La delegación de eventos posee algunos beneficios, incluso si no se tiene pensando añadir más elementos a la página. El tiempo requerido para enlazar controladores de eventos a cientos de elementos no es un trabajo trivial; si posee un gran conjunto de elementos, debería considerar utilizar la delegación de eventos a un elemento contenedor.</p>
     <blockquote>
     <p><strong>Nota</strong></p>
-    <p>El método <code>$.fn.live</code> fue introducido a partir de la versión 1.3 de la biblioteca y en ese momento, solo ciertos tipos de eventos eran soportados. A partir de la versión 1.4.2, se introdujo <code>$.fn.delegate</code> el cual es preferido a $.fn.live .</p>
+    <p>A partir de la versión 1.4.2, se introdujo <code>$.fn.delegate</code>, sin embargo a partir de la versión 1.7 es preferible utilizar el evento <code>$.fn.on</code> para la delegación de eventos.</p>
     </blockquote>
+    <p><strong>Delegar un evento utilizando <code>$.fn.on</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myUnorderedList&#39;</span>).<span class="fu">on</span>(<span class="ch">&#39;click&#39;</span>, <span class="ch">&#39;li&#39;</span>, <span class="kw">function</span>(e) {
+        <span class="kw">var</span> $myListItem = $(<span class="kw">this</span>);
+        <span class="co">// ...</span>
+    });</code></pre>
     <p><strong>Delegar un evento utilizando <code>$.fn.delegate</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myUnorderedList&#39;</span>).<span class="fu">delegate</span>(<span class="ch">&#39;li&#39;</span>, <span class="ch">&#39;click&#39;</span>, <span class="kw">function</span>(e) {
         <span class="kw">var</span> $myListItem = $(<span class="kw">this</span>);
         <span class="co">// ...</span>
     });</code></pre>
-    <p><strong>Delegar un Evento utilizando <code>$.fn.live</code></strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myUnorderedList li&#39;</span>).<span class="fu">live</span>(<span class="ch">&#39;click&#39;</span>, <span class="kw">function</span>(e) {
-        <span class="kw">var</span> $myListItem = $(<span class="kw">this</span>);
-        <span class="co">// ...</span>
-    });</code></pre>
     <div class="section level3" id="desvincular-eventos-delegados">
     <h3><a href="#TOC"><span class="header-section-number">5.5.1</span> Desvincular Eventos Delegados</a></h3>
-    <p>Si necesita remover eventos delegados, no puede hacerlo simplemente desvinculándolos. Para eso, utilice el método <code>$.fn.undelegate</code> para eventos conectados con <code>$.fn.delegate</code>, y <code>$.fn.die</code> para eventos conectados con <code>$.fn.live</code>. Al igual que cuando se realiza un vinculo, opcionalmente, se puede pasar el nombre de una función vinculada.</p>
+    <p>Si necesita remover eventos delegados, no puede hacerlo simplemente desvinculándolos. Para eso, utilice el método <code>$.fn.off</code> para eventos conectados con <code>$.fn.on</code>, y <code>$.fn.undelegate</code> para eventos conectados con <code>$.fn.delegate</code>. Al igual que cuando se realiza un vinculo, opcionalmente, se puede pasar el nombre de una función vinculada.</p>
     <p><strong>Desvincular eventos delegados</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myUnorderedList&#39;</span>).<span class="fu">undelegate</span>(<span class="ch">&#39;li&#39;</span>, <span class="ch">&#39;click&#39;</span>);
-    $(<span class="ch">&#39;#myUnorderedList li&#39;</span>).<span class="fu">die</span>(<span class="ch">&#39;click&#39;</span>);</code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myUnorderedList&#39;</span>).<span class="fu">off</span>(<span class="ch">&#39;click&#39;</span>, <span class="ch">&#39;li&#39;</span>);
+    $(<span class="ch">&#39;#myUnorderedList&#39;</span>).<span class="fu">undelegate</span>(<span class="ch">&#39;li&#39;</span>, <span class="ch">&#39;click&#39;</span>);</code></pre>
     </div>
     </div>
     <div class="section level2" id="funciones-auxiliares-de-eventos">
@@ -2133,7 +2173,7 @@
     <h3><a href="#TOC"><span class="header-section-number">7.2.1</span> GET vs. POST</a></h3>
     <p>Los dos métodos HTTP más comunes para enviar una petición a un servidor son GET y POST. Es importante entender la utilización de cada uno.</p>
     <p>El método GET debe ser utilizado para operaciones no-destructivas — es decir, operaciones en donde se esta “obteniendo” datos del servidor, pero no modificando. Por ejemplo, una consulta a un servicio de búsqueda podría ser una petición GET. Por otro lado, las solicitudes GET pueden ser almacenadas en la cache del navegador, pudiendo conducir a un comportamiento impredecible si no se lo espera. Generalmente, la información enviada al servidor, es enviada en una cadena de datos (en inglés <em>query string</em>).</p>
-    <p>El método POST debe ser utilizado para operaciones destructivas — es decir, operaciones en donde se está incorporando información al servidor. Por ejemplo, cuando un usuario guarda un artículo en un blog, esta acción debería utilizar POST. Por otro lado, este tipo de método no se guarda en la cache del navegador. Además, una cadena de consulta puede ser parte de la URL, pero la información tiende a ser enviada de forma separada.</p>
+    <p>El método POST debe ser utilizado para operaciones destructivas — es decir, operaciones en donde se está incorporando información al servidor. Por ejemplo, cuando un usuario guarda un artículo en un blog, esta acción debería utilizar POST. Por otro lado, este tipo de método no se guarda en la cache del navegador. Además, una cadena de datos puede ser parte de la URL, pero la información tiende a ser enviada de forma separada.</p>
     </div>
     <div class="section level3" id="tipos-de-datos">
     <h3><a href="#TOC"><span class="header-section-number">7.2.2</span> Tipos de Datos</a></h3>
@@ -2156,7 +2196,7 @@
     <p><strong>Nota</strong></p>
     <p>A partir de la versión 1.4 de la biblioteca, si la información JSON no está correctamente formateada, la petición podría fallar. Visite <a href="http://json.org">http://json.org</a> para obtener detalles sobre un correcto formateo de datos en JSON.</p>
     </blockquote>
-    <p>Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servidor para la generación de información en JSON.</p>
+    <p>Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servidor para la generación de información en formato JSON.</p>
     <dl>
     <dt>jsonp</dt>
     <dd><p>Para transportar información JSON de un dominio a otro.</p>
@@ -2165,7 +2205,7 @@
     <dd><p>Para transportar información en formato XML.</p>
     </dd>
     </dl>
-    <p><em>A pesar de los diferentes tipos de datos de que se puede utilizar, es recomendable utilizar el formato JSON, ya que éste es muy flexible, permitiendo por ejemplo, enviar al mismo tiempo información plana y HTML.</em></p>
+    <p><em>A pesar de los diferentes tipos de datos de que se puede utilizar, es recomendable utilizar el formato JSON, ya que es muy flexible, permitiendo por ejemplo, enviar al mismo tiempo información plana y HTML.</em></p>
     </div>
     <div class="section level3" id="asincronismo">
     <h3><a href="#TOC"><span class="header-section-number">7.2.3</span> Asincronismo</a></h3>
@@ -2218,16 +2258,17 @@
     
         <span class="co">// código a ejecutar si la petición falla;</span>
         <span class="co">// son pasados como argumentos a la función</span>
-        <span class="co">// el objeto de la petición en crudo y código de estatus de la petición</span>
-        <span class="dt">error </span>: <span class="kw">function</span>(xhr, status) {
+        <span class="co">// el objeto jqXHR (extensión de XMLHttpRequest), un texto con el estatus</span>
+        <span class="co">// de la petición y un texto con la descripción del error que haya dado el servidor</span>
+        <span class="dt">error </span>: <span class="kw">function</span>(jqXHR, status, error) {
             alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
         },
     
         <span class="co">// código a ejecutar sin importar si la petición falló o no</span>
-        <span class="dt">complete </span>: <span class="kw">function</span>(xhr, status) {
+        <span class="dt">complete </span>: <span class="kw">function</span>(jqXHR, status) {
             alert(<span class="ch">&#39;Petición realizada&#39;</span>);
         }
-    });</code></pre>
+    }); </code></pre>
     <blockquote>
     <p><strong>Nota</strong></p>
     <p>Una aclaración sobre el parámetro <code>dataType</code>: Si el servidor devuelve información que es diferente al formato especificado, el código fallará, y la razón de porque lo hace no siempre quedará clara debido a que la respuesta HTTP no mostrará ningún tipo de error. Cuando esté trabajando con peticiones Ajax, debe estar seguro que el servidor esta enviando el tipo de información que esta solicitando y verifique que la cabecera <code>Content-type</code> es exacta al tipo de dato. Por ejemplo, para información en formato JSON, la cabecera <code>Content-type</code> debería ser <code>application/json</code>.</p>
@@ -2243,7 +2284,7 @@
     <dd><p>Establece si la petición será guardada en la cache del navegador. De forma predeterminada es <code>true</code> para todos los <em>dataType</em> excepto para “<em>script</em>” y “<em>jsonp</em>”. Cuando posee el valor <code>false</code>, se agrega una cadena de caracteres anti-cache al final de la URL de la petición.</p>
     </dd>
     <dt>complete</dt>
-    <dd><p>Establece una función de devolución de llamada que se ejecuta cuando la petición esta completa, aunque haya fallado o no. La función recibe como argumentos el objeto de la petición en crudo y el código de estatus de la misma petición.</p>
+    <dd><p>Establece una función de devolución de llamada que se ejecuta cuando la petición esta completa, aunque haya fallado o no. La función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo <code>XMLHTTPRequest</code>) y un texto especificando el estatus de la misma petición (<code>success</code>, <code>notmodified</code>, <code>error</code>, <code>timeout</code>, <code>abort</code>, o <code>parsererror</code>).</p>
     </dd>
     <dt>context</dt>
     <dd><p>Establece el alcance en que la/las funciones de devolución de llamada se ejecutaran (por ejemplo, define el significado de <code>this</code> dentro de las funciones). De manera predeterminada <code>this</code> hace referencia al objeto originalmente pasado al método <code>$.ajax</code>.</p>
@@ -2255,13 +2296,13 @@
     <dd><p>Establece el tipo de información que se espera recibir como respuesta del servidor. Si no se especifica ningún valor, de forma predeterminada, jQuery revisa el tipo de <em>MIME</em> que posee la respuesta.</p>
     </dd>
     <dt>error</dt>
-    <dd><p>Establece una función de devolución de llamada a ejecutar si resulta algún error en la petición. Dicha función recibe como argumentos el objeto de la petición en crudo y el código de estatus de la misma petición.</p>
+    <dd><p>Establece una función de devolución de llamada a ejecutar si resulta algún error en la petición. Dicha función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo <code>XMLHTTPRequest</code>), un texto especificando el estatus de la misma petición (<code>timeout</code>, <code>error</code>, <code>abort</code>, o <code>parsererror</code>) y un texto con la descripción del error que haya enviado el servidor (por ejemplo <code>Not Found</code> o <code>Internal Server Error</code>).</p>
     </dd>
     <dt>jsonp</dt>
     <dd><p>Establece el nombre de la función de devolución de llamada a enviar cuando se realiza una petición <em>JSONP</em>. De forma predeterminada el nombre es &quot;<em>callback</em></p>
     </dd>
     <dt>success</dt>
-    <dd><p>Establece una función a ejecutar si la petición a sido satisfactoria. Dicha función recibe como argumentos la información de la petición (convertida a objeto JavaScript en el caso que <em>dataType</em> sea <em>JSON</em>), el estatus de la misma y el objeto de la petición en crudo.</p>
+    <dd><p>Establece una función a ejecutar si la petición a sido satisfactoria. Dicha función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo <code>XMLHTTPRequest</code>), un texto especificando el estatus de la misma petición y la información de la petición (convertida a objeto JavaScript en el caso que <em>dataType</em> sea <em>JSON</em>), el estatus de la misma.</p>
     </dd>
     <dt>timeout</dt>
     <dd><p>Establece un tiempo en milisegundos para considerar a una petición como fallada.</p>
@@ -2277,6 +2318,15 @@
     </dd>
     </dl>
     <p>La opción <code>url</code> es obligatoria para el método <code>$.ajax</code>;</p>
+    <p>Como se comentó anteriormente, para una lista completa de las opciones disponibles, puede consultar <a href="http://api.jquery.com/jQuery.ajax/">http://api.jquery.com/jQuery.ajax/</a>.</p>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>A partir de la versión 1.5 de jQuery, las opciones <code>beforeSend</code>, <code>success</code>, <code>error</code> y <code>complete</code> reciben como uno de sus argumentos el objeto <code>jqXHR</code> siendo este una extensión del objeto nativo <code>XMLHTTPRequest</code>. El objeto <code>jqXHR</code> posee una serie de métodos y propiedades que permiten modificar u obtener información particular de la petición a realizar, como por ejemplo sobreescribir el tipo de <em>MIME</em> que posee la respuesta que se espera por parte del servidor. Para información sobre el objeto <code>jqXHR</code> puede consultar <a href="http://api.jquery.com/jQuery.ajax/#jqXHR">http://api.jquery.com/jQuery.ajax/#jqXHR</a>.</p>
+    </blockquote>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>A partir de la versión 1.5 de jQuery, las opciones <code>success</code>, <code>error</code> y <code>complete</code> pueden recibir un arreglo con varias funciones de devolución, las cuales serán ejecutadas en turnos.</p>
+    </blockquote>
     </div>
     </div>
     <div class="section level3" id="métodos-convenientes">
@@ -2761,7 +2811,7 @@
                 alert( <span class="st">&quot;Función de devolución&quot;</span> );
             }
         })
-        .<span class="fu">bind</span>(<span class="st">&quot;progressbarcomplete&quot;</span>, <span class="kw">function</span>(event, data) {
+        .<span class="fu">on</span>(<span class="st">&quot;progressbarcomplete&quot;</span>, <span class="kw">function</span>(event, data) {
             alert(<span class="st">&quot;El valor de la barra de progreso es &quot;</span> + <span class="kw">data</span>.<span class="fu">value</span>);
         });
     
@@ -3477,7 +3527,7 @@
         }
     });</code></pre>
     <p>Por otro lado, utilizando eventos personalizados, el código queda así:</p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;.lightbulb&#39;</span>).<span class="fu">bind</span>(<span class="ch">&#39;changeState&#39;</span>, <span class="kw">function</span>(e) {
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;.lightbulb&#39;</span>).<span class="fu">on</span>(<span class="ch">&#39;changeState&#39;</span>, <span class="kw">function</span>(e) {
         <span class="kw">var</span> $light = $(<span class="kw">this</span>);
         <span class="kw">if</span> ($<span class="kw">light</span>.<span class="fu">hasClass</span>(<span class="ch">&#39;on&#39;</span>)) {
             $<span class="kw">light</span>.<span class="fu">removeClass</span>(<span class="ch">&#39;on&#39;</span>).<span class="fu">addClass</span>(<span class="ch">&#39;off&#39;</span>);
@@ -3506,7 +3556,7 @@
     &lt;div id=<span class="st">&quot;master_switch&quot;</span>&gt;&lt;/div&gt;</code></pre>
     <p>Si existe alguna lámpara prendida en la casa, es posible apagarlas a través del interruptor general, de igual forma si existen luces apagadas, es posible prenderlas con dicho interruptor. Para realizar esta tarea, se agregan dos eventos personalizados más a la lámpara: <code>turnOn</code> y <code>turnOff</code>. A través de una lógica en el evento <code>changeState</code> se decide qué evento personalizado utilizar:</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;.lightbulb&#39;</span>)
-        .<span class="fu">bind</span>(<span class="ch">&#39;changeState&#39;</span>, <span class="kw">function</span>(e) {
+        .<span class="fu">on</span>(<span class="ch">&#39;changeState&#39;</span>, <span class="kw">function</span>(e) {
             <span class="kw">var</span> $light = $(<span class="kw">this</span>);
             <span class="kw">if</span> ($<span class="kw">light</span>.<span class="fu">hasClass</span>(<span class="ch">&#39;on&#39;</span>)) {
                 $<span class="kw">light</span>.<span class="fu">trigger</span>(<span class="ch">&#39;turnOff&#39;</span>);
@@ -3514,10 +3564,10 @@
                 $<span class="kw">light</span>.<span class="fu">trigger</span>(<span class="ch">&#39;turnOn&#39;</span>);
             }
         })
-        .<span class="fu">bind</span>(<span class="ch">&#39;turnOn&#39;</span>, <span class="kw">function</span>(e) {
+        .<span class="fu">on</span>(<span class="ch">&#39;turnOn&#39;</span>, <span class="kw">function</span>(e) {
             $(<span class="kw">this</span>).<span class="fu">removeClass</span>(<span class="ch">&#39;off&#39;</span>).<span class="fu">addClass</span>(<span class="ch">&#39;on&#39;</span>);
         })
-        .<span class="fu">bind</span>(<span class="ch">&#39;turnOff&#39;</span>, <span class="kw">function</span>(e) {
+        .<span class="fu">on</span>(<span class="ch">&#39;turnOff&#39;</span>, <span class="kw">function</span>(e) {
             $(<span class="kw">this</span>).<span class="fu">removeClass</span>(<span class="ch">&#39;off&#39;</span>).<span class="fu">addClass</span>(<span class="ch">&#39;on&#39;</span>);
         });
     
@@ -3537,14 +3587,14 @@
     <p><strong>Nota</strong></p>
     <p>Si esta acostumbrado a la programación orientada a objetos, puede resultar útil pensar de los eventos personalizados como métodos de objetos. En términos generales, el objeto al que pertenece el método se crea a partir del selector jQuery. Vincular el evento personalizado <code>changeState</code> a todos los elementos <code>$(‘.light’)</code> es similar a tener una clase llamada <code>Light</code> con un método <code>changeState</code>, y luego instanciar nuevos objetos <code>Light</code> por cada elemento.</p>
     </blockquote>
-    <p><strong>Recapitulación: $.fn.bind y $.fn.trigger</strong></p>
-    <p>En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: <code>$.fn.bind</code> y <code>$.fn.trigger</code>. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:</p>
+    <p><strong>Recapitulación: $.fn.on y $.fn.trigger</strong></p>
+    <p>En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: <code>$.fn.on</code> y <code>$.fn.trigger</code>. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:</p>
     <ul>
-    <li>El método <code>$.fn.bind</code> toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad <code>data</code> del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.</li>
+    <li>El método <code>$.fn.on</code> toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad <code>data</code> del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.</li>
     <li>El método <code>$.fn.trigger</code> toma como argumentos el tipo de evento y opcionalmente, puede tomar un arreglo con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.</li>
     </ul>
-    <p>A continuación se muestra un ejemplo de utilización de <code>$.fn.bind</code> y <code>$.fn.trigger</code> en donde se utiliza información personalizada en ambos casos:</p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="kw">document</span>).<span class="fu">bind</span>(<span class="ch">&#39;myCustomEvent&#39;</span>, { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="kw">function</span>(e, arg1, arg2) {
+    <p>A continuación se muestra un ejemplo de utilización de <code>$.fn.on</code> y <code>$.fn.trigger</code> en donde se utiliza información personalizada en ambos casos:</p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="kw">document</span>).<span class="fu">on</span>(<span class="ch">&#39;myCustomEvent&#39;</span>, { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="kw">function</span>(e, arg1, arg2) {
         <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">e.data</span>.<span class="fu">foo</span>); <span class="co">// &#39;bar&#39;</span>
         <span class="kw">console</span>.<span class="fu">log</span>(arg1); <span class="co">// &#39;bim&#39;</span>
         <span class="kw">console</span>.<span class="fu">log</span>(arg2); <span class="co">// &#39;baz&#39;</span>
@@ -3724,7 +3774,7 @@
     </dl>
     <p>Vinculaciones en el contenedor <em>Twitter</em>:</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#twitter&#39;</span>)
-        .<span class="fu">bind</span>(<span class="ch">&#39;getResults&#39;</span>, <span class="kw">function</span>(e, term) {
+        .<span class="fu">on</span>(<span class="ch">&#39;getResults&#39;</span>, <span class="kw">function</span>(e, term) {
             <span class="co">// se comprueba que ya no exista una caja para el término</span>
             <span class="kw">if</span> (!search_terms[term]) {
                 <span class="kw">var</span> $this = $(<span class="kw">this</span>);
@@ -3745,10 +3795,10 @@
                 search_terms[term] = <span class="dv">1</span>;
             }
         })
-        .<span class="fu">bind</span>(<span class="ch">&#39;getTrends&#39;</span>, <span class="kw">function</span>(e) {
+        .<span class="fu">on</span>(<span class="ch">&#39;getTrends&#39;</span>, <span class="kw">function</span>(e) {
             <span class="kw">var</span> $this = $(<span class="kw">this</span>);
-            $.<span class="fu">getJSON</span>(<span class="ch">&#39;http://search.twitter.com/trends.json?callback=?&#39;</span>, <span class="kw">function</span>(json) {
-                    <span class="kw">var</span> trends = <span class="kw">json</span>.<span class="fu">trends</span>;
+            $.<span class="fu">getJSON</span>(<span class="ch">&#39;http://api.twitter.com/1/trends/1.json?callback=?&#39;</span>, <span class="kw">function</span>(json) {
+                    <span class="kw">var</span> trends = json[<span class="dv">0</span>].<span class="fu">trends</span>;
                     $.<span class="fu">each</span>(trends, <span class="kw">function</span>(i, trend) {
                         $<span class="kw">this</span>.<span class="fu">trigger</span>(<span class="ch">&#39;getResults&#39;</span>, [ <span class="kw">trend</span>.<span class="fu">name</span> ]);
                     });
@@ -3781,58 +3831,361 @@
     <p>Los eventos personalizados ofrecen una nueva manera de pensar el código: ellos ponen el énfasis en el objetivo de un comportamiento, no en el elemento que lo activa. Si se toma el tiempo desde el principio para explicar las piezas de su aplicación, así como los comportamientos que esas piezas necesitan exhibir, los eventos personalizados proveen una manera poderosa para “hablar” con esas piezas, ya sea de una en una o en masa.</p>
     <p>Una vez que los comportamientos se han descripto, se convierte en algo trivial ejecutarlos desde cualquier lugar, lo que permite la rápida creación y experimentación de opciones de interfaz. Finalmente, los eventos personalizados también permiten mejorar la lectura del código y su mantenimiento, haciendo clara la relación entre un elemento y su comportamiento.</p>
     <p>Puede ver la aplicación completa en los archivos <code>demos/custom-events/custom-events.html</code> y <code>demos/custom-events/js/custom-events.js</code> del material que componen este libro.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="section level1" id="funciones-y-ejecuciones-diferidas-a-través-del-objeto-.deferred">
+    <h1><a href="#TOC"><span class="header-section-number">12</span> Funciones y ejecuciones diferidas a través del objeto <code>$.Deferred</code></a></h1>
+    <div class="section level2" id="introducción-5">
+    <h2><a href="#TOC"><span class="header-section-number">12.1</span> Introducción</a></h2>
+    <p>A partir de la versión 1.5 de jQuery, la biblioteca introdujo una nueva utilidad: El objeto diferido <code>$.Deferred</code> (en inglés <em>Deferred Object</em>). Este objeto introduce nuevas formas para la invocación y ejecución de las funciones de devolución (<em>callbacks</em>), permitiendo crear aplicaciones más robustas y flexibles. Para más detalles sobre <code>$.Deferred</code>, puede consultar <a href="http://api.jquery.com/category/deferred-object/">http://api.jquery.com/category/deferred-object/</a>.</p>
+    </div>
+    <div class="section level2" id="el-objeto-diferido-y-ajax">
+    <h2><a href="#TOC"><span class="header-section-number">12.2</span> El objeto diferido y Ajax</a></h2>
+    <p>El caso más común en donde se puede apreciar la utilidad del objeto diferido es en el manejo de las funciones de devolución en peticiones Ajax.</p>
+    <p>Según se pudo apreciar en el capítulo dedicado, una manera de invocar una petición Ajax es:</p>
+    <p><strong>Manera tradicional de utilizar el método <code>$.ajax</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript">$.<span class="fu">ajax</span>({
+       <span class="co">// la URL para la petición</span>
+       <span class="dt">url </span>: <span class="ch">&#39;post.php&#39;</span>,
+    
+       <span class="co">// funciónes de devolución a ejecutar</span>
+       <span class="co">// en caso que la petición haya sido</span>
+       <span class="co">// satisfactoria, con error y/o completada</span>
+       <span class="dt">success </span>: <span class="kw">function</span>(data) {
+           alert(<span class="ch">&#39;Petición realizada satisfactoriamente&#39;</span>);
+       },
+       <span class="dt">error </span>: <span class="kw">function</span>(jqXHR, status, error) {
+           alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
+       },
+       <span class="dt">complete </span>: <span class="kw">function</span>(jqXHR, status) {
+           alert(<span class="ch">&#39;Petición realizada&#39;</span>);
+       }
+    });</code></pre>
+    <p>Como se puede observar, las funciones de devolución son configuradas dentro del mismo objeto <code>$.ajax</code>. Esta manera es incomoda y poco flexible ya que <strong>no permite desacoplar las funciones de devolución de la misma petición Ajax</strong>. Y en grandes aplicaciones esto puede llegar a ser un problema.</p>
+    <p>El objeto diferido nos permite reescribir el código anterior de la siguiente manera:</p>
+    <p><strong>El objeto diferido en una petición Ajax</strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// dentro de una variable se define </span>
+    <span class="co">// la configuración de la petición ajax</span>
+    <span class="kw">var</span> ajax = $.<span class="fu">ajax</span>({
+        <span class="dt">url </span>: <span class="ch">&#39;post.php&#39;</span>
+    });
+    
+    <span class="co">// a través del método done() ejecutamos</span>
+    <span class="co">// la función de devolución satisfactoria (sucess)</span>
+    <span class="kw">ajax</span>.<span class="fu">done</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Petición realizada satisfactoriamente&#39;</span>);
+    });
+    
+    <span class="co">// a través del método fail() ejecutamos</span>
+    <span class="co">// la función de devolución de error (error)</span>
+    <span class="kw">ajax</span>.<span class="fu">fail</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
+    });
+    
+    <span class="co">// a través del método always() ejecutamos</span>
+    <span class="co">// la función de devolución de petición completada (complete)</span>
+    <span class="kw">ajax</span>.<span class="fu">always</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Petición realizada&#39;</span>);
+    });</code></pre>
+    <p>A través de los métodos <code>deferred.done</code>, <code>deferred.fail</code> y <code>deferred.always</code> es posible desacoplar las funciones de devolución de la misma petición Ajax, permitiendo un manejo más comodo de las mismas.</p>
+    <p><em>Notar que en en ningún momento se llama al objeto diferido <code>$.Deferred</code>. Esto es porque jQuery ya lo incorpora implicitamente dentro del manejo del objeto <code>$.ajax</code>. Más adelante se explicará como utilizar al objeto <code>$.Deferred</code> de manera explícita.</em></p>
+    <p>De la misma forma es posible crear colas de funciones de devolución o atarlas a diferentes lógicas/acciones:</p>
+    <p><strong>Colas de funciones de devolución en una petición Ajax</strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// definición de la petición Ajax</span>
+    <span class="kw">var</span> ajax = $.<span class="fu">ajax</span>({
+        <span class="dt">url </span>: <span class="ch">&#39;post.php&#39;</span>
+    });
+    
+    <span class="co">// primera función de devolución a ejecutar</span>
+    <span class="kw">ajax</span>.<span class="fu">done</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Primera función de devolución en caso satisfactorio&#39;</span>);
+    });
+    
+    <span class="co">// segunda función de devolución a ejecutar </span>
+    <span class="co">// inmediatamente después de la primera</span>
+    <span class="kw">ajax</span>.<span class="fu">done</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Segunda función de devolución en caso satisfactorio&#39;</span>);
+    });
+    
+    <span class="co">// si el usuario hace click en #element se</span>
+    <span class="co">// agrega una tercera función de devolución</span>
+    $(<span class="ch">&#39;#element&#39;</span>).<span class="fu">click</span>(<span class="kw">function</span>(){
+    
+        <span class="kw">ajax</span>.<span class="fu">done</span>(<span class="kw">function</span>(){
+            alert(<span class="ch">&#39;Tercera función de devolución si el usuario hace click&#39;</span>);
+        });
+    
+    });
+    
+    <span class="co">// en caso que exista un error se define otra</span>
+    <span class="co">// función de devolución</span>
+    <span class="kw">ajax</span>.<span class="fu">fail</span>(<span class="kw">function</span>(){
+        alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
+    });</code></pre>
+    <p>Al ejecutarse la petición Ajax, y en caso de que ésta haya sido satisfactoria, se ejecutan dos funciones de devolución, una detrás de la otra. Sin embargo si el usuario hace click en <code>#element</code> se agrega una tercera función de devolución, la cual también se ejecuta inmediatamente, sin volver a realizar la petición Ajax. Esto es porque el objeto diferido (que se encuentra implicitamente en la variable <code>ajax</code>) ya tiene información asociada sobre que la petición Ajax se realizó correctamente.</p>
+    <div class="section level3" id="deferred.then">
+    <h3><a href="#TOC"><span class="header-section-number">12.2.1</span> <code>deferred.then</code></a></h3>
+    <p>Otra manera de utilizar los métodos <code>deferred.done</code> y <code>deferred.fail</code> es a través de <code>deferred.then</code>, el cual permite definir en un mismo bloque de código las funciones de devolución a suceder en los casos satisfactorios y erroneos.</p>
+    <p><strong>Utilización del método <code>deferred.then</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// definición de la petición Ajax</span>
+    <span class="kw">var</span> ajax = $.<span class="fu">ajax</span>({
+        <span class="dt">url </span>: <span class="ch">&#39;post.php&#39;</span>
+    });
+    
+    <span class="co">// el método espera dos funciones de devolución</span>
+    <span class="kw">ajax</span>.<span class="fu">then</span>(
+    
+        <span class="co">// la primera es la función de devolución satisfactoria</span>
+        <span class="kw">function</span>(){ 
+            alert(<span class="ch">&#39;Petición realizada satisfactoriamente&#39;</span>); 
+        },
+    
+        <span class="co">// la segunda es la función de devolución erronea</span>
+        <span class="kw">function</span>(){ 
+            alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
+        }
+    
+    );</code></pre>
+    </div>
+    </div>
+    <div class="section level2" id="creación-de-objetos-diferidos-con-.deferred">
+    <h2><a href="#TOC"><span class="header-section-number">12.3</span> Creación de objetos diferidos con <code>$.Deferred</code></a></h2>
+    <p>Así como es posible desacoplar las funciones de devolución en una petición Ajax, también es posible realizarlo en otras funciones utilizando de manera explícita el objeto <code>$.Deferred</code>.</p>
+    <p>Por ejemplo, una función que verifica si un número es par, de la manera tradicional puede escribirse de la siguiente manera:</p>
+    <p><strong>Función sin utilizar el objeto <code>$.Deferred</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// función que calcula si un número entero es par o impar</span>
+    <span class="kw">var</span> isEven = <span class="kw">function</span>(number) {
+    
+        <span class="kw">if</span> (number%<span class="dv">2</span> == <span class="dv">0</span>){
+            <span class="kw">return</span> <span class="kw">true</span>;
+        } <span class="kw">else</span> {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+    
+    }
+    
+    <span class="co">// si es par registra un mensaje,</span>
+    <span class="co">// en caso contrario registra otro</span>
+    <span class="kw">if</span> (isEven(<span class="dv">2</span>)){
+        <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Es par&#39;</span>);
+    } <span class="kw">else</span> {
+        <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Es impar&#39;</span>);
+    }</code></pre>
+    <p>Utilizando el objeto <code>$.Deferred</code>, el mismo ejemplo puede reescribirse de la siguiente forma:</p>
+    <p><strong>Función utilizando el objeto <code>$.Deferred</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// función que calcula si un número entero es par o impar</span>
+    <span class="kw">var</span> isEven = <span class="kw">function</span>(number) {
+    
+        <span class="co">// guarda en una variable al objeto $.Deferred()</span>
+        <span class="kw">var</span> dfd = $.<span class="fu">Deferred</span>();
+    
+        <span class="co">// si es par, resuelve al objeto utilizando deferred.resolve,</span>
+        <span class="co">// caso contrario, lo rechaza utilizando deferred.reject</span>
+        <span class="kw">if</span> (number%<span class="dv">2</span> == <span class="dv">0</span>){
+            <span class="kw">dfd</span>.<span class="fu">resolve</span>();
+        } <span class="kw">else</span> {
+            <span class="kw">dfd</span>.<span class="fu">reject</span>();
+        }
+    
+        <span class="co">// devuelve al objeto diferido con su estado definido</span>
+        <span class="kw">return</span> <span class="kw">dfd</span>.<span class="fu">promise</span>();
+    
+    }
+    
+    <span class="co">// con deferred.then se manejan las funciones de devolución</span>
+    <span class="co">// en los casos que el numero sea par o impar</span>
+    isEven(<span class="dv">2</span>).<span class="fu">then</span>(
+    
+        <span class="co">// la primera es la función de devolución satisfactoria</span>
+        <span class="kw">function</span>(){ 
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Es par&#39;</span>);
+        },
+    
+        <span class="co">// la segunda es la función de devolución erronea</span>
+        <span class="kw">function</span>(){ 
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Es impar&#39;</span>);
+        }
+    
+    );</code></pre>
+    <p>Los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> permiten <strong>definir el estado interno</strong> del objeto <code>$.Deferred()</code>. Esta definición <strong>es permanente, es decir, no es posible modificarla después</strong> y es lo que permite manejar el comportamiento y ejecución de las funciones de devolución posteriores para cada uno de los casos.</p>
+    <p>Notar que la función <code>isEven</code> devuelve el método <code>deferred.promise</code>. El mismo es una versión del objeto diferido, pero que sólo permite leer su estado o añadir nuevas funciones de devolución.</p>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>En los ejemplos que utilizaban Ajax mostrados anteriormente, los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> son llamados de manera interna por jQuery dentro de la configuración <code>sucess</code> y <code>error</code> de la petición. Por eso mismos se decía que el objeto diferido estaba incorporado implicitamente dentro del objeto <code>$.ajax</code>.</p>
+    </blockquote>
+    <p>Los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> además permiten devolver valores para ser utilizados por las funciones de devolución.</p>
+    <p><strong>Función con <code>deferred.resolve</code> y <code>deferred.reject</code> devolviendo valores reutilizables</strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// función que calcula si un numero entero es par o impar</span>
+    <span class="kw">var</span> isEven = <span class="kw">function</span>(number) {
+    
+        <span class="kw">var</span> dfd = $.<span class="fu">Deferred</span>();
+    
+        <span class="co">// resuelve o rechaza al objeto utilizando</span>
+        <span class="co">// y devuelve un texto con el resultado</span>
+        <span class="kw">if</span> (number%<span class="dv">2</span> == <span class="dv">0</span>){
+            <span class="kw">dfd</span>.<span class="fu">resolve</span>(<span class="ch">&#39;El número &#39;</span> + number + <span class="ch">&#39; es par&#39;</span>);
+        } <span class="kw">else</span> {
+            <span class="kw">dfd</span>.<span class="fu">reject</span>(<span class="ch">&#39;El número &#39;</span> + number + <span class="ch">&#39; es impar&#39;</span>);
+        }
+    
+        <span class="co">// devuelve al objeto diferido con su estado definido</span>
+        <span class="kw">return</span> <span class="kw">dfd</span>.<span class="fu">promise</span>();
+    
+    }
+    
+    isEven(<span class="dv">2</span>).<span class="fu">then</span>(
+    
+        <span class="kw">function</span>(result){ 
+            <span class="kw">console</span>.<span class="fu">log</span>(result); <span class="co">// Registra &#39;El número 2 es par&#39;</span>
+        },
+    
+        <span class="kw">function</span>(result){ 
+            <span class="kw">console</span>.<span class="fu">log</span>(result);
+        }
+    
+    );</code></pre>
+    <blockquote>
+    <p><strong>Nota</strong></p>
+    <p>Es posible determinar el estado de un objeto diferido a través del método <code>deferred.state</code>. El mismo devuelve un string con alguno de estos tres valores: <code>pending</code>, <code>resolved</code> o <code>rejected</code>. Para más detalles sobre <code>deferred.state</code>, puede consultar <a href="http://api.jquery.com/deferred.state/">http://api.jquery.com/deferred.state/</a>.</p>
+    </blockquote>
+    <div class="section level3" id="deferred.pipe">
+    <h3><a href="#TOC"><span class="header-section-number">12.3.1</span> <code>deferred.pipe</code></a></h3>
+    <p>Existen casos en que se necesita modificar el estado de un objeto diferido o filtrar la información que viene asociada. Para estos casos existe <code>deferred.pipe</code>. Su funcionamiento es similar a <code>deferred.then</code>, con la diferencia que <code>deferred.pipe</code> devuelve un nuevo objeto diferido modificado a través de una función interna.</p>
+    <p><strong>Función filtrando valores utilizando <code>deferred.pipe</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// función que calcula si un número entero es par o impar</span>
+    <span class="kw">var</span> isEven = <span class="kw">function</span>(number) {
+    
+        <span class="kw">var</span> dfd = $.<span class="fu">Deferred</span>();
+    
+        <span class="kw">if</span> (number%<span class="dv">2</span> == <span class="dv">0</span>){
+            <span class="kw">dfd</span>.<span class="fu">resolve</span>(number);
+        } <span class="kw">else</span> {
+            <span class="kw">dfd</span>.<span class="fu">reject</span>(number);
+        }
+    
+        <span class="kw">return</span> <span class="kw">dfd</span>.<span class="fu">promise</span>();
+    
+    }
+    
+    <span class="co">// arreglo con una serie de números pares e impares</span>
+    <span class="kw">var</span> numbers = [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>];
+    
+    <span class="co">// a través de deferred.pipe se pregunta si número se encuentra</span>
+    <span class="co">// dentro del arreglo numbers</span>
+    isEven(<span class="dv">2</span>).<span class="fu">pipe</span>(
+    
+        <span class="kw">function</span>(number){
+    
+            <span class="co">// crea un nuevo objeto diferido</span>
+            <span class="kw">var</span> dfd = $.<span class="fu">Deferred</span>();
+    
+            <span class="kw">if</span>($.<span class="fu">inArray</span>(number, numbers) !== -<span class="dv">1</span>){ 
+                <span class="kw">dfd</span>.<span class="fu">resolve</span>();
+            } <span class="kw">else</span> {
+                <span class="kw">dfd</span>.<span class="fu">reject</span>();
+            }
+    
+            <span class="co">// devuelve un nuevo objeto diferido</span>
+            <span class="kw">return</span> <span class="kw">dfd</span>.<span class="fu">promise</span>();
+    
+        }
+    
+    ).<span class="fu">then</span>(
+    
+        <span class="kw">function</span>(){
+            <span class="co">// al estar dentro del arreglo numbers y ser par,</span>
+            <span class="co">// se registra este mensaje</span>
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;El número es par y se encuentra dentro de numbers&#39;</span>);
+        },
+    
+        <span class="kw">function</span>(){
+            <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;El número es impar o no se encuentra dentro de numbers&#39;</span>);
+        }
+    
+    );</code></pre>
+    <p>Para más detalles sobre <code>deferred.pipe</code>, puede consultar <a href="http://api.jquery.com/deferred.pipe/">http://api.jquery.com/deferred.pipe/</a>.</p>
+    </div>
+    <div class="section level3" id="when">
+    <h3><a href="#TOC"><span class="header-section-number">12.3.2</span> <code>$.when</code></a></h3>
+    <p>El método <code>$.when</code> permite ejecutar funciones de devolución, cuando uno o más objetos diferidos posean algun estado definido.</p>
+    <p>Un caso común de utilización de <code>$.when</code> es cuando se quiere verificar que dos peticiones Ajax separadas se han realizado.</p>
+    <p><strong>Utilización de <code>$.when</code></strong></p>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// primera petición ajax</span>
+    <span class="kw">var</span> comments = $.<span class="fu">ajax</span>({
+        <span class="dt">url </span>: <span class="ch">&#39;/echo/json/&#39;</span>
+    });
+    
+    <span class="co">// segunda petición ajax</span>
+    <span class="kw">var</span> validation = $.<span class="fu">ajax</span>({
+        <span class="dt">url </span>: <span class="ch">&#39;/echo/json/&#39;</span>
+    });
+    
+    <span class="co">// cuando las dos peticiones sean realizadas</span>
+    <span class="co">// ejecuta alguna función de devolución definida</span>
+    <span class="co">// dentro de deferred.then</span>
+    $.<span class="fu">when</span>(comments, validation).<span class="fu">then</span>(
+        <span class="kw">function</span>(){
+            alert(<span class="ch">&#39;Peticiones realizadas&#39;</span>);
+        },
+        <span class="kw">function</span>(){
+            alert(<span class="ch">&#39;Disculpe, existió un problema&#39;</span>);
+        }
+    );</code></pre>
+    <p>Para más detalles sobre <code>$.when</code>, puede consultar <a href="http://api.jquery.com/jQuery.when/">http://api.jquery.com/jQuery.when/</a>.</p>
     <p>Copyright © 2011</p>
     <p>Material licenciado por Rebecca Murphey bajo la licencia <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States</a>. Usted es libre de copiarlo, distribuirlo, transmitirlo y modificarlo, siempre y cuando haga referencia a <a href="http://github.com/rmurphey/jqfundamentals">este repositorio</a> y atribuya la autoría original a Rebecca Murphey. Si altera, transforma o crea una obra derivada, deberá distribuir el resultado bajo una licencia igual, similar o compatible. Cualquiera de las condiciones mencionadas pueden no aplicarse si obtiene permisos del autor. Para cualquier reutilización o distribución, deberá dejar en claro la licencia la mejor manera para hacerlo es a través de un enlace hacia la licencia <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States</a>.</p>
-    </div>
     </div>
     </div>
     </div>
 
     
     <p>
-      <strong>Última actualización del libro:</strong> Abril 2012 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+      <strong>Última actualización del libro:</strong> Mayo 2012 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
     </p>
 
   <script>
 
-    (function (d) {
+  (function (d) {
 
-      function insertScript(src, id) {
-        var st = d.createElement('script'), s;
-        st.type = 'text/javascript';
-        st.async = true;
-        st.src = src;
-        if (id) {
-          st.id = id;
-        }
-        s = d.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(st, s);
+    function insertScript(src, id) {
+      var st = d.createElement('script'), s;
+      st.type = 'text/javascript';
+      st.async = true;
+      st.src = src;
+      if (id) {
+        st.id = id;
       }
+      s = d.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(st, s);
+    }
 
-      // GA
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-16816025-3']);
-      _gaq.push(['_trackPageview']);
-      insertScript(('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+    // GA
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16816025-3']);
+    _gaq.push(['_trackPageview']);
+    insertScript(('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
 
-      window.onload = function () {
-        // Twitter
-        insertScript('http://platform.twitter.com/widgets.js');
+    window.onload = function () {
+      // Twitter
+      insertScript('http://platform.twitter.com/widgets.js');
 
-        // G+
-        window.___gcfg = {lang: 'es'};
-        insertScript('https://apis.google.com/js/plusone.js');
+      // G+
+      window.___gcfg = {lang: 'es'};
+      insertScript('https://apis.google.com/js/plusone.js');
 
-        // FB
-        if (d.getElementById('facebook-jssdk')) {
-          return;
-        } else {
-          insertScript('//connect.facebook.net/es_ES/all.js#xfbml=1', 'facebook-jssdk');
-        }
-      };
-    }(document));
+      // FB
+      if (d.getElementById('facebook-jssdk')) {
+        return;
+      } else {
+        insertScript('//connect.facebook.net/es_ES/all.js#xfbml=1', 'facebook-jssdk');
+      }
+    };
+
+  }(document));
+
   </script>
-
 
 </body>
 

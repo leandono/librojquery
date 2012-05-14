@@ -117,7 +117,7 @@ var search_terms = {};
 
 $(document).ready(function() {
 	$('#twitter')
-	    .bind('getResults', function(e, term) {
+	    .on('getResults', function(e, term) {
 	        // make sure we don't have a box for this term already
 	        if (!search_terms[term]) { 
 	            var $this = $(this);
@@ -138,10 +138,10 @@ $(document).ready(function() {
 	            search_terms[term] = 1;
 	        }
 	    })
-	    .bind('getTrends', function(e) {
+	    .on('getTrends', function(e) {
 	        var $this = $(this);
-	        $.getJSON('http://search.twitter.com/trends.json?callback=?', function(json) {
-	                var trends = json.trends; 
+	        $.getJSON('http://api.twitter.com/1/trends/1.json?callback=?', function(json) {
+	                var trends = json[0].trends; 
 	                $.each(trends, function(i, trend) {
 	                    $this.trigger('getResults', [ trend.name ]);
 	                });

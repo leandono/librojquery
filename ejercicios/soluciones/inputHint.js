@@ -6,10 +6,10 @@ $(document).ready(function() {
 	$input
 		.val(hint)
 		.addClass('hint')
-		.bind('focus', function() {
+		.on('focus', function() {
 			$input.val('').removeClass('hint');
 		})
-		.bind('blur', function() {
+		.on('blur', function() {
 			if (!$.trim($input.val())) {
 				$input.val(hint).addClass('hint');
 			}

@@ -4,7 +4,7 @@
 
 ## Introducción
 
-jQuery provee métodos para asociar controladores de eventos (en inglés *event handlers*) a selectores. Cuando un evento ocurre, la función  provista es ejecutada.  Dentro de la función, la palabra clave this hace referencia al elemento en que el evento ocurre.
+jQuery provee métodos para asociar controladores de eventos (en inglés *event handlers*) a selectores. Cuando un evento ocurre, la función  provista es ejecutada. Dentro de la función, la palabra clave `this` hace referencia al elemento en que el evento ocurre.
 
 Para más detalles sobre los eventos en jQuery, puede consultar [http://api.jquery.com/category/events/](http://api.jquery.com/category/events/).
 
@@ -14,7 +14,7 @@ La función del controlador de eventos puede recibir un objeto. Este objeto pued
 
 ## Vincular Eventos a Elementos
 
-jQuery ofrece métodos para la mayoría de los eventos — entre ellos `$.fn.click`, `$.fn.focus`{.code}, `$.fn.blur`{.code}, `$.fn.change`{.code}, etc. Estos últimos son formas reducidas del método `$.fn.bind` de jQuery. El método bind es útil para vincular (en inglés *binding*) la misma función de controlador a múltiples eventos, para cuando se desea proveer información al controlador de evento, cuando se está trabajando con eventos personalizados o cuando se desea pasar un objeto a múltiples eventos y controladores.
+jQuery ofrece métodos para la mayoría de los eventos — entre ellos `$.fn.click`, `$.fn.focus`, `$.fn.blur`, `$.fn.change`, etc. Estos últimos son formas reducidas del método `$.fn.on` de jQuery (`$.fn.bind` en versiones anteriores a jQuery 1.7). El método `$.fn.on` es útil para vincular (en inglés *binding*) la misma función de controlador a múltiples eventos, para cuando se desea proveer información al controlador de evento, cuando se está trabajando con eventos personalizados o cuando se desea pasar un objeto a múltiples eventos y controladores.
 
 
 **Vincular un evento utilizando un método reducido**
@@ -25,21 +25,19 @@ $('p').click(function() {
 });
 ```
 
-
-**Vincular un evento utilizando el método `$.fn.bind` method**
+**Vincular un evento utilizando el método `$.fn.on`**
 
 ```javascript
-$('p').bind('click', function() {
+$('p').on('click', function() {
     console.log('click');
 });
 ```
 
-
-**Vincular un evento utilizando el método `$.fn.bind` con información asociada**
+**Vincular un evento utilizando el método `$.fn.on` con información asociada**
 
 ```javascript
-$('input').bind(
-    'click change',  // es posible incular múltiples eventos al elemento
+$('input').on(
+    'click blur',  // es posible vincular múltiples eventos al elemento
     { foo : 'bar' }, // se debe pasar la información asociada como argumento
 
     function(eventObject) {
@@ -48,7 +46,6 @@ $('input').bind(
     }
 );
 ```
-
 
 
 ### Vincular Eventos para Ejecutar una vez
@@ -71,13 +68,13 @@ El método `$.fn.one` es útil para situaciones en que necesita ejecutar cierto 
 
 ### Desvincular Eventos
 
-Para desvincular (en ingles *unbind*) un controlador de evento, puede utilizar el método `$.fn.unbind` pasándole el tipo de evento a desconectar. Si se pasó como adjunto al evento una función nombrada, es posible aislar la desconexión de dicha función pasándola como segundo argumento.
+Para desvincular (en ingles *unbind*) un controlador de evento, puede utilizar el método `$.fn.off` pasándole el tipo de evento a desconectar. Si se pasó como adjunto al evento una función nombrada, es posible aislar la desconexión de dicha función pasándola como segundo argumento.
 
 
 **Desvincular todos los controladores del evento click en una selección**
 
 ```javascript
-$('p').unbind('click');
+$('p').off('click');
 ```
 
 
@@ -87,8 +84,8 @@ $('p').unbind('click');
 var foo = function() { console.log('foo'); };
 var bar = function() { console.log('bar'); };
 
-$('p').bind('click', foo).bind('click', bar);
-$('p').unbind('click', bar); // foo esta atado aún al evento click
+$('p').on('click', foo).on('click', bar);
+$('p').off('click', bar); // foo esta atado aún al evento click
 ```
 
 
@@ -101,34 +98,31 @@ Cuando se esta desarrollando aplicaciones complejas o extensiones de jQuery, pue
 **Asignar espacios de nombres a eventos**
 
 ```javascript
-$('p').bind('click.myNamespace', function() { /* ... */ });
-$('p').unbind('click.myNamespace');
-$('p').unbind('.myNamespace'); // desvincula todos los eventos con
-                               // el espacio de nombre 'myNamespace'
+$('p').on('click.myNamespace', function() { /* ... */ });
+$('p').off('click.myNamespace');
+$('p').off('.myNamespace'); // desvincula todos los eventos con
+                            // el espacio de nombre 'myNamespace'
 ```
 
 
 
 ### Vinculación de Múltiples Eventos
 
-Muy a menudo, elementos en una aplicación estarán vinculados a múltiples eventos, cada uno con una función diferente. En estos casos, es posible pasar un objeto dentro de `$.fn.bind` con uno o más pares de nombres claves/valores. Cada nombre clave será el nombre del evento mientras que cada valor será la función a ejecutar cuando ocurra el evento.
+Muy a menudo, elementos en una aplicación estarán vinculados a múltiples eventos, cada uno con una función diferente. En estos casos, es posible pasar un objeto dentro de `$.fn.on` con uno o más pares de nombres claves/valores. Cada clave será el nombre del evento mientras que cada valor será la función a ejecutar cuando ocurra el evento.
 
 
 **Vincular múltiples eventos a un elemento**
 
 ```javascript
-$('p').bind({
-    'click': function() { console.log('clickeado'); },
-    'mouseover': function() { console.log('sobrepasado'); }
+$('p').on({
+    'click': function() { 
+    	console.log('clickeado'); 
+    },
+    'mouseover': function() { 
+    	console.log('sobrepasado'); 
+    }
 });
 ```
-
-
-
-> **Nota**
->
-> La opción de pasar un objeto con múltiples eventos y funciones a `$.fn.bind` fue introducido en jQuery 1.4.4.
-
 
 
 ## El Objeto del Evento
@@ -203,14 +197,24 @@ foo(); // en lugar de realizar $('p').trigger('click')
 
 ## Incrementar el Rendimiento con la Delegación de Eventos
 
-Cuando trabaje con jQuery, frecuentemente añadirá nuevos elementos a la página, y cuando lo haga, necesitará vincular eventos a dichos elementos — eventos que ya estaban vinculados a elementos en la página. En lugar de repetir la tarea cada vez que se añade un elemento, es posible utilizar la delegación de eventos para hacerlo. Con ella, podrá enlazar un evento a un elemento contenedor, y luego, cuando el evento ocurra, podrá ver en que elemento sucede. Si todo esto suena complicado, afortunadamente jQuery lo hace fácil a través de los métodos `$.fn.live` y `$.fn.delegate`.
+Cuando trabaje con jQuery, frecuentemente añadirá nuevos elementos a la página, y cuando lo haga, necesitará vincular eventos a dichos elementos. En lugar de repetir la tarea cada vez que se añade un elemento, es posible utilizar la delegación de eventos para hacerlo. Con ella, podrá enlazar un evento a un elemento contenedor, y luego, cuando el evento ocurra, podrá ver en que elemento sucede. 
 
 La delegación de eventos posee algunos beneficios, incluso si no se tiene pensando añadir más elementos a la página. El tiempo requerido para enlazar controladores de eventos a cientos de elementos no es un trabajo trivial; si posee un gran conjunto de elementos, debería considerar utilizar la delegación de eventos a un elemento contenedor.
 
 
 > **Nota**
 >
-> El método `$.fn.live` fue introducido a partir de la versión 1.3 de la biblioteca y en ese momento, solo ciertos tipos de eventos eran soportados. A partir de la versión 1.4.2, se introdujo `$.fn.delegate` el cual es preferido a $.fn.live .
+> A partir de la versión 1.4.2, se introdujo `$.fn.delegate`, sin embargo a partir de la versión 1.7 es preferible utilizar el evento `$.fn.on` para la delegación de eventos.
+
+
+**Delegar un evento utilizando `$.fn.on`**
+
+```javascript
+$('#myUnorderedList').on('click', 'li', function(e) {
+    var $myListItem = $(this);
+    // ...
+});
+```
 
 
 **Delegar un evento utilizando `$.fn.delegate`**
@@ -223,27 +227,16 @@ $('#myUnorderedList').delegate('li', 'click', function(e) {
 ```
 
 
-**Delegar un Evento utilizando `$.fn.live`**
-
-```javascript
-$('#myUnorderedList li').live('click', function(e) {
-    var $myListItem = $(this);
-    // ...
-});
-```
-
-
-
 ### Desvincular Eventos Delegados
 
-Si necesita remover eventos delegados, no puede hacerlo simplemente desvinculándolos. Para eso, utilice el método `$.fn.undelegate` para eventos conectados con `$.fn.delegate`, y `$.fn.die` para eventos conectados con `$.fn.live`. Al igual que cuando se realiza un vinculo, opcionalmente, se puede pasar el nombre de una función vinculada.
+Si necesita remover eventos delegados, no puede hacerlo simplemente desvinculándolos. Para eso, utilice el método `$.fn.off` para eventos conectados con `$.fn.on`, y `$.fn.undelegate` para eventos conectados con `$.fn.delegate`. Al igual que cuando se realiza un vinculo, opcionalmente, se puede pasar el nombre de una función vinculada.
 
 
 **Desvincular eventos delegados**
 
 ```javascript
+$('#myUnorderedList').off('click', 'li');
 $('#myUnorderedList').undelegate('li', 'click');
-$('#myUnorderedList li').die('click');
 ```
 
 

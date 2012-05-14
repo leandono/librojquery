@@ -43,7 +43,7 @@ $('.switch, .clapper').click(function() {
 Por otro lado, utilizando eventos personalizados, el código queda así:
 
 ```javascript
-$('.lightbulb').bind('changeState', function(e) {
+$('.lightbulb').on('changeState', function(e) {
     var $light = $(this);
     if ($light.hasClass('on')) {
         $light.removeClass('on').addClass('off');
@@ -81,7 +81,7 @@ Si existe alguna lámpara prendida en la casa, es posible apagarlas a través de
 
 ```javascript
 $('.lightbulb')
-    .bind('changeState', function(e) {
+    .on('changeState', function(e) {
         var $light = $(this);
         if ($light.hasClass('on')) {
             $light.trigger('turnOff');
@@ -89,10 +89,10 @@ $('.lightbulb')
             $light.trigger('turnOn');
         }
     })
-    .bind('turnOn', function(e) {
+    .on('turnOn', function(e) {
         $(this).removeClass('off').addClass('on');
     })
-    .bind('turnOff', function(e) {
+    .on('turnOff', function(e) {
         $(this).removeClass('off').addClass('on');
     });
 
@@ -118,17 +118,17 @@ Note como el comportamiento del interruptor general se ha vinculado al interrupt
 
 
 
-**Recapitulación: $.fn.bind y $.fn.trigger**
+**Recapitulación: $.fn.on y $.fn.trigger**
 
-En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: `$.fn.bind` y `$.fn.trigger`. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:
+En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: `$.fn.on` y `$.fn.trigger`. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:
 
--   El método `$.fn.bind` toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad `data` del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.
+-   El método `$.fn.on` toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad `data` del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.
 -   El método `$.fn.trigger` toma como argumentos el tipo de evento y opcionalmente, puede tomar un arreglo con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.
 
-A continuación se muestra un ejemplo de utilización de `$.fn.bind` y `$.fn.trigger` en donde se utiliza información personalizada en ambos casos:
+A continuación se muestra un ejemplo de utilización de `$.fn.on` y `$.fn.trigger` en donde se utiliza información personalizada en ambos casos:
 
 ```javascript
-$(document).bind('myCustomEvent', { foo : 'bar' }, function(e, arg1, arg2) {
+$(document).on('myCustomEvent', { foo : 'bar' }, function(e, arg1, arg2) {
     console.log(e.data.foo); // 'bar'
     console.log(arg1); // 'bim'
     console.log(arg2); // 'baz'
@@ -328,7 +328,7 @@ Vinculaciones en el contenedor *Twitter*:
 
 ```javascript
 $('#twitter')
-    .bind('getResults', function(e, term) {
+    .on('getResults', function(e, term) {
         // se comprueba que ya no exista una caja para el término
         if (!search_terms[term]) {
             var $this = $(this);
@@ -349,10 +349,10 @@ $('#twitter')
             search_terms[term] = 1;
         }
     })
-    .bind('getTrends', function(e) {
+    .on('getTrends', function(e) {
         var $this = $(this);
-        $.getJSON('http://search.twitter.com/trends.json?callback=?', function(json) {
-                var trends = json.trends;
+        $.getJSON('http://api.twitter.com/1/trends/1.json?callback=?', function(json) {
+                var trends = json[0].trends;
                 $.each(trends, function(i, trend) {
                     $this.trigger('getResults', [ trend.name ]);
                 });

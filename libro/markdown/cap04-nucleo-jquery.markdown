@@ -140,6 +140,7 @@ myValue === null; // falso (false)
 jQuery.isFunction(myValue); // falso (false)
 jQuery.isPlainObject(myValue); // falso (false)
 jQuery.isArray(myValue); // verdadero (true)
+jQuery.isNumeric(16); // verdadero (true). No disponible en versiones inferiores a jQuery 1.7
 ```
 
 
@@ -156,12 +157,11 @@ $('#myDiv').data('keyName', { foo : 'bar' });
 $('#myDiv').data('keyName'); // { foo : 'bar' }
 ```
 
-A través del método `$.fn.data` es posible guardar cualquier tipo de información sobre un elemento, y es difícil exagerar la importancia de este concepto cuando se está desarrollando una aplicación compleja.
+A través del método `$.fn.data` es posible guardar cualquier tipo de información sobre un elemento. Es difícil exagerar la importancia de este concepto cuando se está desarrollando una aplicación compleja.
 
 Por ejemplo, si desea establecer una relación entre el ítem de una lista y el div que hay dentro de este ítem, es posible hacerlo cada vez que se interactúa con el ítem, pero una mejor solución es hacerlo una sola vez, guardando un puntero al div utilizando el método `$.fn.data`:
 
-**Establecer una relación entre elementos utilizando el método
-`$.fn.data`**
+**Establecer una relación entre elementos utilizando el método `$.fn.data`**
 
 ```javascript
 $('#myList li').each(function() {
@@ -176,6 +176,37 @@ $firstLi.data('contentDiv').html('nuevo contenido');
 ```
 
 Además es posible pasarle al método un objeto conteniendo uno o más pares de conjuntos palabra clave-valor.
+
+A partir de la versión 1.5 de la biblioteca, jQuery permite utilizar al método `$.fn.data` para obtener la información asociada a un elemento que posea el atributo HTML5 `data-*`:
+
+**Elementos con el atributo `data-*`**
+
+```html
+<a id='foo' data-foo='baz' href='#'>Foo</a>
+
+<a id='foobar' data-foo-bar='fol' href='#'>Foo Bar</a>
+```
+
+**Obtener los valores asociados a los atributos `data-*` con `$.fn.data`**
+
+```javascript
+// obtiene el valor del atributo data-foo
+// utilizando el método $.fn.data
+console.log($('#foo').data('foo')); // registra 'baz'
+
+// obtiene el valor del segundo elemento
+console.log($('#foobar').data('fooBar')); // registra 'fol'
+```
+
+
+> **Nota**
+>
+> A partir de la versión 1.6 de la biblioteca, para obtener el valor del atributo `data-foo-bar` del segundo elemento, el argumento en `$.fn.data` se debe pasar en estilo *CamelCase*.
+
+
+> **Nota**
+>
+> Para más información sobre el atributo HTML5 `data-*` visite [http://www.w3.org/TR/html5/global-attributes.html#embedding-custom-non-visible-data-with-the-data-attributes](http://www.w3.org/TR/html5/global-attributes.html#embedding-custom-non-visible-data-with-the-data-attributes).
 
 
 

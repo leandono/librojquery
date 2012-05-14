@@ -371,12 +371,24 @@ $('h1').css('font-size'); // también funciona
 
 ```javascript
 $('h1').css('fontSize', '100px'); // establece una propiedad individual CSS
-$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // establece múltiples
-                                                        // propiedades CSS
+$('h1').css({ 
+	'fontSize' : '100px',
+	'color' : 'red' 	
+}); // establece múltiples propiedades CSS
 ```
 
 *Notar que el estilo del argumento utilizado en la segunda línea del ejemplo — es un objeto que contiene múltiples propiedades. Esta es una forma común de pasar múltiples argumentos a una función, y muchos métodos establecedores de la biblioteca aceptan objetos para fijar varias propiedades de una sola vez.*
 
+A partir de la versión 1.6 de la biblioteca, utilizando `$.fn.css` también es posible establecer valores relativos en las propiedades CSS de un elemento determinado:
+
+**Establecer valores CSS relativos**
+
+```javascript
+$('h1').css({ 
+	'fontSize' : '+=15px', // suma 15px al tamaño original del elemento
+	'paddingTop' : '+=20px' // suma 20px al padding superior original del elemento
+});
+```
 
 ### Utilizar Clases para Aplicar Estilos CSS
 

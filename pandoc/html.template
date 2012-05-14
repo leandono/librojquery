@@ -12,6 +12,7 @@
   <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$"/>
   <meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
   <title>$if(title-prefix)$$title-prefix$$endif$</title>
+  <link rel="stylesheet" type="text/css" href="css/markdown.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/stylePrint.css" media="print">
   <link rel="canonical" href="http://librojquery.com/" />
@@ -85,44 +86,45 @@
 
   <script>
 
-    (function (d) {
+  (function (d) {
 
-      function insertScript(src, id) {
-        var st = d.createElement('script'), s;
-        st.type = 'text/javascript';
-        st.async = true;
-        st.src = src;
-        if (id) {
-          st.id = id;
-        }
-        s = d.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(st, s);
+    function insertScript(src, id) {
+      var st = d.createElement('script'), s;
+      st.type = 'text/javascript';
+      st.async = true;
+      st.src = src;
+      if (id) {
+        st.id = id;
       }
+      s = d.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(st, s);
+    }
 
-      // GA
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-16816025-3']);
-      _gaq.push(['_trackPageview']);
-      insertScript(('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+    // GA
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16816025-3']);
+    _gaq.push(['_trackPageview']);
+    insertScript(('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
 
-      window.onload = function () {
-        // Twitter
-        insertScript('http://platform.twitter.com/widgets.js');
+    window.onload = function () {
+      // Twitter
+      insertScript('http://platform.twitter.com/widgets.js');
 
-        // G+
-        window.___gcfg = {lang: 'es'};
-        insertScript('https://apis.google.com/js/plusone.js');
+      // G+
+      window.___gcfg = {lang: 'es'};
+      insertScript('https://apis.google.com/js/plusone.js');
 
-        // FB
-        if (d.getElementById('facebook-jssdk')) {
-          return;
-        } else {
-          insertScript('//connect.facebook.net/es_ES/all.js#xfbml=1', 'facebook-jssdk');
-        }
-      };
-    }(document));
+      // FB
+      if (d.getElementById('facebook-jssdk')) {
+        return;
+      } else {
+        insertScript('//connect.facebook.net/es_ES/all.js#xfbml=1', 'facebook-jssdk');
+      }
+    };
+
+  }(document));
+
   </script>
-
 
 </body>
 

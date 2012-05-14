@@ -460,7 +460,7 @@ var bar = $("<div></div>")
             alert( "Función de devolución" );
         }
     })
-    .bind("progressbarcomplete", function(event, data) {
+    .on("progressbarcomplete", function(event, data) {
         alert("El valor de la barra de progreso es " + data.value);
     });
 

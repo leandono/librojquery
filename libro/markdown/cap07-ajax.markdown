@@ -27,7 +27,7 @@ Los dos métodos HTTP más comunes para enviar una petición a un servidor son G
 
 El método GET debe ser utilizado para operaciones no-destructivas — es decir, operaciones en donde se esta "obteniendo" datos del servidor, pero no modificando. Por ejemplo, una consulta a un servicio de búsqueda podría ser una petición GET. Por otro lado, las solicitudes GET pueden ser almacenadas en la cache del navegador, pudiendo conducir a un comportamiento impredecible si no se lo espera. Generalmente, la información enviada al servidor, es enviada en una cadena de datos (en inglés *query string*).
 
-El método POST debe ser utilizado para operaciones destructivas — es decir, operaciones en donde se está incorporando información al servidor. Por ejemplo, cuando un usuario guarda un artículo en un blog, esta acción debería utilizar POST. Por otro lado, este tipo de método no se guarda en la cache del navegador. Además, una cadena de consulta puede ser parte de la URL, pero la información tiende a ser enviada de forma separada.
+El método POST debe ser utilizado para operaciones destructivas — es decir, operaciones en donde se está incorporando información al servidor. Por ejemplo, cuando un usuario guarda un artículo en un blog, esta acción debería utilizar POST. Por otro lado, este tipo de método no se guarda en la cache del navegador. Además, una cadena de datos puede ser parte de la URL, pero la información tiende a ser enviada de forma separada.
 
 
 
@@ -39,21 +39,21 @@ Generalmente, jQuery necesita algunas instrucciones sobre el tipo de informació
   ~ Para el transporte de cadenas de caracteres simples.
 
  html
-  ~ Para el transporte de bloques de código HTML que serán ubicados en     la página.
+  ~ Para el transporte de bloques de código HTML que serán ubicados en la página.
 
  script
   ~ Para añadir un nuevo *script* con código JavaScript a la página.
 
  json
-  ~ Para transportar información en formato JSON, el cual puede incluir     cadenas de caracteres, arreglos y objetos.
+  ~ Para transportar información en formato JSON, el cual puede incluir cadenas de caracteres, arreglos y objetos.
 
 
 > **Nota**
 >
-> A partir de la versión 1.4 de la biblioteca, si la información JSON     no está correctamente formateada, la petición podría fallar. Visite     [http://json.org](http://json.org) para obtener detalles sobre un     correcto formateo de datos en JSON.
+> A partir de la versión 1.4 de la biblioteca, si la información JSON no está correctamente formateada, la petición podría fallar. Visite [http://json.org](http://json.org) para obtener detalles sobre un correcto formateo de datos en JSON.
 
 
-Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servidor para la generación de información en JSON.
+Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servidor para la generación de información en formato JSON.
 
 
  jsonp
@@ -62,7 +62,7 @@ Es recomendable utilizar los mecanismos que posea el lenguaje del lado de servid
  xml
   ~ Para transportar información en formato XML.
 
-*A pesar de los diferentes tipos de datos de que se puede utilizar, es recomendable utilizar el formato JSON, ya que éste es muy flexible, permitiendo por ejemplo, enviar al mismo tiempo información plana y HTML.*
+*A pesar de los diferentes tipos de datos de que se puede utilizar, es recomendable utilizar el formato JSON, ya que es muy flexible, permitiendo por ejemplo, enviar al mismo tiempo información plana y HTML.*
 
 
 
@@ -138,16 +138,17 @@ $.ajax({
 
     // código a ejecutar si la petición falla;
     // son pasados como argumentos a la función
-    // el objeto de la petición en crudo y código de estatus de la petición
-    error : function(xhr, status) {
+    // el objeto jqXHR (extensión de XMLHttpRequest), un texto con el estatus
+    // de la petición y un texto con la descripción del error que haya dado el servidor
+    error : function(jqXHR, status, error) {
         alert('Disculpe, existió un problema');
     },
 
     // código a ejecutar sin importar si la petición falló o no
-    complete : function(xhr, status) {
+    complete : function(jqXHR, status) {
         alert('Petición realizada');
     }
-});
+});	
 ```
 
 
@@ -168,25 +169,25 @@ El método $.ajax posee muchas opciones de configuración, y es justamente esta 
   ~ Establece si la petición será guardada en la cache del navegador. De forma predeterminada es `true` para todos los *dataType* excepto para "*script*" y "*jsonp*". Cuando posee el valor `false`, se agrega una cadena de caracteres anti-cache al final de la URL de la petición.
 
  complete
-  ~ Establece una función de devolución de llamada que se ejecuta cuando la petición esta completa, aunque haya fallado o no. La función recibe como argumentos el objeto de la petición en crudo y el código de estatus de la misma petición.
+  ~ Establece una función de devolución de llamada que se ejecuta cuando la petición esta completa, aunque haya fallado o no. La función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo `XMLHTTPRequest`) y un texto especificando el estatus de la misma petición (`success`, `notmodified`, `error`, `timeout`, `abort`, o `parsererror`).
 
  context
   ~ Establece el alcance en que la/las funciones de devolución de llamada se ejecutaran (por ejemplo, define el significado de `this` dentro de las funciones). De manera predeterminada `this` hace referencia al objeto originalmente pasado al método `$.ajax`.
 
  data
-  ~ Establece la información que se enviará al servidor. Esta puede ser     tanto un objeto como una cadena de datos (por ejemplo     `foo=bar&baz=bim`.)
+  ~ Establece la información que se enviará al servidor. Esta puede ser tanto un objeto como una cadena de datos (por ejemplo `foo=bar&baz=bim`.)
 
  dataType
   ~ Establece el tipo de información que se espera recibir como respuesta del servidor. Si no se especifica ningún valor, de forma predeterminada, jQuery revisa el tipo de *MIME* que posee la respuesta.
 
  error
-  ~ Establece una función de devolución de llamada a ejecutar si resulta algún error en la petición. Dicha función recibe como argumentos el objeto de la petición en crudo y el código de estatus de la misma petición.
+  ~ Establece una función de devolución de llamada a ejecutar si resulta algún error en la petición. Dicha función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo `XMLHTTPRequest`), un texto especificando el estatus de la misma petición (`timeout`, `error`, `abort`, o `parsererror`) y un texto con la descripción del error que haya enviado el servidor (por ejemplo `Not Found` o `Internal Server Error`).
 
  jsonp
   ~ Establece el nombre de la función de devolución de llamada a enviar cuando se realiza una petición *JSONP*. De forma predeterminada el nombre es "*callback*
 
  success
-  ~ Establece una función a ejecutar si la petición a sido satisfactoria. Dicha función recibe como argumentos la información de la petición (convertida a objeto JavaScript en el caso que *dataType* sea *JSON*), el estatus de la misma y el objeto de la     petición en crudo.
+  ~ Establece una función a ejecutar si la petición a sido satisfactoria. Dicha función recibe como argumentos el objeto jqXHR (en versiones anteriores o iguales a jQuery 1.4, recibe en su lugar el objeto de la petición en crudo `XMLHTTPRequest`), un texto especificando el estatus de la misma petición y la información de la petición (convertida a objeto JavaScript en el caso que *dataType* sea *JSON*), el estatus de la misma.
 
  timeout
   ~ Establece un tiempo en milisegundos para considerar a una petición como fallada.
@@ -202,6 +203,19 @@ El método $.ajax posee muchas opciones de configuración, y es justamente esta 
 
 La opción `url` es obligatoria para el método `$.ajax`;
 
+Como se comentó anteriormente, para una lista completa de las opciones disponibles, puede consultar [http://api.jquery.com/jQuery.ajax/](http://api.jquery.com/jQuery.ajax/).
+
+
+> **Nota**
+>
+> A partir de la versión 1.5 de jQuery, las opciones `beforeSend`, `success`, `error` y `complete` reciben como uno de sus argumentos el objeto `jqXHR` siendo este una extensión del objeto nativo `XMLHTTPRequest`. El objeto `jqXHR` posee una serie de métodos y propiedades que permiten modificar u obtener información particular de la petición a realizar, como por ejemplo sobreescribir el tipo de *MIME* que posee la respuesta que se espera por parte del servidor. Para información sobre el objeto `jqXHR` puede consultar [http://api.jquery.com/jQuery.ajax/#jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR).
+> 
+
+
+> **Nota**
+>
+> A partir de la versión 1.5 de jQuery, las opciones `success`, `error` y `complete` pueden recibir un arreglo con varias funciones de devolución, las cuales serán ejecutadas en turnos.
+> 
 
 
 ### Métodos Convenientes

@@ -34,7 +34,7 @@ $(document).ready(function() {
 				$.ajax({
 					type : 'get',
 					dataType : 'json',
-					url : 'json/specials.json',
+					url : 'data/specials.json',
 					success : function(specials) {
 						cachedResponse = specials;
 						handleResponse(specials, val);

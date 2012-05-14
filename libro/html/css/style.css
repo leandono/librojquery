@@ -1,39 +1,5 @@
 body {
-  width: 60%;
-  font-family: Georgia, serif;
-  margin: 20px auto;
-}
-
-a {
-  color: #ce242a;
-  -webkit-transition: color 0.3s ease-out;
-     -moz-transition: color 0.3s ease-out;
-      -ms-transition: color 0.3s ease-out;
-       -o-transition: color 0.3s ease-out;
-          transition: color 0.3s ease-out;
-}
-
-a:visited {
-  color: #9f2826;
-}
-
-a:hover {
-  color: #570100;
-}
-
-h1, h2, h3, h4 {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-hr {
-  color: #ccc;
-  margin: 50px 0;
-  border-bottom: 1px solid #CCC;
-  border-top: 0;
-}
-
-p {
-  line-height: 1.4em;
+  max-width:50em;
 }
 
 #titlepage {
@@ -42,20 +8,16 @@ p {
   padding-bottom: 15px;
 }
 
-h1.title {
+.title {
   font-size: 210%;
 }
 
-h1.maintitle {
+.maintitle {
   float: left;
 }
 
-h1.maintitle a {
+.maintitle a {
   color: #000;
-}
-
-h2, h3{
-  margin: 30px 0 19px 0;
 }
 
 .social {
@@ -68,14 +30,11 @@ h2, h3{
   list-style: none;
 }
 
-dt {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 700;
-}
-
-#TOC li {
-  color: #ce242a;
-  padding: 2px 0;
+.translators{
+  background-color:#D9EDF7;
+  border-color: #BCE8F1;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 .translators .translator {
@@ -92,28 +51,25 @@ dt {
   clear:both;
 }
 
-.translators, blockquote {
-  background-color:#FE6;
-  padding: 15px;
-}
-
 pre {
-  background:none repeat scroll 0 0 #F1F1F1;
-  border: 1px solid #DDD;
-  color:#000;
-  font-size: 12px;
-  overflow:auto;
-  width: 100%;
-  margin: 20px 0;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 pre code {
   font: 13px Monaco,"Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 31px;
 }
 
+hr {
+  color: #ccc;
+  margin: 50px 0;
+  border-bottom: 1px solid #CCC;
+  border-top: 0;
+}
 
+blockquote{
+  margin: 30px 0;
+}
 
 /* Syntax Highlight styles */
 

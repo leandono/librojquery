@@ -32,13 +32,13 @@ $.ajax('data/people.json', {
       }).appendTo($select);
     });
 
-    $select.bind('change', function(e) {
+    $select.on('change', function(e) {
       var personId = $(this).val();
       if (!personId) { return; }
       getPersonData(personId, showPerson);
     });
 
-    $info.bind('mouseenter', function() {
+    $info.on('mouseenter', function() {
       var $this = $(this);
       if ($this.children('div').length) { return; }
 
