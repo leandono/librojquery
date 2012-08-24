@@ -92,7 +92,7 @@ Estas son algunas sugerencias para hacer frente a los problemas:
 
 -   Finalmente, averigüe qué necesita hacer con esos elementos para resolver el problema. Puede ser útil, antes de comenzar, escribir comentarios explicando lo que va a realizar.
 
-No tenga miedo de cometer errores. Tampoco trate en el primer intento escribir de forma perfecta su código. Cometer errores y experimentar con soluciones es parte del proceso de aprendizaje y lo ayudará a que sea un mejor desarrollador.
+No tenga miedo de cometer errores. Tampoco trate en el primer intento escribir de forma perfecta su código. Cometer errores y experimentar con soluciones es parte del proceso de aprendizaje y le ayudará a que sea un mejor desarrollador.
 
 Podrá encontrar en la carpeta `/ejercicios/soluciones` ejemplos de soluciones a los ejercicios del libro.
 
