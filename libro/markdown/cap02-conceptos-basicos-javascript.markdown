@@ -439,7 +439,7 @@ do {
 } while (false);
 ```
 
-Este tipo de bucles son bastantes atípicos ya que en pocas ocasiones de necesita un bucle que se ejecute al menos una vez. De cualquier forma debe estar al tanto de ellos.
+Este tipo de bucles son bastantes atípicos ya que en pocas ocasiones se necesita un bucle que se ejecute al menos una vez. De cualquier forma debe estar al tanto de ellos.
 
 
 
