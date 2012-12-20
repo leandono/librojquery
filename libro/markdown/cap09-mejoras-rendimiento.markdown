@@ -6,7 +6,7 @@ Este capítulo cubre numerosas mejores prácticas de JavaScript y jQuery,sin un 
 
 ## Guardar la Longitud en Bucles
 
-En un bucle, no es necesario acceder a la longitud de un arreglo cada vez que se evalúa la condición; dicho valor se puede guardar previamente en una variable.
+En un bucle, no es necesario acceder a la longitud de un vector cada vez que se evalúa la condición; dicho valor se puede guardar previamente en una variable.
 
 ```javascript
 var myLength = myArray.length;

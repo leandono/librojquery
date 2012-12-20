@@ -45,7 +45,7 @@ Generalmente, jQuery necesita algunas instrucciones sobre el tipo de informació
   ~ Para añadir un nuevo *script* con código JavaScript a la página.
 
  json
-  ~ Para transportar información en formato JSON, el cual puede incluir cadenas de caracteres, arreglos y objetos.
+  ~ Para transportar información en formato JSON, el cual puede incluir cadenas de caracteres, vectores y objetos.
 
 
 > **Nota**
@@ -214,7 +214,7 @@ Como se comentó anteriormente, para una lista completa de las opciones disponib
 
 > **Nota**
 >
-> A partir de la versión 1.5 de jQuery, las opciones `success`, `error` y `complete` pueden recibir un arreglo con varias funciones de devolución, las cuales serán ejecutadas en turnos.
+> A partir de la versión 1.5 de jQuery, las opciones `success`, `error` y `complete` pueden recibir un vector con varias funciones de devolución, las cuales serán ejecutadas en turnos.
 > 
 
 
@@ -320,7 +320,7 @@ $('#myForm').serialize();
 ```
 
 
-**Crear un arreglo de objetos conteniendo información de un formulario**
+**Crear un vector de objetos conteniendo información de un formulario**
 
 ```javascript
 $('#myForm').serializeArray();

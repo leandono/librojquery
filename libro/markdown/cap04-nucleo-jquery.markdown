@@ -37,7 +37,7 @@ $.trim('    varios espacios en blanco   ');
 ```
 
  $.each
-  ~ Interactúa en arreglos y objetos.
+  ~ Interactúa en vectores y objetos.
 
 ```javascript
 $.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
@@ -56,7 +56,7 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
 
 
  $.inArray
-  ~ Devuelve el índice de un valor en un arreglo, o -1 si el valor no se encuentra en el arreglo.
+  ~ Devuelve el índice de un valor en un vector, o -1 si el valor no se encuentra en el vector.
 
 ```javascript
 var myArray = [ 1, 2, 3, 5 ];

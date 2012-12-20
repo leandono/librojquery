@@ -243,7 +243,7 @@ Para controlar el flujo adecuadamente, es importante entender qué tipos de valo
 ```javascript
 '0';
 'any string'; // cualquier cadena
-[];  // un arreglo vacío
+[];  // un vector vacío
 {};  // un objeto vacío
 1;   // cualquier número distinto a cero
 ```
@@ -542,19 +542,19 @@ JavaScript posee un número de "palabras reservadas", o palabras que son especia
 
 
 
-## Arreglos
+## Vectores
 
-Los arreglos (en inglés *arrays*) son listas de valores con índice-cero (en inglés *zero-index*), es decir, que el primer elemento del arreglo está en el índice 0. Éstos son una forma práctica de almacenar un conjunto de datos relacionados (como cadenas de caracteres), aunque en realidad, un arreglo puede incluir múltiples tipos de datos, incluso otros arreglos.
+Los vectores (en español también llamados *matrices* o *arreglos* y en inglés *arrays*) son listas de valores con índice-cero (en inglés *zero-index*), es decir, que el primer elemento del vector está en el índice 0. Éstos son una forma práctica de almacenar un conjunto de datos relacionados (como cadenas de caracteres), aunque en realidad, un vector puede incluir múltiples tipos de datos, incluso otros vectores.
 
 
-**Un arreglo simple**
+**Un vector simple**
 
 ```javascript
 var myArray = [ 'hello', 'world' ];
 ```
 
 
-**Acceder a los ítems del arreglo a través de su índice**
+**Acceder a los ítems del vector a través de su índice**
 
 ```javascript
 var myArray = [ 'hello', 'world', 'foo', 'bar' ];
@@ -562,7 +562,7 @@ console.log(myArray[3]);   // muestra en la consola 'bar'
 ```
 
 
-**Obtener la cantidad de ítems del arreglo**
+**Obtener la cantidad de ítems del vector**
 
 ```javascript
 var myArray = [ 'hello', 'world' ];
@@ -570,17 +570,17 @@ console.log(myArray.length);   // muestra en la consola 2
 ```
 
 
-**Cambiar el valor de un ítem de un arreglo**
+**Cambiar el valor de un ítem de un vector**
 
 ```javascript
 var myArray = [ 'hello', 'world' ];
 myArray[1] = 'changed';
 ```
 
-*Como se muestra en el ejemplo "Cambiar el valor de un ítem de un arreglo" es posible cambiar el valor de un ítem de un arreglo, sin embargo, por lo general, no es aconsejable.*
+*Como se muestra en el ejemplo "Cambiar el valor de un ítem de un vector" es posible cambiar el valor de un ítem de un vector, sin embargo, por lo general, no es aconsejable.*
 
 
-**Añadir elementos a un arreglo**
+**Añadir elementos a un vector**
 
 ```javascript
 var myArray = [ 'hello', 'world' ];
@@ -588,7 +588,7 @@ myArray.push('new');
 ```
 
 
-**Trabajar con arreglos**
+**Trabajar con vectores**
 
 ```javascript
 var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
@@ -600,11 +600,11 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]
 
 ## Objetos
 
-Los objetos son elementos que pueden contener cero o más conjuntos de pares de nombres claves y valores asociados a dicho objeto. Los nombres claves pueden ser cualquier palabra o número válido. El valor puede ser cualquier tipo de valor: un número, una cadena, un arreglo, una función, incluso otro objeto.
+Los objetos son elementos que pueden contener cero o más conjuntos de pares de nombres claves y valores asociados a dicho objeto. Los nombres claves pueden ser cualquier palabra o número válido. El valor puede ser cualquier tipo de valor: un número, una cadena, un vector, una función, incluso otro objeto.
 
 [Definición: Cuando uno de los valores de un objeto es una función, ésta es nombrada como un *método* del objeto.] De lo contrario, se los llama *propiedades*.
 
-Curiosamente, en JavaScript, casi todo es un objeto — arreglos, funciones, números, incluso cadenas — y todos poseen propiedades y métodos.
+Curiosamente, en JavaScript, casi todo es un objeto — vectores, funciones, números, incluso cadenas — y todos poseen propiedades y métodos.
 
 
 **Creación de un "objeto literal"**
@@ -764,7 +764,7 @@ myFn(myOtherFn);   // muestra en la consola 'hello world'
 
 ## Determinación del Tipo de Variable
 
-JavaScript ofrece una manera de poder comprobar el "tipo" (en inglés *type*) de una variable. Sin embargo, el resultado puede ser confuso — por ejemplo, el tipo de un arreglo es "object".
+JavaScript ofrece una manera de poder comprobar el "tipo" (en inglés *type*) de una variable. Sin embargo, el resultado puede ser confuso — por ejemplo, el tipo de un vector es "object".
 
 Por eso, es una práctica común utilizar el operador `typeof` cuando se trata de determinar el tipo de un valor específico.
 
@@ -796,14 +796,14 @@ typeof null;         // devuelve 'object' -- tenga cuidado
 
 
 if (myArray.push && myArray.slice && myArray.join) {
-    // probablemente sea un arreglo
+    // probablemente sea un vector
     // (este estilo es llamado, en inglés, "duck typing")
 }
 
 if (Object.prototype.toString.call(myArray) === '[object Array]') {
-    // definitivamente es un arreglo;
+    // definitivamente es un vector;
     // esta es considerada la forma más robusta
-    // de determinar si un valor es un arreglo.
+    // de determinar si un valor es un vector.
 }
 ```
 

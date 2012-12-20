@@ -123,7 +123,7 @@ Note como el comportamiento del interruptor general se ha vinculado al interrupt
 En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: `$.fn.on` y `$.fn.trigger`. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:
 
 -   El método `$.fn.on` toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad `data` del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.
--   El método `$.fn.trigger` toma como argumentos el tipo de evento y opcionalmente, puede tomar un arreglo con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.
+-   El método `$.fn.trigger` toma como argumentos el tipo de evento y opcionalmente, puede tomar un vector con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.
 
 A continuación se muestra un ejemplo de utilización de `$.fn.on` y `$.fn.trigger` en donde se utiliza información personalizada en ambos casos:
 

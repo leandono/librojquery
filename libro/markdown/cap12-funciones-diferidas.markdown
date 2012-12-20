@@ -303,11 +303,11 @@ var isEven = function(number) {
     
 }
 
-// arreglo con una serie de números pares e impares
+// vector con una serie de números pares e impares
 var numbers = [0, 2, 9, 10, 5, 8, 12];
 
 // a través de deferred.pipe se pregunta si número se encuentra
-// dentro del arreglo numbers
+// dentro del vector numbers
 isEven(2).pipe(
     
     function(number){
@@ -329,7 +329,7 @@ isEven(2).pipe(
 ).then(
 
     function(){
-    	// al estar dentro del arreglo numbers y ser par,
+    	// al estar dentro del vector numbers y ser par,
     	// se registra este mensaje
         console.log('El número es par y se encuentra dentro de numbers');
     },

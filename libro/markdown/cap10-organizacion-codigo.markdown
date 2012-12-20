@@ -359,7 +359,7 @@ require.def("my/simpleshirt",
 
 El ejemplo debe ser guardado en el archivo `my/simpleshirt.js`.
 
-Si el modulo posee dependencias, es posible especificarlas en el segundo argumento de `require.def()` a través de un arreglo) y luego pasar una función como tercer argumento. Esta función será llamada para definir el módulo una vez cargadas todos las dependencias. Dicha función recibe los valores devueltos por las dependencias como un argumento (en el mismo orden en que son requeridas en el arreglo) y luego la misma debe devolver un objeto que defina el módulo.
+Si el modulo posee dependencias, es posible especificarlas en el segundo argumento de `require.def()` a través de un vector) y luego pasar una función como tercer argumento. Esta función será llamada para definir el módulo una vez cargadas todos las dependencias. Dicha función recibe los valores devueltos por las dependencias como un argumento (en el mismo orden en que son requeridas en el vector) y luego la misma debe devolver un objeto que defina el módulo.
 
 
 **Definición de un módulo RequireJS con dependencias**
@@ -389,7 +389,7 @@ my/inventory.js
 my/shirt.js
 ```
 
-La función que define `my/shirt` no es llamada hasta que `my/cart` y `my/inventory` hayan sido cargadas, y dicha función recibe como argumentos a los módulos como `cart` y `inventory`. El orden de los argumentos de la función debe coincidir con el orden en que las dependencias se requieren en el arreglo. El objeto devuelto define el módulo `my/shirt`. Definiendo los módulos de esta forma, `my/shirt` no existe como un objeto global, ya que múltiples módulos pueden existir en la página al mismo tiempo.
+La función que define `my/shirt` no es llamada hasta que `my/cart` y `my/inventory` hayan sido cargadas, y dicha función recibe como argumentos a los módulos como `cart` y `inventory`. El orden de los argumentos de la función debe coincidir con el orden en que las dependencias se requieren en el vector. El objeto devuelto define el módulo `my/shirt`. Definiendo los módulos de esta forma, `my/shirt` no existe como un objeto global, ya que múltiples módulos pueden existir en la página al mismo tiempo.
 
 Los módulos no tienen que devolver un objeto; cualquier tipo de valor es permitido.
 

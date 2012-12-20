@@ -99,7 +99,7 @@
         <li><a href="#break-y-continue"><span class="toc-section-number">2.5.4</span> Break y Continue</a></li>
         </ul></li>
         <li><a href="#palabras-reservadas"><span class="toc-section-number">2.6</span> Palabras Reservadas</a></li>
-        <li><a href="#arreglos"><span class="toc-section-number">2.7</span> Arreglos</a></li>
+        <li><a href="#vectores"><span class="toc-section-number">2.7</span> Vectores</a></li>
         <li><a href="#objetos"><span class="toc-section-number">2.8</span> Objetos</a></li>
         <li><a href="#funciones"><span class="toc-section-number">2.9</span> Funciones</a><ul>
         <li><a href="#utilización-de-funciones"><span class="toc-section-number">2.9.1</span> Utilización de Funciones</a></li>
@@ -530,7 +530,7 @@
     <p><strong>Valores que devuelven <code>verdadero (true)</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ch">&#39;0&#39;</span>;
     <span class="ch">&#39;any string&#39;</span>; <span class="co">// cualquier cadena</span>
-    [];  <span class="co">// un arreglo vacío</span>
+    [];  <span class="co">// un vector vacío</span>
     {};  <span class="co">// un objeto vacío</span>
     <span class="dv">1</span>;   <span class="co">// cualquier número distinto a cero</span></code></pre>
     <p><strong>Valores que devuelven <code>falso (false)</code></strong></p>
@@ -738,34 +738,34 @@
     <li><code>with</code></li>
     </ul>
     </div>
-    <div class="section level2" id="arreglos">
-    <h2><a href="#TOC"><span class="header-section-number">2.7</span> Arreglos</a></h2>
-    <p>Los arreglos (en inglés <em>arrays</em>) son listas de valores con índice-cero (en inglés <em>zero-index</em>), es decir, que el primer elemento del arreglo está en el índice 0. Éstos son una forma práctica de almacenar un conjunto de datos relacionados (como cadenas de caracteres), aunque en realidad, un arreglo puede incluir múltiples tipos de datos, incluso otros arreglos.</p>
-    <p><strong>Un arreglo simple</strong></p>
+    <div class="section level2" id="vectores">
+    <h2><a href="#TOC"><span class="header-section-number">2.7</span> Vectores</a></h2>
+    <p>Los vectores (en español también llamados <em>matrices</em> o <em>arreglos</em> y en inglés <em>arrays</em>) son listas de valores con índice-cero (en inglés <em>zero-index</em>), es decir, que el primer elemento del vector está en el índice 0. Éstos son una forma práctica de almacenar un conjunto de datos relacionados (como cadenas de caracteres), aunque en realidad, un vector puede incluir múltiples tipos de datos, incluso otros vectores.</p>
+    <p><strong>Un vector simple</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];</code></pre>
-    <p><strong>Acceder a los ítems del arreglo a través de su índice</strong></p>
+    <p><strong>Acceder a los ítems del vector a través de su índice</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span>, <span class="ch">&#39;foo&#39;</span>, <span class="ch">&#39;bar&#39;</span> ];
     <span class="kw">console</span>.<span class="fu">log</span>(myArray[<span class="dv">3</span>]);   <span class="co">// muestra en la consola &#39;bar&#39;</span></code></pre>
-    <p><strong>Obtener la cantidad de ítems del arreglo</strong></p>
+    <p><strong>Obtener la cantidad de ítems del vector</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
     <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myArray</span>.<span class="fu">length</span>);   <span class="co">// muestra en la consola 2</span></code></pre>
-    <p><strong>Cambiar el valor de un ítem de un arreglo</strong></p>
+    <p><strong>Cambiar el valor de un ítem de un vector</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
     myArray[<span class="dv">1</span>] = <span class="ch">&#39;changed&#39;</span>;</code></pre>
-    <p><em>Como se muestra en el ejemplo “Cambiar el valor de un ítem de un arreglo” es posible cambiar el valor de un ítem de un arreglo, sin embargo, por lo general, no es aconsejable.</em></p>
-    <p><strong>Añadir elementos a un arreglo</strong></p>
+    <p><em>Como se muestra en el ejemplo “Cambiar el valor de un ítem de un vector” es posible cambiar el valor de un ítem de un vector, sin embargo, por lo general, no es aconsejable.</em></p>
+    <p><strong>Añadir elementos a un vector</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
     <span class="kw">myArray</span>.<span class="fu">push</span>(<span class="ch">&#39;new&#39;</span>);</code></pre>
-    <p><strong>Trabajar con arreglos</strong></p>
+    <p><strong>Trabajar con vectores</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;h&#39;</span>, <span class="ch">&#39;e&#39;</span>, <span class="ch">&#39;l&#39;</span>, <span class="ch">&#39;l&#39;</span>, <span class="ch">&#39;o&#39;</span> ];
     <span class="kw">var</span> myString = <span class="kw">myArray</span>.<span class="fu">join</span>(<span class="ch">&#39;&#39;</span>);   <span class="co">// &#39;hello&#39;</span>
     <span class="kw">var</span> mySplit = <span class="kw">myString</span>.<span class="fu">split</span>(<span class="ch">&#39;&#39;</span>);  <span class="co">// [ &#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39; ]</span></code></pre>
     </div>
     <div class="section level2" id="objetos">
     <h2><a href="#TOC"><span class="header-section-number">2.8</span> Objetos</a></h2>
-    <p>Los objetos son elementos que pueden contener cero o más conjuntos de pares de nombres claves y valores asociados a dicho objeto. Los nombres claves pueden ser cualquier palabra o número válido. El valor puede ser cualquier tipo de valor: un número, una cadena, un arreglo, una función, incluso otro objeto.</p>
+    <p>Los objetos son elementos que pueden contener cero o más conjuntos de pares de nombres claves y valores asociados a dicho objeto. Los nombres claves pueden ser cualquier palabra o número válido. El valor puede ser cualquier tipo de valor: un número, una cadena, un vector, una función, incluso otro objeto.</p>
     <p>[Definición: Cuando uno de los valores de un objeto es una función, ésta es nombrada como un <em>método</em> del objeto.] De lo contrario, se los llama <em>propiedades</em>.</p>
-    <p>Curiosamente, en JavaScript, casi todo es un objeto — arreglos, funciones, números, incluso cadenas — y todos poseen propiedades y métodos.</p>
+    <p>Curiosamente, en JavaScript, casi todo es un objeto — vectores, funciones, números, incluso cadenas — y todos poseen propiedades y métodos.</p>
     <p><strong>Creación de un “objeto literal”</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myObject = {
       <span class="dt">sayHello</span>: <span class="kw">function</span>() {
@@ -864,7 +864,7 @@
     </div>
     <div class="section level2" id="determinación-del-tipo-de-variable">
     <h2><a href="#TOC"><span class="header-section-number">2.10</span> Determinación del Tipo de Variable</a></h2>
-    <p>JavaScript ofrece una manera de poder comprobar el “tipo” (en inglés <em>type</em>) de una variable. Sin embargo, el resultado puede ser confuso — por ejemplo, el tipo de un arreglo es “object”.</p>
+    <p>JavaScript ofrece una manera de poder comprobar el “tipo” (en inglés <em>type</em>) de una variable. Sin embargo, el resultado puede ser confuso — por ejemplo, el tipo de un vector es “object”.</p>
     <p>Por eso, es una práctica común utilizar el operador <code>typeof</code> cuando se trata de determinar el tipo de un valor específico.</p>
     <p><strong>Determinar el tipo en diferentes variables</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myFunction = <span class="kw">function</span>() {
@@ -891,14 +891,14 @@
     
     
     <span class="kw">if</span> (<span class="kw">myArray</span>.<span class="fu">push</span> &amp;&amp; <span class="kw">myArray</span>.<span class="fu">slice</span> &amp;&amp; <span class="kw">myArray</span>.<span class="fu">join</span>) {
-        <span class="co">// probablemente sea un arreglo</span>
+        <span class="co">// probablemente sea un vector</span>
         <span class="co">// (este estilo es llamado, en inglés, &quot;duck typing&quot;)</span>
     }
     
     <span class="kw">if</span> (<span class="kw">Object</span>.<span class="fu">prototype</span>.<span class="fu">toString</span>.<span class="fu">call</span>(myArray) === <span class="ch">&#39;[object Array]&#39;</span>) {
-        <span class="co">// definitivamente es un arreglo;</span>
+        <span class="co">// definitivamente es un vector;</span>
         <span class="co">// esta es considerada la forma más robusta</span>
-        <span class="co">// de determinar si un valor es un arreglo.</span>
+        <span class="co">// de determinar si un valor es un vector.</span>
     }</code></pre>
     <p>jQuery ofrece métodos para ayudar a determinar el tipo de un determinado valor. Estos métodos serán vistos más adelante.</p>
     </div>
@@ -1528,7 +1528,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;ul&#39;</span>).<span class="fu">append</span>(<span class="ch">&#39;&lt;li&gt;item de la lista&lt;/li&gt;&#39;</span>);</code></pre>
     <blockquote>
     <p><strong>Nota</strong></p>
-    <p>La sintaxis para añadir nuevos elementos a la página es muy fácil de utilizar, pero es tentador olvidar que hay un costo enorme de rendimiento al agregar elementos al DOM de forma repetida. Si esta añadiendo muchos elementos al mismo contenedor, en lugar de añadir cada elemento uno por vez, lo mejor es concatenar todo el HTML en una única cadena de caracteres para luego anexarla al contenedor. Una posible solución es utilizar un arreglo que posea todos los elementos, luego reunirlos utilizando <code>join</code> y finalmente anexarla.</p>
+    <p>La sintaxis para añadir nuevos elementos a la página es muy fácil de utilizar, pero es tentador olvidar que hay un costo enorme de rendimiento al agregar elementos al DOM de forma repetida. Si esta añadiendo muchos elementos al mismo contenedor, en lugar de añadir cada elemento uno por vez, lo mejor es concatenar todo el HTML en una única cadena de caracteres para luego anexarla al contenedor. Una posible solución es utilizar un vector que posea todos los elementos, luego reunirlos utilizando <code>join</code> y finalmente anexarla.</p>
     </blockquote>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myItems = [], $myList = $(<span class="ch">&#39;#myList&#39;</span>);
     
@@ -1629,7 +1629,7 @@
     <span class="co">// devuelve &#39;varios espacios en blanco&#39;</span></code></pre>
     <dl>
     <dt>$.each</dt>
-    <dd>Interactúa en arreglos y objetos.
+    <dd>Interactúa en vectores y objetos.
     </dd>
     </dl>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$.<span class="fu">each</span>([ <span class="ch">&#39;foo&#39;</span>, <span class="ch">&#39;bar&#39;</span>, <span class="ch">&#39;baz&#39;</span> ], <span class="kw">function</span>(idx, val) {
@@ -1645,7 +1645,7 @@
     </blockquote>
     <dl>
     <dt>$.inArray</dt>
-    <dd>Devuelve el índice de un valor en un arreglo, o -1 si el valor no se encuentra en el arreglo.
+    <dd>Devuelve el índice de un valor en un vector, o -1 si el valor no se encuentra en el vector.
     </dd>
     </dl>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span> ];
@@ -2189,7 +2189,7 @@
     <dd><p>Para añadir un nuevo <em>script</em> con código JavaScript a la página.</p>
     </dd>
     <dt>json</dt>
-    <dd><p>Para transportar información en formato JSON, el cual puede incluir cadenas de caracteres, arreglos y objetos.</p>
+    <dd><p>Para transportar información en formato JSON, el cual puede incluir cadenas de caracteres, vectores y objetos.</p>
     </dd>
     </dl>
     <blockquote>
@@ -2325,7 +2325,7 @@
     </blockquote>
     <blockquote>
     <p><strong>Nota</strong></p>
-    <p>A partir de la versión 1.5 de jQuery, las opciones <code>success</code>, <code>error</code> y <code>complete</code> pueden recibir un arreglo con varias funciones de devolución, las cuales serán ejecutadas en turnos.</p>
+    <p>A partir de la versión 1.5 de jQuery, las opciones <code>success</code>, <code>error</code> y <code>complete</code> pueden recibir un vector con varias funciones de devolución, las cuales serán ejecutadas en turnos.</p>
     </blockquote>
     </div>
     </div>
@@ -2406,7 +2406,7 @@
     <p>Las capacidades de jQuery con Ajax pueden ser especialmente útiles para el trabajo con formularios. Por ejemplo, la extensión <a href="http://jquery.malsup.com/form/">jQuery Form Plugin</a> es una extensión para añadir capacidades Ajax a formularios. Existen dos métodos que debe conocer para cuando este realizando este tipo de trabajos: <code>$.fn.serialize</code> y <code>$.fn.serializeArray</code>.</p>
     <p><strong>Transformar información de un formulario a una cadena de datos</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myForm&#39;</span>).<span class="fu">serialize</span>();</code></pre>
-    <p><strong>Crear un arreglo de objetos conteniendo información de un formulario</strong></p>
+    <p><strong>Crear un vector de objetos conteniendo información de un formulario</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="ch">&#39;#myForm&#39;</span>).<span class="fu">serializeArray</span>();
     
     <span class="co">// crea una estructura como esta:</span>
@@ -2895,7 +2895,7 @@
     <p>Este capítulo cubre numerosas mejores prácticas de JavaScript y jQuery,sin un orden en particular. Muchas de estas prácticas están basadas en la presentación <a href="http://paulirish.com/perf">jQuery Anti-Patterns for Performance</a> (en inglés) de Paul Irish.</p>
     <div class="section level2" id="guardar-la-longitud-en-bucles">
     <h2><a href="#TOC"><span class="header-section-number">9.1</span> Guardar la Longitud en Bucles</a></h2>
-    <p>En un bucle, no es necesario acceder a la longitud de un arreglo cada vez que se evalúa la condición; dicho valor se puede guardar previamente en una variable.</p>
+    <p>En un bucle, no es necesario acceder a la longitud de un vector cada vez que se evalúa la condición; dicho valor se puede guardar previamente en una variable.</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myLength = <span class="kw">myArray</span>.<span class="fu">length</span>;
     
     <span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>; i &lt; myLength; i++) {
@@ -3403,7 +3403,7 @@
         }
     );</code></pre>
     <p>El ejemplo debe ser guardado en el archivo <code>my/simpleshirt.js</code>.</p>
-    <p>Si el modulo posee dependencias, es posible especificarlas en el segundo argumento de <code>require.def()</code> a través de un arreglo) y luego pasar una función como tercer argumento. Esta función será llamada para definir el módulo una vez cargadas todos las dependencias. Dicha función recibe los valores devueltos por las dependencias como un argumento (en el mismo orden en que son requeridas en el arreglo) y luego la misma debe devolver un objeto que defina el módulo.</p>
+    <p>Si el modulo posee dependencias, es posible especificarlas en el segundo argumento de <code>require.def()</code> a través de un vector) y luego pasar una función como tercer argumento. Esta función será llamada para definir el módulo una vez cargadas todos las dependencias. Dicha función recibe los valores devueltos por las dependencias como un argumento (en el mismo orden en que son requeridas en el vector) y luego la misma debe devolver un objeto que defina el módulo.</p>
     <p><strong>Definición de un módulo RequireJS con dependencias</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">require</span>.<span class="fu">def</span>(<span class="st">&quot;my/shirt&quot;</span>,
         [<span class="st">&quot;my/cart&quot;</span>, <span class="st">&quot;my/inventory&quot;</span>],
@@ -3423,7 +3423,7 @@
     <pre class="sourceCode javascript"><code class="sourceCode javascript">my/<span class="kw">cart</span>.<span class="fu">js</span>
     <span class="fu">my</span>/<span class="kw">inventory</span>.<span class="fu">js</span>
     <span class="fu">my</span>/<span class="kw">shirt</span>.<span class="fu">js</span></code></pre>
-    <p>La función que define <code>my/shirt</code> no es llamada hasta que <code>my/cart</code> y <code>my/inventory</code> hayan sido cargadas, y dicha función recibe como argumentos a los módulos como <code>cart</code> y <code>inventory</code>. El orden de los argumentos de la función debe coincidir con el orden en que las dependencias se requieren en el arreglo. El objeto devuelto define el módulo <code>my/shirt</code>. Definiendo los módulos de esta forma, <code>my/shirt</code> no existe como un objeto global, ya que múltiples módulos pueden existir en la página al mismo tiempo.</p>
+    <p>La función que define <code>my/shirt</code> no es llamada hasta que <code>my/cart</code> y <code>my/inventory</code> hayan sido cargadas, y dicha función recibe como argumentos a los módulos como <code>cart</code> y <code>inventory</code>. El orden de los argumentos de la función debe coincidir con el orden en que las dependencias se requieren en el vector. El objeto devuelto define el módulo <code>my/shirt</code>. Definiendo los módulos de esta forma, <code>my/shirt</code> no existe como un objeto global, ya que múltiples módulos pueden existir en la página al mismo tiempo.</p>
     <p>Los módulos no tienen que devolver un objeto; cualquier tipo de valor es permitido.</p>
     <p><strong>Definición de un módulo RequireJS que devuelve una función</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">require</span>.<span class="fu">def</span>(<span class="st">&quot;my/title&quot;</span>,
@@ -3591,7 +3591,7 @@
     <p>En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: <code>$.fn.on</code> y <code>$.fn.trigger</code>. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:</p>
     <ul>
     <li>El método <code>$.fn.on</code> toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad <code>data</code> del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.</li>
-    <li>El método <code>$.fn.trigger</code> toma como argumentos el tipo de evento y opcionalmente, puede tomar un arreglo con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.</li>
+    <li>El método <code>$.fn.trigger</code> toma como argumentos el tipo de evento y opcionalmente, puede tomar un vector con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.</li>
     </ul>
     <p>A continuación se muestra un ejemplo de utilización de <code>$.fn.on</code> y <code>$.fn.trigger</code> en donde se utiliza información personalizada en ambos casos:</p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">$(<span class="kw">document</span>).<span class="fu">on</span>(<span class="ch">&#39;myCustomEvent&#39;</span>, { <span class="dt">foo </span>: <span class="ch">&#39;bar&#39;</span> }, <span class="kw">function</span>(e, arg1, arg2) {
@@ -4069,11 +4069,11 @@
     
     }
     
-    <span class="co">// arreglo con una serie de números pares e impares</span>
+    <span class="co">// vector con una serie de números pares e impares</span>
     <span class="kw">var</span> numbers = [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>];
     
     <span class="co">// a través de deferred.pipe se pregunta si número se encuentra</span>
-    <span class="co">// dentro del arreglo numbers</span>
+    <span class="co">// dentro del vector numbers</span>
     isEven(<span class="dv">2</span>).<span class="fu">pipe</span>(
     
         <span class="kw">function</span>(number){
@@ -4095,7 +4095,7 @@
     ).<span class="fu">then</span>(
     
         <span class="kw">function</span>(){
-            <span class="co">// al estar dentro del arreglo numbers y ser par,</span>
+            <span class="co">// al estar dentro del vector numbers y ser par,</span>
             <span class="co">// se registra este mensaje</span>
             <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;El número es par y se encuentra dentro de numbers&#39;</span>);
         },
