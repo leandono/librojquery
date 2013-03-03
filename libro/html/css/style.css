@@ -51,6 +51,10 @@ body {
   clear:both;
 }
 
+h2 a{
+  word-wrap: break-word;
+}
+
 pre {
   padding: 15px 0;
 }
