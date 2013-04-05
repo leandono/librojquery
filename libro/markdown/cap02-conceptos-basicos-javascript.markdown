@@ -20,14 +20,14 @@ Comprensión de declaraciones, nombres de variables, espacios en blanco, y otras
 **Declaración simple de variable**
 
 ```javascript
-var foo = 'hello world';
+var foo = 'hola mundo';
 ```
 
 
 **Los espacios en blanco no tienen valor fuera de las comillas**
 
 ```javascript
-var foo =         'hello world';
+var foo =         'hola mundo';
 ```
 
 
@@ -43,7 +43,7 @@ var foo =         'hello world';
 
 ```javascript
 var foo = function() {
-  console.log('hello');
+  console.log('hola');
 };
 ```
 
@@ -61,10 +61,10 @@ Los operadores básicos permiten manipular valores.
 **Concatenación**
 
 ```javascript
-var foo = 'hello';
-var bar = 'world';
+var foo = 'hola';
+var bar = 'mundo';
 
-console.log(foo + ' ' + bar); // la consola de depuración muestra 'hello world'
+console.log(foo + ' ' + bar); // la consola de depuración muestra 'hola mundo'
 ```
 
 
@@ -209,7 +209,7 @@ var bar = false;
 
 if (bar) {
   // este código nunca se ejecutará
-  console.log('hello!');
+  console.log('hola!');
 }
 
 if (bar) {
@@ -372,7 +372,7 @@ El *cuerpo* es el código a ejecutar en cada repetición del bucle.
 ```javascript
 for (var i = 0, limit = 100; i < limit; i++) {
   // Este bloque de código será ejecutado 100 veces
-  console.log('Currently at ' + i);
+  console.log('Actualmente en ' + i);
   // Nota: el último registro que se mostrará
   // en la consola será "Actualmente en 99"
 }
@@ -434,7 +434,7 @@ do {
   // Incluso cuando la condición sea falsa
   // el cuerpo del bucle se ejecutará al menos una vez.
 
-  alert('Hello');
+  alert('Hola');
 
 } while (false);
 ```
@@ -472,7 +472,7 @@ for (var i = 0; i < 10; i++) {
 
   // La siguiente declaración será ejecutada
   // si la condición 'something' no se cumple
-  console.log('Hello');
+  console.log('Hola');
 
 }
 ```
@@ -550,14 +550,14 @@ Los vectores (en español también llamados *matrices* o *arreglos* y en inglés
 **Un vector simple**
 
 ```javascript
-var myArray = [ 'hello', 'world' ];
+var myArray = [ 'hola', 'mundo' ];
 ```
 
 
 **Acceder a los ítems del vector a través de su índice**
 
 ```javascript
-var myArray = [ 'hello', 'world', 'foo', 'bar' ];
+var myArray = [ 'hola', 'mundo', 'foo', 'bar' ];
 console.log(myArray[3]);   // muestra en la consola 'bar'
 ```
 
@@ -565,7 +565,7 @@ console.log(myArray[3]);   // muestra en la consola 'bar'
 **Obtener la cantidad de ítems del vector**
 
 ```javascript
-var myArray = [ 'hello', 'world' ];
+var myArray = [ 'hola', 'mundo' ];
 console.log(myArray.length);   // muestra en la consola 2
 ```
 
@@ -573,7 +573,7 @@ console.log(myArray.length);   // muestra en la consola 2
 **Cambiar el valor de un ítem de un vector**
 
 ```javascript
-var myArray = [ 'hello', 'world' ];
+var myArray = [ 'hola', 'mundo' ];
 myArray[1] = 'changed';
 ```
 
@@ -583,7 +583,7 @@ myArray[1] = 'changed';
 **Añadir elementos a un vector**
 
 ```javascript
-var myArray = [ 'hello', 'world' ];
+var myArray = [ 'hola', 'mundo' ];
 myArray.push('new');
 ```
 
@@ -591,9 +591,9 @@ myArray.push('new');
 **Trabajar con vectores**
 
 ```javascript
-var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
-var myString = myArray.join('');   // 'hello'
-var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]
+var myArray = [ 'h', 'o', 'l', 'a' ];
+var myString = myArray.join('');   // 'hola'
+var mySplit = myString.split('');  // [ 'h', 'o', 'l', 'a' ]
 ```
 
 
@@ -612,14 +612,14 @@ Curiosamente, en JavaScript, casi todo es un objeto — vectores, funciones, nú
 ```javascript
 var myObject = {
   sayHello: function() {
-    console.log('hello');
+    console.log('hola');
   },
 
   myName: 'Rebecca'
 };
 
 myObject.sayHello();   // se llama al método sayHello,
-                       // el cual muestra en la consola 'hello'
+                       // el cual muestra en la consola 'hola'
 
 console.log(myObject.myName);    // se llama a la propiedad myName,
                                  // la cual muestra en la consola 'Rebecca'
@@ -678,7 +678,7 @@ var greet = function(person, greeting) {
 };
 
 
-greet('Rebecca', 'Hello');  // muestra en la consola 'Hello, Rebecca'
+greet('Rebecca', 'Hola');  // muestra en la consola 'Hola, Rebecca'
 ```
 
 
@@ -690,7 +690,7 @@ var greet = function(person, greeting) {
   return text;
 };
 
-console.log(greet('Rebecca','hello'));   // la función devuelve 'Hello, Rebecca',
+console.log(greet('Rebecca','Hola'));   // la función devuelve 'Hola, Rebecca',
                                          // la cual se muestra en la consola
 ```
 
@@ -704,8 +704,8 @@ var greet = function(person, greeting) {
 };
 
 
-var greeting = greet('Rebecca', 'Hello');
-greeting();  // se muestra en la consola 'Hello, Rebecca'
+var greeting = greet('Rebecca', 'Hola');
+greeting();  // se muestra en la consola 'Hola, Rebecca'
 ```
 
 
@@ -719,7 +719,7 @@ Un patrón común en JavaScript son las funciones anónimas autoejecutables. Est
 
 ```javascript
 (function(){
-  var foo = 'Hello world';
+  var foo = 'Hola mundo';
 })();
 
 
@@ -741,7 +741,7 @@ var myFn = function(fn) {
   console.log(result);
 };
 
-myFn(function() { return 'hello world'; });   // muestra en la consola 'hello world'
+myFn(function() { return 'hola mundo'; });   // muestra en la consola 'hola mundo'
 ```
 
 
@@ -754,10 +754,10 @@ var myFn = function(fn) {
 };
 
 var myOtherFn = function() {
-    return 'hello world';
+    return 'hola mundo';
 };
 
-myFn(myOtherFn);   // muestra en la consola 'hello world'
+myFn(myOtherFn);   // muestra en la consola 'hola mundo'
 ```
 
 
@@ -773,7 +773,7 @@ Por eso, es una práctica común utilizar el operador `typeof` cuando se trata d
 
 ```javascript
 var myFunction = function() {
-  console.log('hello');
+  console.log('hola');
 };
 
 var myObject = {
@@ -782,7 +782,7 @@ var myObject = {
 
 var myArray = [ 'a', 'b', 'c' ];
 
-var myString = 'hello';
+var myString = 'hola';
 
 var myNumber = 3;
 
@@ -940,14 +940,14 @@ Las variables que son declaradas dentro de la función sin la palabra clave `var
 **Funciones tienen acceso a variables definidas dentro del mismo alcance**
 
 ```javascript
-var foo = 'hello';
+var foo = 'hola';
 
 var sayHello = function() {
   console.log(foo);
 };
 
-sayHello();         // muestra en la consola 'hello'
-console.log(foo);   // también muestra en la consola 'hello'
+sayHello();         // muestra en la consola 'hola'
+console.log(foo);   // también muestra en la consola 'hola'
 ```
 
 
@@ -955,11 +955,11 @@ console.log(foo);   // también muestra en la consola 'hello'
 
 ```javascript
 var sayHello = function() {
-  var foo = 'hello';
+  var foo = 'hola';
   console.log(foo);
 };
 
-sayHello();         // muestra en la consola 'hello'
+sayHello();         // muestra en la consola 'hola'
 console.log(foo);   // no muestra nada en la consola
 ```
 
@@ -967,15 +967,15 @@ console.log(foo);   // no muestra nada en la consola
 **Variables con nombres iguales pero valores diferentes pueden existir en diferentes alcances**
 
 ```javascript
-var foo = 'world';
+var foo = 'mundo';
 
 var sayHello = function() {
-  var foo = 'hello';
+  var foo = 'hola';
   console.log(foo);
 };
 
-sayHello();         // muestra en la consola 'hello'
-console.log(foo);   // muestra en la consola 'world'
+sayHello();         // muestra en la consola 'hola'
+console.log(foo);   // muestra en la consola 'mundo'
 ```
 
 
@@ -983,19 +983,19 @@ console.log(foo);   // muestra en la consola 'world'
 
 ```javascript
 var myFunction = function() {
-  var foo = 'hello';
+  var foo = 'hola';
 
   var myFn = function() {
       console.log(foo);
   };
 
-  foo = 'world';
+  foo = 'mundo';
 
   return myFn;
 };
 
 var f = myFunction();
-f();  // registra 'world' -- error
+f();  // registra 'mundo' -- error
 ```
 
 

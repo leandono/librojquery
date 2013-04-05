@@ -6,12 +6,14 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-language" content="es"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
-  <meta name="description" content="Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery"/>
+  <meta name="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje."/>
   <meta itemprop="name" content="Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery">
   <meta itemprop="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje.">
-  <meta itemprop="image" content="http://librojquery.com/img/jquery_logo.png">
+  <meta itemprop="image" content="http://librojquery.com/img/jquery-logo.gif">
+  <meta property="og:url" content="http://librojquery.com/"/>
   <meta property="og:title" content="Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery"/>
-  <meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
+  <meta property="og:image" content="http://librojquery.com/img/jquery-logo.gif"/>
+  <meta property="og:description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje."/>
   <title>Libro gratuito de jQuery en espa&ntilde;ol - Fundamentos de jQuery</title>
   <link rel="stylesheet" type="text/css" href="css/markdown.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
@@ -61,7 +63,7 @@
       </p>
 
       <p>
-        <strong>Última actualización del libro:</strong> Marzo 2013 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+        <strong>Última actualización del libro:</strong> Abril 2013 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
       </p>
 
     </div>
@@ -390,15 +392,15 @@
     <h2><a href="#sintaxis-básica"><span class="header-section-number">2.2</span> Sintaxis Básica</a></h2>
     <p>Comprensión de declaraciones, nombres de variables, espacios en blanco, y otras sintaxis básicas de JavaScript.</p>
     <p><strong>Declaración simple de variable</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hello world&#39;</span>;</code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hola mundo&#39;</span>;</code></pre>
     <p><strong>Los espacios en blanco no tienen valor fuera de las comillas</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo =         <span class="ch">&#39;hello world&#39;</span>;</code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo =         <span class="ch">&#39;hola mundo&#39;</span>;</code></pre>
     <p><strong>Los paréntesis indican prioridad</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="dv">2</span> * <span class="dv">3</span> + <span class="dv">5</span>;    <span class="co">// es igual a 11; la multiplicación ocurre primero</span>
     <span class="dv">2</span> * (<span class="dv">3</span> + <span class="dv">5</span>);  <span class="co">// es igual a 16; por lo paréntesis, la suma ocurre primero</span></code></pre>
     <p><strong>La tabulación mejora la lectura del código, pero no posee ningún significado especial</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="kw">function</span>() {
-      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hello&#39;</span>);
+      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hola&#39;</span>);
     };</code></pre>
     </div>
     <div class="section level2" id="operadores">
@@ -407,10 +409,10 @@
     <h3><a href="#operadores-básicos"><span class="header-section-number">2.3.1</span> Operadores Básicos</a></h3>
     <p>Los operadores básicos permiten manipular valores.</p>
     <p><strong>Concatenación</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hello&#39;</span>;
-    <span class="kw">var</span> bar = <span class="ch">&#39;world&#39;</span>;
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hola&#39;</span>;
+    <span class="kw">var</span> bar = <span class="ch">&#39;mundo&#39;</span>;
     
-    <span class="kw">console</span>.<span class="fu">log</span>(foo + <span class="ch">&#39; &#39;</span> + bar); <span class="co">// la consola de depuración muestra &#39;hello world&#39;</span></code></pre>
+    <span class="kw">console</span>.<span class="fu">log</span>(foo + <span class="ch">&#39; &#39;</span> + bar); <span class="co">// la consola de depuración muestra &#39;hola mundo&#39;</span></code></pre>
     <p><strong>Multiplicación y división</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="dv">2</span> * <span class="dv">3</span>;
     <span class="dv">2</span> / <span class="dv">3</span>;</code></pre>
@@ -498,7 +500,7 @@
     
     <span class="kw">if</span> (bar) {
       <span class="co">// este código nunca se ejecutará</span>
-      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hello!&#39;</span>);
+      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hola!&#39;</span>);
     }
     
     <span class="kw">if</span> (bar) {
@@ -603,7 +605,7 @@
     <p><strong>Un típico bucle utilizando <code>for</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>, limit = <span class="dv">100</span>; i &lt; limit; i++) {
       <span class="co">// Este bloque de código será ejecutado 100 veces</span>
-      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Currently at &#39;</span> + i);
+      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Actualmente en &#39;</span> + i);
       <span class="co">// Nota: el último registro que se mostrará</span>
       <span class="co">// en la consola será &quot;Actualmente en 99&quot;</span>
     }</code></pre>
@@ -638,7 +640,7 @@
       <span class="co">// Incluso cuando la condición sea falsa</span>
       <span class="co">// el cuerpo del bucle se ejecutará al menos una vez.</span>
     
-      alert(<span class="ch">&#39;Hello&#39;</span>);
+      alert(<span class="ch">&#39;Hola&#39;</span>);
     
     } <span class="kw">while</span> (<span class="kw">false</span>);</code></pre>
     <p>Este tipo de bucles son bastantes atípicos ya que en pocas ocasiones se necesita un bucle que se ejecute al menos una vez. De cualquier forma debe estar al tanto de ellos.</p>
@@ -662,7 +664,7 @@
     
       <span class="co">// La siguiente declaración será ejecutada</span>
       <span class="co">// si la condición &#39;something&#39; no se cumple</span>
-      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hello&#39;</span>);
+      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;Hola&#39;</span>);
     
     }</code></pre>
     </div>
@@ -733,24 +735,24 @@
     <h2><a href="#vectores"><span class="header-section-number">2.7</span> Vectores</a></h2>
     <p>Los vectores (en español también llamados <em>matrices</em> o <em>arreglos</em> y en inglés <em>arrays</em>) son listas de valores con índice-cero (en inglés <em>zero-index</em>), es decir, que el primer elemento del vector está en el índice 0. Éstos son una forma práctica de almacenar un conjunto de datos relacionados (como cadenas de caracteres), aunque en realidad, un vector puede incluir múltiples tipos de datos, incluso otros vectores.</p>
     <p><strong>Un vector simple</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];</code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hola&#39;</span>, <span class="ch">&#39;mundo&#39;</span> ];</code></pre>
     <p><strong>Acceder a los ítems del vector a través de su índice</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span>, <span class="ch">&#39;foo&#39;</span>, <span class="ch">&#39;bar&#39;</span> ];
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hola&#39;</span>, <span class="ch">&#39;mundo&#39;</span>, <span class="ch">&#39;foo&#39;</span>, <span class="ch">&#39;bar&#39;</span> ];
     <span class="kw">console</span>.<span class="fu">log</span>(myArray[<span class="dv">3</span>]);   <span class="co">// muestra en la consola &#39;bar&#39;</span></code></pre>
     <p><strong>Obtener la cantidad de ítems del vector</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hola&#39;</span>, <span class="ch">&#39;mundo&#39;</span> ];
     <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myArray</span>.<span class="fu">length</span>);   <span class="co">// muestra en la consola 2</span></code></pre>
     <p><strong>Cambiar el valor de un ítem de un vector</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hola&#39;</span>, <span class="ch">&#39;mundo&#39;</span> ];
     myArray[<span class="dv">1</span>] = <span class="ch">&#39;changed&#39;</span>;</code></pre>
     <p><em>Como se muestra en el ejemplo “Cambiar el valor de un ítem de un vector” es posible cambiar el valor de un ítem de un vector, sin embargo, por lo general, no es aconsejable.</em></p>
     <p><strong>Añadir elementos a un vector</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hello&#39;</span>, <span class="ch">&#39;world&#39;</span> ];
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;hola&#39;</span>, <span class="ch">&#39;mundo&#39;</span> ];
     <span class="kw">myArray</span>.<span class="fu">push</span>(<span class="ch">&#39;new&#39;</span>);</code></pre>
     <p><strong>Trabajar con vectores</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;h&#39;</span>, <span class="ch">&#39;e&#39;</span>, <span class="ch">&#39;l&#39;</span>, <span class="ch">&#39;l&#39;</span>, <span class="ch">&#39;o&#39;</span> ];
-    <span class="kw">var</span> myString = <span class="kw">myArray</span>.<span class="fu">join</span>(<span class="ch">&#39;&#39;</span>);   <span class="co">// &#39;hello&#39;</span>
-    <span class="kw">var</span> mySplit = <span class="kw">myString</span>.<span class="fu">split</span>(<span class="ch">&#39;&#39;</span>);  <span class="co">// [ &#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39; ]</span></code></pre>
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myArray = [ <span class="ch">&#39;h&#39;</span>, <span class="ch">&#39;o&#39;</span>, <span class="ch">&#39;l&#39;</span>, <span class="ch">&#39;a&#39;</span> ];
+    <span class="kw">var</span> myString = <span class="kw">myArray</span>.<span class="fu">join</span>(<span class="ch">&#39;&#39;</span>);   <span class="co">// &#39;hola&#39;</span>
+    <span class="kw">var</span> mySplit = <span class="kw">myString</span>.<span class="fu">split</span>(<span class="ch">&#39;&#39;</span>);  <span class="co">// [ &#39;h&#39;, &#39;o&#39;, &#39;l&#39;, &#39;a&#39; ]</span></code></pre>
     </div>
     <div class="section level2" id="objetos">
     <h2><a href="#objetos"><span class="header-section-number">2.8</span> Objetos</a></h2>
@@ -760,14 +762,14 @@
     <p><strong>Creación de un “objeto literal”</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myObject = {
       <span class="dt">sayHello</span>: <span class="kw">function</span>() {
-        <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hello&#39;</span>);
+        <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hola&#39;</span>);
       },
     
       <span class="dt">myName</span>: <span class="ch">&#39;Rebecca&#39;</span>
     };
     
     <span class="kw">myObject</span>.<span class="fu">sayHello</span>();   <span class="co">// se llama al método sayHello,</span>
-                           <span class="co">// el cual muestra en la consola &#39;hello&#39;</span>
+                           <span class="co">// el cual muestra en la consola &#39;hola&#39;</span>
     
     <span class="kw">console</span>.<span class="fu">log</span>(<span class="kw">myObject</span>.<span class="fu">myName</span>);    <span class="co">// se llama a la propiedad myName,</span>
                                      <span class="co">// la cual muestra en la consola &#39;Rebecca&#39;</span></code></pre>
@@ -800,14 +802,14 @@
     };
     
     
-    greet(<span class="ch">&#39;Rebecca&#39;</span>, <span class="ch">&#39;Hello&#39;</span>);  <span class="co">// muestra en la consola &#39;Hello, Rebecca&#39;</span></code></pre>
+    greet(<span class="ch">&#39;Rebecca&#39;</span>, <span class="ch">&#39;Hola&#39;</span>);  <span class="co">// muestra en la consola &#39;Hola, Rebecca&#39;</span></code></pre>
     <p><strong>Una función que devuelve un valor</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> greet = <span class="kw">function</span>(person, greeting) {
       <span class="kw">var</span> text = greeting + <span class="ch">&#39;, &#39;</span> + person;
       <span class="kw">return</span> text;
     };
     
-    <span class="kw">console</span>.<span class="fu">log</span>(greet(<span class="ch">&#39;Rebecca&#39;</span>,<span class="ch">&#39;hello&#39;</span>));   <span class="co">// la función devuelve &#39;Hello, Rebecca&#39;,</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(greet(<span class="ch">&#39;Rebecca&#39;</span>,<span class="ch">&#39;Hola&#39;</span>));   <span class="co">// la función devuelve &#39;Hola, Rebecca&#39;,</span>
                                              <span class="co">// la cual se muestra en la consola</span></code></pre>
     <p><strong>Una función que devuelve otra función</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> greet = <span class="kw">function</span>(person, greeting) {
@@ -816,15 +818,15 @@
     };
     
     
-    <span class="kw">var</span> greeting = greet(<span class="ch">&#39;Rebecca&#39;</span>, <span class="ch">&#39;Hello&#39;</span>);
-    greeting();  <span class="co">// se muestra en la consola &#39;Hello, Rebecca&#39;</span></code></pre>
+    <span class="kw">var</span> greeting = greet(<span class="ch">&#39;Rebecca&#39;</span>, <span class="ch">&#39;Hola&#39;</span>);
+    greeting();  <span class="co">// se muestra en la consola &#39;Hola, Rebecca&#39;</span></code></pre>
     </div>
     <div class="section level3" id="funciones-anónimas-autoejecutables">
     <h3><a href="#funciones-anónimas-autoejecutables"><span class="header-section-number">2.9.2</span> Funciones Anónimas Autoejecutables</a></h3>
     <p>Un patrón común en JavaScript son las funciones anónimas autoejecutables. Este patrón consiste en crear una expresión de función e inmediatamente ejecutarla. El mismo es muy útil para casos en que no se desea intervenir espacios de nombres globales, debido a que ninguna variable declarada dentro de la función es visible desde afuera.</p>
     <p><strong>Función anónima autoejecutable</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript">(<span class="kw">function</span>(){
-      <span class="kw">var</span> foo = <span class="ch">&#39;Hello world&#39;</span>;
+      <span class="kw">var</span> foo = <span class="ch">&#39;Hola mundo&#39;</span>;
     })();
     
     
@@ -839,7 +841,7 @@
       <span class="kw">console</span>.<span class="fu">log</span>(result);
     };
     
-    myFn(<span class="kw">function</span>() { <span class="kw">return</span> <span class="ch">&#39;hello world&#39;</span>; });   <span class="co">// muestra en la consola &#39;hello world&#39;</span></code></pre>
+    myFn(<span class="kw">function</span>() { <span class="kw">return</span> <span class="ch">&#39;hola mundo&#39;</span>; });   <span class="co">// muestra en la consola &#39;hola mundo&#39;</span></code></pre>
     <p><strong>Pasar una función nombrada como un argumento</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myFn = <span class="kw">function</span>(fn) {
       <span class="kw">var</span> result = fn();
@@ -847,10 +849,10 @@
     };
     
     <span class="kw">var</span> myOtherFn = <span class="kw">function</span>() {
-        <span class="kw">return</span> <span class="ch">&#39;hello world&#39;</span>;
+        <span class="kw">return</span> <span class="ch">&#39;hola mundo&#39;</span>;
     };
     
-    myFn(myOtherFn);   <span class="co">// muestra en la consola &#39;hello world&#39;</span></code></pre>
+    myFn(myOtherFn);   <span class="co">// muestra en la consola &#39;hola mundo&#39;</span></code></pre>
     </div>
     </div>
     <div class="section level2" id="determinación-del-tipo-de-variable">
@@ -859,7 +861,7 @@
     <p>Por eso, es una práctica común utilizar el operador <code>typeof</code> cuando se trata de determinar el tipo de un valor específico.</p>
     <p><strong>Determinar el tipo en diferentes variables</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myFunction = <span class="kw">function</span>() {
-      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hello&#39;</span>);
+      <span class="kw">console</span>.<span class="fu">log</span>(<span class="ch">&#39;hola&#39;</span>);
     };
     
     <span class="kw">var</span> myObject = {
@@ -868,7 +870,7 @@
     
     <span class="kw">var</span> myArray = [ <span class="ch">&#39;a&#39;</span>, <span class="ch">&#39;b&#39;</span>, <span class="ch">&#39;c&#39;</span> ];
     
-    <span class="kw">var</span> myString = <span class="ch">&#39;hello&#39;</span>;
+    <span class="kw">var</span> myString = <span class="ch">&#39;hola&#39;</span>;
     
     <span class="kw">var</span> myNumber = <span class="dv">3</span>;
     
@@ -991,47 +993,47 @@
     <p>Cuando una variable es declarada dentro de una función utilizando la palabra clave <code>var</code>, ésta únicamente esta disponible para el código dentro de la función — todo el código fuera de dicha función no puede acceder a la variable. Por otro lado, las funciones definidas <em>dentro</em> de la función <em>podrán</em> acceder a la variable declarada.</p>
     <p>Las variables que son declaradas dentro de la función sin la palabra clave <code>var</code> no quedan dentro del ámbito de la misma función — JavaScript buscará el lugar en donde la variable fue previamente declarada, y en caso de no haber sido declarada, es definida dentro del alcance global, lo cual puede ocasionar consecuencias inesperadas;</p>
     <p><strong>Funciones tienen acceso a variables definidas dentro del mismo alcance</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hello&#39;</span>;
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;hola&#39;</span>;
     
     <span class="kw">var</span> sayHello = <span class="kw">function</span>() {
       <span class="kw">console</span>.<span class="fu">log</span>(foo);
     };
     
-    sayHello();         <span class="co">// muestra en la consola &#39;hello&#39;</span>
-    <span class="kw">console</span>.<span class="fu">log</span>(foo);   <span class="co">// también muestra en la consola &#39;hello&#39;</span></code></pre>
+    sayHello();         <span class="co">// muestra en la consola &#39;hola&#39;</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(foo);   <span class="co">// también muestra en la consola &#39;hola&#39;</span></code></pre>
     <p><strong>El código de afuera no tiene acceso a la variable definida dentro de la función</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> sayHello = <span class="kw">function</span>() {
-      <span class="kw">var</span> foo = <span class="ch">&#39;hello&#39;</span>;
+      <span class="kw">var</span> foo = <span class="ch">&#39;hola&#39;</span>;
       <span class="kw">console</span>.<span class="fu">log</span>(foo);
     };
     
-    sayHello();         <span class="co">// muestra en la consola &#39;hello&#39;</span>
+    sayHello();         <span class="co">// muestra en la consola &#39;hola&#39;</span>
     <span class="kw">console</span>.<span class="fu">log</span>(foo);   <span class="co">// no muestra nada en la consola</span></code></pre>
     <p><strong>Variables con nombres iguales pero valores diferentes pueden existir en diferentes alcances</strong></p>
-    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;world&#39;</span>;
+    <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> foo = <span class="ch">&#39;mundo&#39;</span>;
     
     <span class="kw">var</span> sayHello = <span class="kw">function</span>() {
-      <span class="kw">var</span> foo = <span class="ch">&#39;hello&#39;</span>;
+      <span class="kw">var</span> foo = <span class="ch">&#39;hola&#39;</span>;
       <span class="kw">console</span>.<span class="fu">log</span>(foo);
     };
     
-    sayHello();         <span class="co">// muestra en la consola &#39;hello&#39;</span>
-    <span class="kw">console</span>.<span class="fu">log</span>(foo);   <span class="co">// muestra en la consola &#39;world&#39;</span></code></pre>
+    sayHello();         <span class="co">// muestra en la consola &#39;hola&#39;</span>
+    <span class="kw">console</span>.<span class="fu">log</span>(foo);   <span class="co">// muestra en la consola &#39;mundo&#39;</span></code></pre>
     <p><strong>Las funciones pueden “ver” los cambios en las variables antes de que la función sea definida</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> myFunction = <span class="kw">function</span>() {
-      <span class="kw">var</span> foo = <span class="ch">&#39;hello&#39;</span>;
+      <span class="kw">var</span> foo = <span class="ch">&#39;hola&#39;</span>;
     
       <span class="kw">var</span> myFn = <span class="kw">function</span>() {
           <span class="kw">console</span>.<span class="fu">log</span>(foo);
       };
     
-      foo = <span class="ch">&#39;world&#39;</span>;
+      foo = <span class="ch">&#39;mundo&#39;</span>;
     
       <span class="kw">return</span> myFn;
     };
     
     <span class="kw">var</span> f = myFunction();
-    f();  <span class="co">// registra &#39;world&#39; -- error</span></code></pre>
+    f();  <span class="co">// registra &#39;mundo&#39; -- error</span></code></pre>
     <p><strong>Alcance</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// una función anónima autoejecutable</span>
     (<span class="kw">function</span>() {
@@ -4133,7 +4135,7 @@
 
     
     <p>
-      <strong>Última actualización del libro:</strong> Marzo 2013 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
+      <strong>Última actualización del libro:</strong> Abril 2013 (<a href="https://github.com/dzignus/librojquery/commits/master" rel="_blank">ver cambios</a>).
     </p>
 
   <script>

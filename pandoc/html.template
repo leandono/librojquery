@@ -6,12 +6,14 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-language" content="es"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
-  <meta name="description" content="$if(title-prefix)$$title-prefix$$endif$"/>
+  <meta name="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje."/>
   <meta itemprop="name" content="$if(title-prefix)$$title-prefix$$endif$">
   <meta itemprop="description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje.">
-  <meta itemprop="image" content="http://librojquery.com/img/jquery_logo.png">
+  <meta itemprop="image" content="http://librojquery.com/img/jquery-logo.gif">
+  <meta property="og:url" content="http://librojquery.com/"/>
   <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$"/>
-  <meta property="og:image" content="http://librojquery.com/img/jquery_logo.png"/>
+  <meta property="og:image" content="http://librojquery.com/img/jquery-logo.gif"/>
+  <meta property="og:description" content="El propósito de este libro es proveer un resumen de la biblioteca, de tal forma que para cuando lo haya terminado de leer, será capaz de realizar tareas básicas utilizando jQuery y tendrá una sólida base para continuar el aprendizaje."/>
   <title>$if(title-prefix)$$title-prefix$$endif$</title>
   <link rel="stylesheet" type="text/css" href="css/markdown.css" media="screen, projection, print">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen, projection, print">
