@@ -34,8 +34,8 @@ var foo =         'hola mundo';
 **Los paréntesis indican prioridad**
 
 ```javascript
-2 * 3 + 5;    // es igual a 11; la multiplicación ocurre primero
-2 * (3 + 5);  // es igual a 16; por lo paréntesis, la suma ocurre primero
+2 * 3 + 5;    // es igual a 11, la multiplicación ocurre primero
+2 * (3 + 5);  // es igual a 16, por los paréntesis, la suma ocurre primero
 ```
 
 
