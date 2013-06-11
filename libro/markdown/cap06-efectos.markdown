@@ -190,9 +190,9 @@ $('h1').show(300).delay(1000).hide(300);
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/blog.js`. La tarea es añadir alguna interactividad a la sección blog de la página:
 
--   Al hacer click en alguno de los titulares del *div #blog*, se debe mostrar el párrafo correspondiente con un efecto de deslizamiento;
+-   al hacer click en alguno de los titulares del *div #blog*, se debe mostrar el párrafo correspondiente con un efecto de deslizamiento;
 
--   Al hacer click en otro titular, se debe ocultar el párrafo mostrado con un efecto de deslizamiento y mostrar nuevamente el párrafo correspondiente también con un efecto de deslizamiento. Ayuda: No se olvide de utilizar el selector `:visible`.
+-   al hacer click en otro titular, se debe ocultar el párrafo mostrado con un efecto de deslizamiento y mostrar nuevamente el párrafo correspondiente también con un efecto de deslizamiento. Ayuda: No se olvide de utilizar el selector `:visible`.
 
 
 
@@ -200,9 +200,9 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio u
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/navigation.js`. La tarea es poder desplegar los ítems del menú superior de la página:
 
--   Al pasar el puntero del ratón por encima de un ítem del menú, se debe mostrar su submenú en caso que exista;
+-   al pasar el puntero del ratón por encima de un ítem del menú, se debe mostrar su submenú en caso que exista;
 
--   Al no estar más encima de un ítem, el submenú se debe ocultar.
+-   al no estar más encima de un ítem, el submenú se debe ocultar.
 
 Para poder realizarlo, utilice el método `$.fn.hover` para añadir o remover una clase en el submenú para poder controlar si debe estar oculto o visible (El archivo `/ejercicios/css/styles.css` incluye una clase "hover" para este propósito)
 
@@ -212,11 +212,11 @@ Para poder realizarlo, utilice el método `$.fn.hover` para añadir o remover un
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/slideshow.js`. La tarea es añadir un slideshow a la página con JavaScript.
 
-1.  Mover el elemento *#slideshow* a la parte superior de la página;
+1.  Mover el elemento *#slideshow* a la parte superior de la página.
 
-2.  Escribir un código que permita mostrar los ítems de forma cíclica, mostrando un ítem por unos segundos, luego ocultándolo con un efecto *fade out* y mostrando el siguiente con un efecto *fade in*;
+2.  Escribir un código que permita mostrar los ítems de forma cíclica, mostrando un ítem por unos segundos, luego ocultándolo con un efecto *fade out* y mostrando el siguiente con un efecto *fade in.
 
-3.  Una vez llegado al último ítem de la lista, comenzar de nuevo con el primero;
+3.  Una vez llegado al último ítem de la lista, comenzar de nuevo con el primero.
 
 Para un desafío mayor, realice un área de navegación por debajo del slideshow que muestre cuantas imágenes existen y en cual se encuentra (ayuda: $.fn.prevAll` puede resultar útil).
 

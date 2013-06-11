@@ -394,6 +394,7 @@ $('#loading_indicator')
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/load.js`. La tarea es cargar el contenido de un artículo de blog cuando el usuario haga click en el título del ítem.
 
 1.  Crear un elementos *div* después del titulo de cada titulo de artículo de blog y guardar una referencia hacia ellos en el elemento de titulo utilizando `$.fn.data`.
+
 2.  Vincular un evento click al titulo, el cual utilizará el método `$.fn.load` para cargar en cada *div* creado el contenido apropiado desde el archivo `/ejercicios/data/blog.html`. No olvide de deshabilitar el comportamiento predeterminado del evento *click*.
 
 Notar que cada titulo de artículo de blog en `index.html` incluye un enlace hacia el artículo. Necesitará aprovechar el atributo href de cada enlace para obtener el contenido propio de blog.html. Una vez obtenida el valor del atributo, puede utilizar la siguiente forma para procesar la información y convertirla en un selector para utilizar en conjunto con `$.fn.load`:
@@ -413,9 +414,13 @@ Recuerde utilizar `console.log` para asegurarse que esta realizando lo correcto.
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/specials.js`. La tarea es mostrar los detalles del usuario para un día determinado cuando se selecciona desde la lista desplegable.
 
 1.  Añadir un elemento *div* después del formulario que se encuentra dentro del elemento *#specials*; allí será el lugar en donde se colocará la información a obtener.
+
 2.  Vincular el evento *change* en el elemento *select*; cuando se realiza un cambio en la selección, enviar una petición Ajax a `/ejercicios/data/specials.json`.
+
 3.  Cuando la petición devuelve una respuesta, utilizar el valor seleccionado en el select (ayuda: `$.fn.val`) para buscar la información correspondiente en la respuesta JSON.
+
 4.  Añadir algún HTML con la información obtenida en el *div* creado anteriormente.
+
 5.  Finalmente remover el botón *submit* del formulario.
 
 Notar que cada vez que la selección cambia, se realiza una petición Ajax. ¿Cómo cambiaría el código para realizar solo una petición y guardar la información para aprovecharla cuando se vuelve a cambiar la opción seleccionada?

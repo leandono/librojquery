@@ -10,9 +10,11 @@ Los eventos personalizados permiten conocer el mundo de la programación orienta
 
 En un primer momento puede ser difícil entender el requisito de utilizar eventos personalizados, ya que los eventos convencionales permiten satisfacer todas las necesidades. Sin embargo, los eventos personalizados ofrecen una nueva forma de pensar la programación en JavaScript. En lugar de enfocarse en el elemento que ejecuta una acción, los eventos personalizados ponen la atención en el elemento en donde la acción va a ocurrir. Este concepto brinda varios beneficios:
 
--   Los comportamientos del elemento objetivo pueden ser ejecutados por diferentes elementos utilizando el mismo código.
--   Los comportamientos pueden ser ejecutados en múltiples, similares elementos objetivos a la vez.
--   Los comportamientos son asociados de forma más clara con el elemento objetivo, haciendo que el código sea más fácil de leer y mantener.
+-   los comportamientos del elemento objetivo pueden ser ejecutados por diferentes elementos utilizando el mismo código;
+
+-   los comportamientos pueden ser ejecutados en múltiples, similares elementos objetivos a la vez;
+
+-   los comportamientos son asociados de forma más clara con el elemento objetivo, haciendo que el código sea más fácil de leer y mantener.
 
 Un ejemplo es la mejor forma de explicar el asunto. Suponga que posee una lámpara incandescente en una habitación de una casa. La lámpara actualmente esta encendida. La misma es controlada por dos interruptores de tres posiciones y un *clapper* (interruptor activado por aplausos):
 
@@ -122,8 +124,9 @@ Note como el comportamiento del interruptor general se ha vinculado al interrupt
 
 En el mundo de los eventos personalizados, existen dos métodos importantes de jQuery: `$.fn.on` y `$.fn.trigger`. En el capítulo dedicado a eventos se explicó la utilización de estos dos métodos para trabajar con eventos del usuario; en este capítulo es importante recordar 2 puntos:
 
--   El método `$.fn.on` toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad `data` del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento.
--   El método `$.fn.trigger` toma como argumentos el tipo de evento y opcionalmente, puede tomar un vector con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.
+-   el método `$.fn.on` toma como argumentos un tipo de evento y una función controladora de evento. Opcionalmente, puede recibir información asociada al evento como segundo argumento, desplazando como tercer argumento a la función controladora de evento. Cualquier información pasada estará disponible a la función controladora a través de la propiedad `data` del objeto del evento. A su vez, la función controladora recibe el objeto del evento como primer argumento;
+
+-   el método `$.fn.trigger` toma como argumentos el tipo de evento y opcionalmente, puede tomar un vector con valores. Estos valores serán pasados a la función controladora de eventos como argumentos luego del objeto del evento.
 
 A continuación se muestra un ejemplo de utilización de `$.fn.on` y `$.fn.trigger` en donde se utiliza información personalizada en ambos casos:
 

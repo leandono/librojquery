@@ -569,9 +569,9 @@ $('#myDiv p:first')
 
 Existen varias maneras para mover elementos a través del DOM; las cuales se pueden separar en dos enfoques:
 
--   Querer colocar el/los elementos seleccionados de forma relativa a otro elemento
+-   querer colocar el/los elementos seleccionados de forma relativa a otro elemento;
 
--   Querer colocar un elemento relativo a el/los elementos seleccionados.
+-   querer colocar un elemento relativo a el/los elementos seleccionados.
 
 Por ejemplo, jQuery provee los métodos `$.fn.insertAfter` y `$.fn.after`. El método `$.fn.insertAfter` coloca a el/los elementos seleccionados después del elemento que se haya pasado como argumento; mientras que el método `$.fn.after` coloca al elemento pasado como argumento después del elemento seleccionado. Otros métodos también siguen este patrón: `$.fn.insertBefore` y `$.fn.before`; `$.fn.appendTo` y `$.fn.append`; y `$.fn.prependTo` y `$.fn.prepend`.
 
@@ -744,7 +744,7 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio u
 
 3.  Seleccionar el elemento `label` del elemento `input` utilizando un selector de atributo.
 
-4.  Averiguar cuantos elementos en la página están ocultos (ayuda: `.length`)
+4.  Averiguar cuantos elementos en la página están ocultos (ayuda: `.length`).
 
 5.  Averiguar cuantas imágenes en la página poseen el atributo `alt`.
 

@@ -295,13 +295,13 @@ $('p.expander').toggle(
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio utilizando el archivo `/ejercicios/js/inputHint.js` o trabaje directamente con Firebug. La tarea a realizar es utilizar el texto del elemento label y aplicar una "sugerencia" en la caja de ingreso de texto. Los pasos ha seguir son los siguientes:
 
-1.  Establecer el valor del elemento *input* igual al valor del elemento *label*;
+1.  Establecer el valor del elemento *input* igual al valor del elemento *label*.
 
-2.  Añadir la clase "hint" al elemento *input*;
+2.  Añadir la clase "hint" al elemento *input*.
 
-3.  Remover el elemento *label*;
+3.  Remover el elemento *label*.
 
-4.  Vincular un evento *focus* en el *input* para remover el texto de sugerencia y la clase "hint";
+4.  Vincular un evento *focus* en el *input* para remover el texto de sugerencia y la clase "hint".
 
 5.  Vincular un evento *blur* en el *input* para restaurar el texto de sugerencia y la clase "hint" en caso que no se haya ingresado algún texto.
 
@@ -313,18 +313,19 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio ut
 
 Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio utilizando el archivo `/ejercicios/js/tabs.js` o trabaje directamente con Firebug. La tarea a realizar es crear una navegación por pestañas para los dos elementos *div.module*. Los pasos ha seguir son los siguientes:
 
-1.  Ocultar todos los elementos *div.module*;
+1.  Ocultar todos los elementos *div.module*.
 
-2.  Crear una lista desordenada antes del primer *div.module* para utilizar como pestañas;
+2.  Crear una lista desordenada antes del primer *div.module* para utilizar como pestañas.
 
-3.  Interactuar con cada div utilizando `$.fn.each`. Por cada uno, utilizar el texto del elemento *h2* como el texto para el ítem de la lista desordenada;
+3.  Interactuar con cada div utilizando `$.fn.each`. Por cada uno, utilizar el texto del elemento *h2* como el texto para el ítem de la lista desordenada.
+
 4.  Vincular un evento *click* a cada ítem de la lista de forma que:
 
-    -   Muestre el *div* correspondiente y oculte el otro;
+    -   muestre el *div* correspondiente y oculte el otro;
 
-    -   Añada la clase "current" al ítem seleccionado;
+    -   añada la clase "current" al ítem seleccionado;
 
-    -   Remueva la clase "current" del otro ítem de la lista;
+    -   remueva la clase "current" del otro ítem de la lista.
 
 5.  Finalmente, mostrar la primera pestaña.
 

@@ -16,9 +16,9 @@ Sin embargo, existen métodos que son parte del espacio de nombres de $ y se con
 
 Estas distinciones pueden ser bastantes confusas para usuarios nuevos. Para evitar la confusión, debe recordar estos dos puntos:
 
--   Los métodos utilizados en selecciones se encuentran dentro del espacio de nombres `$.fn`, y automáticamente reciben y devuelven una selección en sí.
+-   los métodos utilizados en selecciones se encuentran dentro del espacio de nombres `$.fn`, y automáticamente reciben y devuelven una selección en sí;
 
--   Métodos en el espacio de nombres `$` son generalmente métodos para diferentes utilidades, no trabajan con selecciones, no se les pasa ningún argumento y el valor que devuelven puede variar.
+-   métodos en el espacio de nombres `$` son generalmente métodos para diferentes utilidades, no trabajan con selecciones, no se les pasa ningún argumento y el valor que devuelven puede variar.
 
 Existen algunos casos en donde métodos del objeto y del núcleo poseen los mismos nombres, como sucede con `$.each` y `$.fn.each`. En estos casos, debe ser cuidadoso de leer bien la documentación para saber que objeto utilizar correctamente.
 

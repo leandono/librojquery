@@ -10,15 +10,15 @@ Cuando se emprende la tarea de realizar aplicaciones complejas del lado del clie
 
 ### Conceptos Clave
 
-Antes de comenzar con los patrones de organización de código, es importante entender algunos conceptos clave.
+Antes de comenzar con los patrones de organización de código, es importante entender algunos conceptos clave:
 
--   El código debe estar divido en unidades funcionales — módulos, servicios, etc. Y se debe evitar la tentación de tener todo en un único bloque `$(document).ready()`. Este concepto se conoce como encapsulación.
+-   el código debe estar divido en unidades funcionales — módulos, servicios, etc. Y se debe evitar la tentación de tener todo en un único bloque `$(document).ready()`. Este concepto se conoce como encapsulación;
 
--   No repetir código. Identificar piezas similares y utilizar técnicas de heredación.
+-   no repetir código. Identificar piezas similares y utilizar técnicas de heredación;
 
--   A pesar de la naturaleza de jQuery, no todas las aplicaciones JavaScript trabajan (o tienen la necesidad de poseer una representación) en el DOM.
+-   a pesar de la naturaleza de jQuery, no todas las aplicaciones JavaScript trabajan (o tienen la necesidad de poseer una representación) en el DOM;
 
--   Las unidades de funcionalidad deben tener una articulación flexible (en inglés [loosely coupled](http://en.wikipedia.org/wiki/Loose_coupling)) — es decir, una unidad de funcionalidad debe ser capaz de existir por si misma y la comunicación con otras unidades debe ser a través de un sistema de mensajes como los eventos personalizados o pub/sub. Por otro lado, siempre que sea posible, de debe mantener alejada la comunicación directa entre unidades funcionales.
+-   las unidades de funcionalidad deben tener una articulación flexible (en inglés [loosely coupled](http://en.wikipedia.org/wiki/Loose_coupling)) — es decir, una unidad de funcionalidad debe ser capaz de existir por si misma y la comunicación con otras unidades debe ser a través de un sistema de mensajes como los eventos personalizados o pub/sub. Por otro lado, siempre que sea posible, de debe mantener alejada la comunicación directa entre unidades funcionales.
 
 El concepto de articulación flexible puede ser especialmente problemático para desarrolladores que hacen su primera incursión en aplicaciones complejas. Por lo tanto, si usted esta empezando a crear aplicaciones, solamente sea consciente de este concepto.
 
@@ -157,13 +157,13 @@ La primera característica a notar es que el código es más largo que el origin
 
 Con la nueva organización, las ventajas obtenidas son:
 
--   Separación de cada funcionalidad en pequeños métodos. En un futuro, si se quiere cambiar la forma en que el contenido se muestra, será claro en donde habrá que hacerlo. En el código original, este paso es mucho más difícil de localizar.
+-   separación de cada funcionalidad en pequeños métodos. En un futuro, si se quiere cambiar la forma en que el contenido se muestra, será claro en donde habrá que hacerlo. En el código original, este paso es mucho más difícil de localizar;
 
--   Se eliminaron los usos de funciones anónimas.
+-   se eliminaron los usos de funciones anónimas;
 
--   Las opciones de configuración se movieron a una ubicación central.
+-   las opciones de configuración se movieron a una ubicación central;
 
--   Se eliminaron las limitaciones que poseen las cadenas de métodos, haciendo que el código sea más fácil para refactorizar, mezclar y reorganizar.
+-   se eliminaron las limitaciones que poseen las cadenas de métodos, haciendo que el código sea más fácil para refactorizar, mezclar y reorganizar.
 
 Por sus características, la utilización de objetos literales permiten una clara mejora para tramos largos de código insertados en un bloque `$(document).ready()`. Sin embargo, no son más avanzados que tener varias declaraciones de funciones dentro de un bloque `$(document).ready()`.
 

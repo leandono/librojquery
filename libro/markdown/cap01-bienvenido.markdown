@@ -58,11 +58,11 @@ La utilización de una herramienta de depuración es esencial para trabajar con 
 
 Cada depurador ofrece:
 
--   Un editor multi-linea para experimentar con JavaScript;
+-   un editor multi-linea para experimentar con JavaScript;
 
--   Un inspector para revisar el código generado en la página;
+-   un inspector para revisar el código generado en la página;
 
--   Un visualizador de red o recursos, para examinar las peticiones que se realizan.
+-   un visualizador de red o recursos, para examinar las peticiones que se realizan.
 
 Cuando usted este escribiendo código JavaScript, podrá utilizar alguno de los siguientes métodos para enviar mensajes a la consola del depurador:
 
@@ -72,7 +72,7 @@ Cuando usted este escribiendo código JavaScript, podrá utilizar alguno de los 
 
 -   `console.warn()` para registrar mensajes de alerta;
 
--   `console.error()` para registrar mensajes de error;
+-   `console.error()` para registrar mensajes de error.
 
 Existen otros métodos para utilizar desde la consola, pero estos pueden variar según el navegador. La consola además provee la posibilidad de establecer puntos de interrupción y observar expresiones en el código con el fin de facilitar su depuración.
 
@@ -86,11 +86,11 @@ Aún así, para completar ciertos ejercicios, necesitará consultar la documenta
 
 Estas son algunas sugerencias para hacer frente a los problemas:
 
--   En primer lugar, asegúrese de entender bien el problema que está tratando de resolver.
+-   en primer lugar, asegúrese de entender bien el problema que está tratando de resolver;
 
--   Luego, averigüe a qué elementos tendrá que acceder con el fin de resolver el problema, y determine cómo accederlos. Puede utilizar Firebug para verificar que esta obteniendo el resultado esperado.
+-   luego, averigüe a qué elementos tendrá que acceder con el fin de resolver el problema, y determine cómo accederlos. Puede utilizar Firebug para verificar que esta obteniendo el resultado esperado;
 
--   Finalmente, averigüe qué necesita hacer con esos elementos para resolver el problema. Puede ser útil, antes de comenzar, escribir comentarios explicando lo que va a realizar.
+-   finalmente, averigüe qué necesita hacer con esos elementos para resolver el problema. Puede ser útil, antes de comenzar, escribir comentarios explicando lo que va a realizar.
 
 No tenga miedo de cometer errores. Tampoco trate en el primer intento escribir de forma perfecta su código. Cometer errores y experimentar con soluciones es parte del proceso de aprendizaje y le ayudará a que sea un mejor desarrollador.
 
