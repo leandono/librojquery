@@ -18,13 +18,13 @@ Si usted suele utilizar [Git](http://git-scm.com/), es bienvenido de clonar o mo
 
 Para trabajar con los contenidos del libro, necesitará las siguientes herramientas:
 
--   [Navegador web Firefox](http://www.mozilla.com/firefox/)
+-   [navegador web Firefox](http://www.mozilla.com/firefox/);
 
--   La [extensión Firebug](https://addons.mozilla.org/es-ES/firefox/addon/firebug/), para Firefox
+-   la [extensión Firebug](https://addons.mozilla.org/es-ES/firefox/addon/firebug/), para Firefox;
 
--   Un editor de textos planos (como [Notepad++](http://notepad-plus-plus.org/download/v5.9.8.html)/[Sublime Text 2](http://www.sublimetext.com/2) para Windows, [gedit](http://www.icewalkers.com/Linux/Software/56260/gEdit.html)/[Kate](http://linux.softpedia.com/get/Text-Editing-Processing/Others/Kate-2317.shtml) para Linux o [TextMate](http://textmate.en.softonic.com/mac) para Mac OS X)
+-   un editor de textos planos (como [Notepad++](http://notepad-plus-plus.org/download/v5.9.8.html)/[Sublime Text 2](http://www.sublimetext.com/2) para Windows, [gedit](http://www.icewalkers.com/Linux/Software/56260/gEdit.html)/[Kate](http://linux.softpedia.com/get/Text-Editing-Processing/Others/Kate-2317.shtml) para Linux o [TextMate](http://textmate.en.softonic.com/mac) para Mac OS X);
 
--   Para las secciones dedicadas a Ajax: Un servidor local (como [WAMP](http://www.wampserver.com/en/download.php) o [MAMP](http://www.mamp.info/en/index.html)) o un cliente FTP/SSH (como [FileZilla](http://filezilla-project.org/)) para acceder a un servidor remoto.
+-   para las secciones dedicadas a Ajax: Un servidor local (como [WAMP](http://www.wampserver.com/en/download.php) o [MAMP](http://www.mamp.info/en/index.html)) o un cliente FTP/SSH (como [FileZilla](http://filezilla-project.org/)) para acceder a un servidor remoto.
 
 
 
