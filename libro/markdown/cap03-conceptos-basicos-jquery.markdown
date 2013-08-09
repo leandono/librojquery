@@ -147,7 +147,7 @@ $("a[rel$='thinger']");
 
 Estos tipos de selectores pueden resultar útiles pero también ser muy lentos. Cuando sea posible, es recomendable realizar la selección utilizando IDs, nombres de clases y nombres de etiquetas.
 
-Si desea conocer más sobre este asunto, [Paul Irish realizó una gran presentación sobre mejoras de rendimiento en JavaScript](http://paulirish.com/perf) (en ingles), la cual posee varias diapositivas centradas en selectores.
+Si desea conocer más sobre este asunto, [Paul Irish realizó una gran presentación sobre mejoras de rendimiento en JavaScript](http://paulirish.com/2009/perf) (en ingles), la cual posee varias diapositivas centradas en selectores.
 
 
 
