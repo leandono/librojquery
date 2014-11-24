@@ -1965,7 +1965,7 @@
     <h2><span class="header-section-number">5.7</span> Ejercicios</h2>
     <div id="crear-una-sugerencia-para-una-caja-de-ingreso-de-texto" class="section level3">
     <h3><span class="header-section-number">5.7.1</span> Crear una “Sugerencia” para una Caja de Ingreso de Texto</h3>
-    <p>Abra el archivo <code>/ejercicios/index.html</code> en el navegador. Realice el ejericio utilizando el archivo <code>/ejercicios/js/inputHint.js</code> o trabaje directamente con Firebug. La tarea a realizar es utilizar el texto del elemento label y aplicar una “sugerencia” en la caja de ingreso de texto. Los pasos ha seguir son los siguientes:</p>
+    <p>Abra el archivo <code>/ejercicios/index.html</code> en el navegador. Realice el ejercicio utilizando el archivo <code>/ejercicios/js/inputHint.js</code> o trabaje directamente con Firebug. La tarea a realizar es utilizar el texto del elemento label y aplicar una “sugerencia” en la caja de ingreso de texto. Los pasos ha seguir son los siguientes:</p>
     <ol style="list-style-type: decimal">
     <li><p>Establecer el valor del elemento <em>input</em> igual al valor del elemento <em>label</em>.</p></li>
     <li><p>Añadir la clase “hint” al elemento <em>input</em>.</p></li>
@@ -1977,7 +1977,7 @@
     </div>
     <div id="añadir-una-navegación-por-pestañas" class="section level3">
     <h3><span class="header-section-number">5.7.2</span> Añadir una Navegación por Pestañas</h3>
-    <p>Abra el archivo <code>/ejercicios/index.html</code> en el navegador. Realice el ejericio utilizando el archivo <code>/ejercicios/js/tabs.js</code> o trabaje directamente con Firebug. La tarea a realizar es crear una navegación por pestañas para los dos elementos <em>div.module</em>. Los pasos ha seguir son los siguientes:</p>
+    <p>Abra el archivo <code>/ejercicios/index.html</code> en el navegador. Realice el ejercicio utilizando el archivo <code>/ejercicios/js/tabs.js</code> o trabaje directamente con Firebug. La tarea a realizar es crear una navegación por pestañas para los dos elementos <em>div.module</em>. Los pasos ha seguir son los siguientes:</p>
     <ol style="list-style-type: decimal">
     <li><p>Ocultar todos los elementos <em>div.module</em>.</p></li>
     <li><p>Crear una lista desordenada antes del primer <em>div.module</em> para utilizar como pestañas.</p></li>
@@ -2324,7 +2324,7 @@
     </div>
     <div id="métodos-convenientes" class="section level3">
     <h3><span class="header-section-number">7.3.2</span> Métodos Convenientes</h3>
-    <p>En caso que no quiera utilizar el método <code>$.ajax</code>, y no necesite los controladores de errores, existen otros métodos más convenientes para realizar peticiones Ajax (aunque, como se indicó antes, estos están basados el método <code>$.ajax</code> con valores pre-establecidos de configuración).</p>
+    <p>En caso que no quiera utilizar el método <code>$.ajax</code>, y no necesite los controladores de errores, existen otros métodos más convenientes para realizar peticiones Ajax (aunque, como se indicó antes, estos están basados el método <code>$.ajax</code> con valores preestablecidos de configuración).</p>
     <p>Los métodos que provee la biblioteca son:</p>
     <dl>
     <dt>$.get</dt>
@@ -2565,12 +2565,12 @@
     <p>Sin embargo, la calidad entre extensiones puede variar enormemente. Muchas son intensivamente probadas y bien mantenidas, pero otras son creadas de forma apresurada y luego ignoradas, sin seguir buenas prácticas.</p>
     <p>Google es la mejor herramienta para encontrar extensiones (aunque el equipo de jQuery este trabajando para mejorar su repositorio de extensiones). Una vez encontrada la extensión, posiblemente quiera consultar la lista de correos de jQuery o el canal IRC #jquery para obtener la opinión de otras personas sobre dicha extensión.</p>
     <p>Asegúrese que la extensión este bien documentada, y que se ofrecen ejemplos de su utilización. También tenga cuidado con las extensiones que realizan más de lo que necesita, estas pueden llegar a sobrecargar su página. Para más consejos sobre como detectar una extensión mediocre, puede leer el artículo (en inglés) <a href="http://remysharp.com/2010/06/03/signs-of-a-poorly-written-jquery-plugin/">Signs of a poorly written jQuery plugin</a> por Remy Sharp.</p>
-    <p>Una vez seleccionada la extensión, necesitará añadirla a su página. Primero, descargue la extensión, descomprimala (si es necesario) y muévala a la carpeta de su aplicación. Finalmente insertela utilizando el elemento script (luego de la inclusión de jQuery).</p>
+    <p>Una vez seleccionada la extensión, necesitará añadirla a su página. Primero, descargue la extensión, descomprímala (si es necesario) y muévala a la carpeta de su aplicación. Finalmente insértela utilizando el elemento script (luego de la inclusión de jQuery).</p>
     </div>
     <div id="escribir-extensiones" class="section level2">
     <h2><span class="header-section-number">8.4</span> Escribir Extensiones</h2>
     <p>A veces, desee realizar una funcionalidad disponible en todo el código, por ejemplo, un método que pueda ser llamado desde una selección el cual realice una serie de operaciones.</p>
-    <p>La mayoría de las extensiones son métodos creados dentro del espacio de nombres <code>$.fn</code>. jQuery garantiza que un método llamado sobre el objeto jQuery sea capaz de acceder a dicho objeto a través de <code>this</code>. En contrapartida, la extensión debe garantizar de devolver el mismo objeto recibido (a menos que se explicite lo contrario).</p>
+    <p>La mayoría de las extensiones son métodos creados dentro del espacio de nombres <code>$.fn</code>. jQuery garantiza que un método llamado sobre el objeto jQuery sea capaz de acceder a dicho objeto a través de <code>this</code>. En contrapartida, la extensión debe garantizar de devolver el mismo objeto recibido (a menos que se especifique lo contrario).</p>
     <p>A continuación se muestra un ejemplo:</p>
     <p><strong>Crear una extensión para añadir y remover una clase en un elemento al suceder el evento hover</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// definición de la extensión</span>
@@ -3127,7 +3127,7 @@
     <p>Antes de comenzar con los patrones de organización de código, es importante entender algunos conceptos clave:</p>
     <ul>
     <li><p>el código debe estar divido en unidades funcionales — módulos, servicios, etc. Y se debe evitar la tentación de tener todo en un único bloque <code>$(document).ready()</code>. Este concepto se conoce como encapsulación;</p></li>
-    <li><p>no repetir código. Identificar piezas similares y utilizar técnicas de heredación;</p></li>
+    <li><p>no repetir código. Identificar piezas similares y utilizar técnicas de herencia;</p></li>
     <li><p>a pesar de la naturaleza de jQuery, no todas las aplicaciones JavaScript trabajan (o tienen la necesidad de poseer una representación) en el DOM;</p></li>
     <li><p>las unidades de funcionalidad deben tener una articulación flexible (en inglés <a href="http://en.wikipedia.org/wiki/Loose_coupling">loosely coupled</a>) — es decir, una unidad de funcionalidad debe ser capaz de existir por si misma y la comunicación con otras unidades debe ser a través de un sistema de mensajes como los eventos personalizados o pub/sub. Por otro lado, siempre que sea posible, de debe mantener alejada la comunicación directa entre unidades funcionales.</p></li>
     </ul>
@@ -3882,8 +3882,8 @@
     <span class="ot">ajax</span>.<span class="fu">always</span>(<span class="kw">function</span>(){
         <span class="fu">alert</span>(<span class="st">&#39;Petición realizada&#39;</span>);
     });</code></pre>
-    <p>A través de los métodos <code>deferred.done</code>, <code>deferred.fail</code> y <code>deferred.always</code> es posible desacoplar las funciones de devolución de la misma petición Ajax, permitiendo un manejo más comodo de las mismas.</p>
-    <p><em>Notar que en en ningún momento se llama al objeto diferido <code>$.Deferred</code>. Esto es porque jQuery ya lo incorpora implicitamente dentro del manejo del objeto <code>$.ajax</code>. Más adelante se explicará como utilizar al objeto <code>$.Deferred</code> de manera explícita.</em></p>
+    <p>A través de los métodos <code>deferred.done</code>, <code>deferred.fail</code> y <code>deferred.always</code> es posible desacoplar las funciones de devolución de la misma petición Ajax, permitiendo un manejo más cómodo de las mismas.</p>
+    <p><em>Notar que en en ningún momento se llama al objeto diferido <code>$.Deferred</code>. Esto es porque jQuery ya lo incorpora implícitamente dentro del manejo del objeto <code>$.ajax</code>. Más adelante se explicará como utilizar al objeto <code>$.Deferred</code> de manera explícita.</em></p>
     <p>De la misma forma es posible crear colas de funciones de devolución o atarlas a diferentes lógicas/acciones:</p>
     <p><strong>Colas de funciones de devolución en una petición Ajax</strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// definición de la petición Ajax</span>
@@ -3917,10 +3917,10 @@
     <span class="ot">ajax</span>.<span class="fu">fail</span>(<span class="kw">function</span>(){
         <span class="fu">alert</span>(<span class="st">&#39;Disculpe, existió un problema&#39;</span>);
     });</code></pre>
-    <p>Al ejecutarse la petición Ajax, y en caso de que ésta haya sido satisfactoria, se ejecutan dos funciones de devolución, una detrás de la otra. Sin embargo si el usuario hace click en <code>#element</code> se agrega una tercera función de devolución, la cual también se ejecuta inmediatamente, sin volver a realizar la petición Ajax. Esto es porque el objeto diferido (que se encuentra implicitamente en la variable <code>ajax</code>) ya tiene información asociada sobre que la petición Ajax se realizó correctamente.</p>
+    <p>Al ejecutarse la petición Ajax, y en caso de que ésta haya sido satisfactoria, se ejecutan dos funciones de devolución, una detrás de la otra. Sin embargo si el usuario hace click en <code>#element</code> se agrega una tercera función de devolución, la cual también se ejecuta inmediatamente, sin volver a realizar la petición Ajax. Esto es porque el objeto diferido (que se encuentra implícitamente en la variable <code>ajax</code>) ya tiene información asociada sobre que la petición Ajax se realizó correctamente.</p>
     <div id="deferred.then" class="section level3">
     <h3><span class="header-section-number">12.2.1</span> <code>deferred.then</code></h3>
-    <p>Otra manera de utilizar los métodos <code>deferred.done</code> y <code>deferred.fail</code> es a través de <code>deferred.then</code>, el cual permite definir en un mismo bloque de código las funciones de devolución a suceder en los casos satisfactorios y erroneos.</p>
+    <p>Otra manera de utilizar los métodos <code>deferred.done</code> y <code>deferred.fail</code> es a través de <code>deferred.then</code>, el cual permite definir en un mismo bloque de código las funciones de devolución a suceder en los casos satisfactorios y erróneos.</p>
     <p><strong>Utilización del método <code>deferred.then</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// definición de la petición Ajax</span>
     <span class="kw">var</span> ajax = <span class="ot">$</span>.<span class="fu">ajax</span>({
@@ -3935,7 +3935,7 @@
             <span class="fu">alert</span>(<span class="st">&#39;Petición realizada satisfactoriamente&#39;</span>); 
         },
         
-        <span class="co">// la segunda es la función de devolución erronea</span>
+        <span class="co">// la segunda es la función de devolución errónea</span>
         <span class="kw">function</span>(){ 
             <span class="fu">alert</span>(<span class="st">&#39;Disculpe, existió un problema&#39;</span>);
         }
@@ -3996,7 +3996,7 @@
             <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Es par&#39;</span>);
         },
         
-        <span class="co">// la segunda es la función de devolución erronea</span>
+        <span class="co">// la segunda es la función de devolución errónea</span>
         <span class="kw">function</span>(){ 
             <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Es impar&#39;</span>);
         }
@@ -4006,7 +4006,7 @@
     <p>Notar que la función <code>isEven</code> devuelve el método <code>deferred.promise</code>. El mismo es una versión del objeto diferido, pero que sólo permite leer su estado o añadir nuevas funciones de devolución.</p>
     <blockquote>
     <p><strong>Nota</strong></p>
-    <p>En los ejemplos que utilizaban Ajax mostrados anteriormente, los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> son llamados de manera interna por jQuery dentro de la configuración <code>sucess</code> y <code>error</code> de la petición. Por eso mismos se decía que el objeto diferido estaba incorporado implicitamente dentro del objeto <code>$.ajax</code>.</p>
+    <p>En los ejemplos que utilizaban Ajax mostrados anteriormente, los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> son llamados de manera interna por jQuery dentro de la configuración <code>sucess</code> y <code>error</code> de la petición. Por eso mismos se decía que el objeto diferido estaba incorporado implícitamente dentro del objeto <code>$.ajax</code>.</p>
     </blockquote>
     <p>Los métodos <code>deferred.resolve</code> y <code>deferred.reject</code> además permiten devolver valores para ser utilizados por las funciones de devolución.</p>
     <p><strong>Función con <code>deferred.resolve</code> y <code>deferred.reject</code> devolviendo valores reutilizables</strong></p>
@@ -4102,7 +4102,7 @@
     </div>
     <div id="when" class="section level3">
     <h3><span class="header-section-number">12.3.2</span> <code>$.when</code></h3>
-    <p>El método <code>$.when</code> permite ejecutar funciones de devolución, cuando uno o más objetos diferidos posean algun estado definido.</p>
+    <p>El método <code>$.when</code> permite ejecutar funciones de devolución, cuando uno o más objetos diferidos posean algún estado definido.</p>
     <p>Un caso común de utilización de <code>$.when</code> es cuando se quiere verificar que dos peticiones Ajax separadas se han realizado.</p>
     <p><strong>Utilización de <code>$.when</code></strong></p>
     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// primera petición ajax</span>
