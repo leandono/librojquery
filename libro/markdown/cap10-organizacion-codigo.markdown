@@ -14,7 +14,7 @@ Antes de comenzar con los patrones de organización de código, es importante en
 
 -   el código debe estar divido en unidades funcionales — módulos, servicios, etc. Y se debe evitar la tentación de tener todo en un único bloque `$(document).ready()`. Este concepto se conoce como encapsulación;
 
--   no repetir código. Identificar piezas similares y utilizar técnicas de heredación;
+-   no repetir código. Identificar piezas similares y utilizar técnicas de herencia;
 
 -   a pesar de la naturaleza de jQuery, no todas las aplicaciones JavaScript trabajan (o tienen la necesidad de poseer una representación) en el DOM;
 
@@ -100,7 +100,7 @@ var myFeature = {
             urlBase : '/foo.php?item='
         };
 
-        // permite sobreescribir la configuración predeterminada
+        // permite sobrescribir la configuración predeterminada
         $.extend(myFeature.config, settings);
 
         myFeature.setup();

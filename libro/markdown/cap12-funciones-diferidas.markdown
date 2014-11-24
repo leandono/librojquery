@@ -71,10 +71,10 @@ ajax.always(function(){
 ```
 
 
-A través de los métodos `deferred.done`, `deferred.fail` y `deferred.always` es posible desacoplar las funciones de devolución de la misma petición Ajax, permitiendo un manejo más comodo de las mismas.
+A través de los métodos `deferred.done`, `deferred.fail` y `deferred.always` es posible desacoplar las funciones de devolución de la misma petición Ajax, permitiendo un manejo más cómodo de las mismas.
 
 
-*Notar que en en ningún momento se llama al objeto diferido `$.Deferred`. Esto es porque jQuery ya lo incorpora implicitamente dentro del manejo del objeto `$.ajax`. Más adelante se explicará como utilizar al objeto `$.Deferred` de manera explícita.*
+*Notar que en en ningún momento se llama al objeto diferido `$.Deferred`. Esto es porque jQuery ya lo incorpora implícitamente dentro del manejo del objeto `$.ajax`. Más adelante se explicará como utilizar al objeto `$.Deferred` de manera explícita.*
 
 
 De la misma forma es posible crear colas de funciones de devolución o atarlas a diferentes lógicas/acciones:
@@ -117,13 +117,13 @@ ajax.fail(function(){
 ```
 
 
-Al ejecutarse la petición Ajax, y en caso de que ésta haya sido satisfactoria, se ejecutan dos funciones de devolución, una detrás de la otra. Sin embargo si el usuario hace click en `#element` se agrega una tercera función de devolución, la cual también se ejecuta inmediatamente, sin volver a realizar la petición Ajax. Esto es porque el objeto diferido (que se encuentra implicitamente en la variable `ajax`) ya tiene información asociada sobre que la petición Ajax se realizó correctamente.
+Al ejecutarse la petición Ajax, y en caso de que ésta haya sido satisfactoria, se ejecutan dos funciones de devolución, una detrás de la otra. Sin embargo si el usuario hace click en `#element` se agrega una tercera función de devolución, la cual también se ejecuta inmediatamente, sin volver a realizar la petición Ajax. Esto es porque el objeto diferido (que se encuentra implícitamente en la variable `ajax`) ya tiene información asociada sobre que la petición Ajax se realizó correctamente.
 
 
 
 ### `deferred.then`
 
-Otra manera de utilizar los métodos `deferred.done` y `deferred.fail` es a través de `deferred.then`, el cual permite definir en un mismo bloque de código las funciones de devolución a suceder en los casos satisfactorios y erroneos.
+Otra manera de utilizar los métodos `deferred.done` y `deferred.fail` es a través de `deferred.then`, el cual permite definir en un mismo bloque de código las funciones de devolución a suceder en los casos satisfactorios y erróneos.
 
 
 **Utilización del método `deferred.then`**
@@ -142,7 +142,7 @@ ajax.then(
    		alert('Petición realizada satisfactoriamente'); 
    	},
    	
-   	// la segunda es la función de devolución erronea
+   	// la segunda es la función de devolución errónea
    	function(){ 
    		alert('Disculpe, existió un problema');
    	}
@@ -216,7 +216,7 @@ isEven(2).then(
    		console.log('Es par');
    	},
    	
-   	// la segunda es la función de devolución erronea
+   	// la segunda es la función de devolución errónea
    	function(){ 
    		console.log('Es impar');
    	}
@@ -232,7 +232,7 @@ Notar que la función `isEven` devuelve el método `deferred.promise`. El mismo 
 
 > **Nota**
 >
-> En los ejemplos que utilizaban Ajax mostrados anteriormente, los métodos `deferred.resolve` y `deferred.reject` son llamados de manera interna por jQuery dentro de la configuración `sucess` y `error` de la petición. Por eso mismos se decía que el objeto diferido estaba incorporado implicitamente dentro del objeto `$.ajax`.
+> En los ejemplos que utilizaban Ajax mostrados anteriormente, los métodos `deferred.resolve` y `deferred.reject` son llamados de manera interna por jQuery dentro de la configuración `sucess` y `error` de la petición. Por eso mismos se decía que el objeto diferido estaba incorporado implícitamente dentro del objeto `$.ajax`.
 
 
 
@@ -347,7 +347,7 @@ Para más detalles sobre `deferred.pipe`, puede consultar [http://api.jquery.com
 
 ### `$.when`
 
-El método `$.when` permite ejecutar funciones de devolución, cuando uno o más objetos diferidos posean algun estado definido.
+El método `$.when` permite ejecutar funciones de devolución, cuando uno o más objetos diferidos posean algún estado definido.
 
 Un caso común de utilización de `$.when` es cuando se quiere verificar que dos peticiones Ajax separadas se han realizado.
 

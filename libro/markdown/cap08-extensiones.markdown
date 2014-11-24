@@ -146,7 +146,7 @@ Google es la mejor herramienta para encontrar extensiones (aunque el equipo de j
 
 Asegúrese que la extensión este bien documentada, y que se ofrecen ejemplos de su utilización. También tenga cuidado con las extensiones que realizan más de lo que necesita, estas pueden llegar a sobrecargar su página. Para más consejos sobre como detectar una extensión mediocre, puede leer el artículo (en inglés) [Signs of a poorly written jQuery plugin](http://remysharp.com/2010/06/03/signs-of-a-poorly-written-jquery-plugin/) por Remy Sharp.
 
-Una vez seleccionada la extensión, necesitará añadirla a su página. Primero, descargue la extensión, descomprimala (si es necesario) y muévala a la carpeta de su aplicación. Finalmente insertela utilizando el elemento script (luego de la inclusión de jQuery).
+Una vez seleccionada la extensión, necesitará añadirla a su página. Primero, descargue la extensión, descomprímala (si es necesario) y muévala a la carpeta de su aplicación. Finalmente insértela utilizando el elemento script (luego de la inclusión de jQuery).
 
 
 
@@ -154,7 +154,7 @@ Una vez seleccionada la extensión, necesitará añadirla a su página. Primero,
 
 A veces, desee realizar una funcionalidad disponible en todo el código, por ejemplo, un método que pueda ser llamado desde una selección el cual realice una serie de operaciones.
 
-La mayoría de las extensiones son métodos creados dentro del espacio de nombres `$.fn`. jQuery garantiza que un método llamado sobre el objeto jQuery sea capaz de acceder a dicho objeto a través de `this`. En contrapartida, la extensión debe garantizar de devolver el mismo objeto recibido (a menos que se explicite lo contrario).
+La mayoría de las extensiones son métodos creados dentro del espacio de nombres `$.fn`. jQuery garantiza que un método llamado sobre el objeto jQuery sea capaz de acceder a dicho objeto a través de `this`. En contrapartida, la extensión debe garantizar de devolver el mismo objeto recibido (a menos que se especifique lo contrario).
 
 A continuación se muestra un ejemplo:
 

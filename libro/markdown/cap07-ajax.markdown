@@ -208,7 +208,7 @@ Como se comentó anteriormente, para una lista completa de las opciones disponib
 
 > **Nota**
 >
-> A partir de la versión 1.5 de jQuery, las opciones `beforeSend`, `success`, `error` y `complete` reciben como uno de sus argumentos el objeto `jqXHR` siendo este una extensión del objeto nativo `XMLHTTPRequest`. El objeto `jqXHR` posee una serie de métodos y propiedades que permiten modificar u obtener información particular de la petición a realizar, como por ejemplo sobreescribir el tipo de *MIME* que posee la respuesta que se espera por parte del servidor. Para información sobre el objeto `jqXHR` puede consultar [http://api.jquery.com/jQuery.ajax/#jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR).
+> A partir de la versión 1.5 de jQuery, las opciones `beforeSend`, `success`, `error` y `complete` reciben como uno de sus argumentos el objeto `jqXHR` siendo este una extensión del objeto nativo `XMLHTTPRequest`. El objeto `jqXHR` posee una serie de métodos y propiedades que permiten modificar u obtener información particular de la petición a realizar, como por ejemplo sobrescribir el tipo de *MIME* que posee la respuesta que se espera por parte del servidor. Para información sobre el objeto `jqXHR` puede consultar [http://api.jquery.com/jQuery.ajax/#jqXHR](http://api.jquery.com/jQuery.ajax/#jqXHR).
 > 
 
 
@@ -220,7 +220,7 @@ Como se comentó anteriormente, para una lista completa de las opciones disponib
 
 ### Métodos Convenientes
 
-En caso que no quiera utilizar el método `$.ajax`, y no necesite los controladores de errores, existen otros métodos más convenientes para realizar peticiones Ajax (aunque, como se indicó antes, estos están basados el método `$.ajax` con valores pre-establecidos de configuración).
+En caso que no quiera utilizar el método `$.ajax`, y no necesite los controladores de errores, existen otros métodos más convenientes para realizar peticiones Ajax (aunque, como se indicó antes, estos están basados el método `$.ajax` con valores preestablecidos de configuración).
 
 Los métodos que provee la biblioteca son:
 

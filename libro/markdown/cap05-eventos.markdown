@@ -293,7 +293,7 @@ $('p.expander').toggle(
 
 ### Crear una "Sugerencia" para una Caja de Ingreso de Texto
 
-Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio utilizando el archivo `/ejercicios/js/inputHint.js` o trabaje directamente con Firebug. La tarea a realizar es utilizar el texto del elemento label y aplicar una "sugerencia" en la caja de ingreso de texto. Los pasos ha seguir son los siguientes:
+Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/inputHint.js` o trabaje directamente con Firebug. La tarea a realizar es utilizar el texto del elemento label y aplicar una "sugerencia" en la caja de ingreso de texto. Los pasos ha seguir son los siguientes:
 
 1.  Establecer el valor del elemento *input* igual al valor del elemento *label*.
 
@@ -311,7 +311,7 @@ Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio ut
 
 ### Añadir una Navegación por Pestañas
 
-Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejericio utilizando el archivo `/ejercicios/js/tabs.js` o trabaje directamente con Firebug. La tarea a realizar es crear una navegación por pestañas para los dos elementos *div.module*. Los pasos ha seguir son los siguientes:
+Abra el archivo `/ejercicios/index.html` en el navegador. Realice el ejercicio utilizando el archivo `/ejercicios/js/tabs.js` o trabaje directamente con Firebug. La tarea a realizar es crear una navegación por pestañas para los dos elementos *div.module*. Los pasos ha seguir son los siguientes:
 
 1.  Ocultar todos los elementos *div.module*.
 
