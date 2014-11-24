@@ -1,0 +1,22 @@
+{
+  "name": "librojquery",
+  "version": "1.0.0",
+  "description": "Fundamentos de jQuery: Material de aprendizaje",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dzignus/librojquery.git"
+  },
+  "author": "Leandro D'Onofrio",
+  "license": "Creative Commons Attribution-Share Alike 3.0 United States",
+  "bugs": {
+    "url": "https://github.com/dzignus/librojquery/issues"
+  },
+  "homepage": "https://github.com/dzignus/librojquery",
+  "dependencies": {
+    "hapi": "^7.5.2"
+  }
+}
