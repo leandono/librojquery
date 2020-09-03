@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/dzignus/librojquery",
   "dependencies": {
-    "hapi": "^7.5.2"
+    "hapi": "^18.1.0"
   }
 }
